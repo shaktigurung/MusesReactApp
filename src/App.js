@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import simpleAction from "./actions/simpleAction";
-import { BrowserRouter, Route, Link } from 'react-router-dom'
-import Home from "./components/pages/HomePage";
+import { BrowserRouter, Route } from 'react-router-dom';
+import HomePage from "./components/pages/HomePage";
 import Resource from "./components/pages/ResoursePage";
 import Contact from "./components/pages/ContactPage";
 import './App.css';
+import Header from './components/structure/Header';
 
 
 class App extends Component {
@@ -16,16 +17,15 @@ class App extends Component {
 
   render() {
     return (
-
       <div className="App">
         <BrowserRouter>
           <div>
-            <Link to="/"> Home </Link>
-            <Link to="/resource"> Resource </Link>
-            <Link to="/contact"> Contact </Link>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/resource" component={Resource} />
-            <Route exact path="/contact" component={Contact} />
+            <Header />
+            <div>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/resource" component={Resource} />
+              <Route exact path="/contact" component={Contact} />
+            </div>
           </div>
         </BrowserRouter>
         {/* <Home/>
