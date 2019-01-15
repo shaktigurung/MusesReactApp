@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import simpleAction from "./actions/simpleAction";
+import Home from "./components/pages/home";
 import './App.css';
 
 
@@ -12,7 +13,9 @@ class App extends Component {
 
   render() {
     return (
+      
       <div className="App">
+        <Home/>
         <h1>Muses</h1>
         <button onClick={this.simpleAction}>Test Redux action</button>
         <pre>
