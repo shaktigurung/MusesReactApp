@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import HomePage from "../HomePage"
+import FileUploadForm from "../../forms/FileUploadForm"
 
 class Header extends Component {
   render() {
     return (
       <header>
         <h1>Welcome to Muses Code Js!</h1>
-        <BrowserRouter>
+        <FileUploadForm />
+        {/* <BrowserRouter>
           <div>
-            <Route path="/" component={home} />
-            <Route path="/" component={home} />
-            <Route path="/" component={home} />
+            <Route path="/" component={HomePage} />
+            <Route path="/" component={HomePage} />
+            <Route path="/" component={HomePage} />
 
           </div>
-        </BrowserRouter>
+        </BrowserRouter> */}
       </header>
     )
   }

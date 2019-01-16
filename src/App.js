@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import {connect} from "react-redux";
 import simpleAction from "./actions/simpleAction";
 import { BrowserRouter, Route, Link } from 'react-router-dom'
-import Home from "./components/pages/Home";
+import Home from "./components/pages/HomePage";
 import Resource from "./components/pages/ResoursePage";
 import Contact from "./components/pages/ContactPage";
 import './App.css';
+require('dotenv').config()
 
 
 class App extends Component {
