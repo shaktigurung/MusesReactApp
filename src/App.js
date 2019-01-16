@@ -36,8 +36,8 @@ class App extends Component {
             </div>
           </div>
         </BrowserRouter>
-        {/* <Home/>
-        <h1>Muses</h1>
+
+        {/* <h1>Muses</h1>
         <button onClick={this.simpleAction}>Test Redux action</button>
         <pre>
           {
