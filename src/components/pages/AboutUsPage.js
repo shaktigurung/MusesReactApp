@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Description from '../structure/Description';
 import ChapterSelector from '../structure/ChapterSelector';
+import TeamMembers from '../structure/TeamMembers';
 
 class AboutUsPage extends Component {
   render() {
@@ -17,6 +18,8 @@ class AboutUsPage extends Component {
         </Description>
 
         <ChapterSelector />
+
+        <TeamMembers />
 
       </div>
     );

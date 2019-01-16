@@ -9,7 +9,7 @@ class HomePage extends Component {
     return (
       <div style={{ fontSize: '30px' }}>
         {/* <img src={homeImage} style={{ width: "70%" }} /> */}
-        <img src={logoImage} style={{ width: "40%" }} />
+        <img src={logoImage} alt="logo image" style={{ width: "40%" }} />
         <p style={{ color: "#7985F0", fontSize: "20px" }}>
           Muses run free JavaScript and Node.js workshops for women, non-binary and trans folk around Australia.
         </p>
