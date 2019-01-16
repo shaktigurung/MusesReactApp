@@ -3,8 +3,11 @@ import { connect } from "react-redux";
 import simpleAction from "./actions/simpleAction";
 import { BrowserRouter, Route } from 'react-router-dom';
 import HomePage from "./components/pages/HomePage";
-import Resource from "./components/pages/ResoursePage";
-import Contact from "./components/pages/ContactPage";
+import AboutUsPage from "./components/pages/AboutUsPage";
+import EventsPage from "./components/pages/EventsPage";
+import NewsPage from "./components/pages/NewsPage";
+import ResourcesPage from "./components/pages/ResourcesPage";
+import ContactPage from "./components/pages/ContactPage";
 import './App.css';
 import Header from './components/structure/Header';
 
@@ -23,8 +26,11 @@ class App extends Component {
             <Header />
             <div>
               <Route exact path="/" component={HomePage} />
-              <Route exact path="/resource" component={Resource} />
-              <Route exact path="/contact" component={Contact} />
+              <Route exact path="/aboutus" component={AboutUsPage} />
+              <Route exact path="/events" component={EventsPage} />
+              <Route exact path="/news" component={NewsPage} />
+              <Route exact path="/resource" component={ResourcesPage} />
+              <Route exact path="/contact" component={ContactPage} />
             </div>
           </div>
         </BrowserRouter>

@@ -7,8 +7,13 @@ class Header extends Component {
     return (
       <header class="navBar">
         <Link to="/">Home</Link>
-        <Link to="/resource">Resource</Link>
-        <Link to="/contact">Contact</Link>
+        <Link to="/aboutus">About Us</Link>
+        <Link to="/events">Events</Link>
+        <Link to="/news">News</Link>
+        <Link to="/resource">Resources</Link>
+        <Link to="/sponsors">Sponsors</Link>
+        <Link to="/contact">Contact Us</Link>
+
       </header>
     )
   }

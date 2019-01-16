@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Resource extends Component {
+class ResourcesPage extends Component {
     render() {
         return (
             <div>
-                <h1>This is Resource Page </h1>
+                <h1>Resources Page </h1>
             </div>
         );
     }
 }
 
-export default Resource;
+export default ResourcesPage;
