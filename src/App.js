@@ -10,6 +10,8 @@ import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
 import './App.css';
 import Header from './components/structure/Header';
+import './App.css';
+require('dotenv').config()
 
 
 class App extends Component {
