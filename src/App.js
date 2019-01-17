@@ -11,7 +11,8 @@ import ContactPage from "./components/pages/ContactPage";
 import './App.css';
 import Header from './components/structure/Header';
 import './App.css';
-require('dotenv').config()
+import dotenv from "dotenv"
+dotenv.config()
 
 
 class App extends Component {
@@ -21,8 +22,10 @@ class App extends Component {
   }
   
   render() {
+    const {token} = this.props
     return (
       <div className="App">
+        {token && <h4>User Logged In</h4>}
         <BrowserRouter>
           <div>
             <Header />
@@ -33,6 +36,9 @@ class App extends Component {
               <Route exact path="/news" component={NewsPage} />
               <Route exact path="/resource" component={ResourcesPage} />
               <Route exact path="/contact" component={ContactPage} />
+              <Route path="/admin" render={(props) => {
+                return <AdminPage {...props} />
+              }} />
             </div>
           </div>
         </BrowserRouter>
@@ -52,7 +58,7 @@ class App extends Component {
 
 
 const mapStateToProps = state => ({
-  ...state
+  token: state.auth.token
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -9,7 +9,7 @@ class FileUploadForm extends Component {
     event.preventDefault();
     const formData = new FormData();
     formData.append('file', this.state.file[0])
-    axios.post(`http://localhost:3000/files`, formData, {
+    axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}/files`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -19,16 +19,13 @@ class FileUploadForm extends Component {
     )
   }
 
-  handleFileUpload = (event) => {
-    this.setState({file: event.target.files})
-  }
-
   render() {
+    const {handleFileUpload} = this.props
     return (  
-      <form onSubmit={this.submitFile}>
-        <input type="file" label="upload file" onChange={this.handleFileUpload}/>
-        <button type="submit">Submit</button>
-      </form>
+      // <form onSubmit={this.submitFile}>
+        <input type="file" label="upload file" onChange={handleFileUpload}/>
+        // <button type="submit">Submit</button>
+      // </form>
     );
   }
 }

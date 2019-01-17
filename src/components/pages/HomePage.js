@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import logoImage from "./../images/logo.svg";
 import ReactRotatingText from "react-rotating-text";
 import "../structure/ReactRotatingText.css";
+import {connect} from "react-redux"
+import Navbar from "./homeComponents/Header";
 
 class HomePage extends Component {
   render() {
@@ -25,4 +27,11 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+const mapStateToProps = (state) => {
+  return {
+    token: state.auth.token
+  }
+}
+
+export default connect(mapStateToProps)(HomePage);
+
