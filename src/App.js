@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import { connect } from "react-redux";
 import simpleAction from "./actions/simpleAction";
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -11,15 +10,6 @@ import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
 import './App.css';
 import Header from './components/structure/Header';
-=======
-import {connect} from "react-redux";
-// import simpleAction from "./actions/simpleAction";
-import { BrowserRouter, Route, Link } from 'react-router-dom'
-import Home from "./components/pages/HomePage";
-import Resource from "./components/pages/ResoursePage";
-import Contact from "./components/pages/ContactPage";
-import AdminPage from "./components/pages/AdminPage"
->>>>>>> adminforms
 import './App.css';
 import dotenv from "dotenv"
 dotenv.config()
@@ -38,7 +28,6 @@ class App extends Component {
         {token && <h4>User Logged In</h4>}
         <BrowserRouter>
           <div>
-<<<<<<< HEAD
             <Header />
             <div>
               <Route exact path="/" component={HomePage} />
@@ -47,18 +36,10 @@ class App extends Component {
               <Route exact path="/news" component={NewsPage} />
               <Route exact path="/resource" component={ResourcesPage} />
               <Route exact path="/contact" component={ContactPage} />
+              <Route path="/admin" render={(props) => {
+                return <AdminPage {...props} />
+              }} />
             </div>
-=======
-            <Link to="/"> Home </Link>
-            <Link to="/resource"> Resource </Link>
-            <Link to="/contact"> Contact </Link>
-            <Route exact path="/" component= {Home} />
-            <Route exact path="/resource" component= {Resource} />
-            <Route exact path="/contact" component= {Contact} />
-            <Route path="/admin" render={(props) => {
-              return <AdminPage {...props} />
-            }} />
->>>>>>> adminforms
           </div>
         </BrowserRouter>
 
@@ -77,8 +58,7 @@ class App extends Component {
 
 
 const mapStateToProps = state => ({
-<<<<<<< HEAD
-  ...state
+  token: state.auth.token
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -86,13 +66,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-=======
-  token: state.auth.token
-});
-
-//  const mapDispatchToProps = dispatch => ({
-//   simpleAction: () => dispatch(simpleAction())
-//  });
-
- export default connect(mapStateToProps)(App);
->>>>>>> adminforms

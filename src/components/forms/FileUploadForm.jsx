@@ -19,10 +19,6 @@ class FileUploadForm extends Component {
     )
   }
 
-  handleFileUpload = (event) => {
-    this.setState({file: event.target.files})
-  }
-
   render() {
     const {handleFileUpload} = this.props
     return (  
