@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 // import homeImage from "./../images/typing.jpg";
 import logoImage from "./../images/logo.svg";
 import ReactRotatingText from "react-rotating-text";
 import "../structure/ReactRotatingText.css";
+=======
+import React, { Component } from 'react';
+import {connect} from "react-redux"
+import Navbar from "./homeComponents/Header";
+>>>>>>> adminforms
 
 class HomePage extends Component {
   render() {
@@ -25,4 +31,15 @@ class HomePage extends Component {
   }
 }
 
+<<<<<<< HEAD
 export default HomePage;
+=======
+const mapStateToProps = (state) => {
+  return {
+    token: state.auth.token
+  }
+}
+
+export default connect(mapStateToProps)(Home);
+
+>>>>>>> adminforms
