@@ -5,7 +5,7 @@ import "./Header.css";
 class Header extends Component {
   render() {
     return (
-      <header class="navBar">
+      <header className="navBar">
         <Link to="/">Home</Link>
         <Link to="/aboutus">About Us</Link>
         <Link to="/events">Events</Link>

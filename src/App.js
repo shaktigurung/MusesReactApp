@@ -19,7 +19,7 @@ class App extends Component {
   simpleAction = (event) => {
     this.props.simpleAction();
   }
-
+  
   render() {
     return (
       <div className="App">
