@@ -3,7 +3,6 @@ import axios from "axios";
 require('dotenv').config();
 
 class EventsPage extends Component {
-
   //Move it to Redux
   state={
     events: []
@@ -11,9 +10,7 @@ class EventsPage extends Component {
 
   getEvents =  async ()=>{
     const events = await axios.get(`${process.env.REACT_APP_BACK_END_DOMAIN}/events`);
-    console.log(events);
     this.setState({ events: events.data});
-   
   }
 
   componentDidMount(){
@@ -24,7 +21,17 @@ class EventsPage extends Component {
     return (
       <div>
         <h1> Events Page </h1>
-        {events.map(event => <li key={event._id}>{event.title}</li>)}
+        {events.map(event => 
+          <p key={event._id}> 
+              Title: {event.title} <br/>
+              Description: {event.description} <br/>
+              Location: {event.location}<br/>
+              Date: {event.date}<br/>
+              Sponsors: {event.sponsors}<br/>
+              Chapter: {event.chapter}<br/>
+              <br/>
+          </p>
+          )}
         {/* <p>{allevent}</p> */}
       </div>
     );
