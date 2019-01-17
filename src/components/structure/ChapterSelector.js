@@ -1,47 +1,18 @@
 import React from "react";
-
-/*
-const props = {
-  cities: [
-    {
-      id: 'a',
-      name: 'Sydney',
-    },
-    {
-      id: 'b',
-      name: 'Melbourne',
-    },
-  ]
-}
-*/
+import { connect } from "react-redux";
 
 const ChapterSelector = (props) => {
-  const chapterList = props.cities.map(element => <option value={element.id}>{element.name}</option>);
+
+  const { chapterList } = props;
   return (
     <div>
       <h1>Select your city:</h1>
       <select>
-        {chapterList}
+        {chapterList.map(element => <option value={element.id}>{element.name}</option>)}
       </select>
     </div>
   )
 }
 
-// ChapterSelector.propTypes = {
-//   cities: propTypes.arrayOf()
-// }
 
-ChapterSelector.defaultProps = {
-  cities: [
-    {
-      id: 'a',
-      name: 'Sydney',
-    },
-    {
-      id: 'b',
-      name: 'Melbourne',
-    },
-  ],
-}
-
-export default ChapterSelector;
+export default connect()(ChapterSelector);

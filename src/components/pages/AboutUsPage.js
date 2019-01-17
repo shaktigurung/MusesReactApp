@@ -10,6 +10,7 @@ class AboutUsPage extends Component {
     this.props.getChaptersList();
   }
   render() {
+    const { chapters } = this.props;
     return (
       <div>
         <h1>About Us</h1>
@@ -22,7 +23,9 @@ class AboutUsPage extends Component {
           </p>
         </Description>
 
-        <ChapterSelector />
+        <select>
+          {chapters.map(element => <option value={element._id}>{element.city}</option>)}
+        </select>
 
         <TeamMembers />
 
@@ -31,4 +34,10 @@ class AboutUsPage extends Component {
   }
 }
 
-export default connect(null, { getChaptersList })(AboutUsPage);
+const mapStateToProps = (state) => {
+  return {
+    chapters: state.chapters
+  }
+}
+
+export default connect(mapStateToProps, { getChaptersList })(AboutUsPage);
