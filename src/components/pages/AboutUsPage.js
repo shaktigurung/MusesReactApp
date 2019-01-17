@@ -20,28 +20,7 @@ class AboutUsPage extends Component {
 
         <ChapterSelector />
 
-        <ChapterMembers members={[
-          {
-            id: 1,
-            name: "Jessica",
-            chapter: "Sydney"
-          },
-          {
-            id: 2,
-            name: "John",
-            chapter: "Melbourne"
-          },
-          {
-            id: 3,
-            name: "Whatever",
-            chapter: "Brisbane"
-          },
-          {
-            id: 4,
-            name: "fdsflkjsd",
-            chapter: "Perth"
-          }
-        ]} />
+        <ChapterMembers />
 
       </div>
     );

@@ -25,6 +25,5 @@ const mapStateToProps = (state) => {
     chapters: state.chapters
   }
 }
-// <ChapterSelector chapters={state.chapters} banana="blah" />
 
 export default connect(mapStateToProps, { getChaptersList, selectChapter })(ChapterSelector);

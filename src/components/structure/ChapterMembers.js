@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class ChapterMembers extends Component {
   render() {
@@ -17,4 +18,12 @@ class ChapterMembers extends Component {
   }
 }
 
-export default ChapterMembers;
+const mapStateToProps = (state) => {
+  const { selectedChapter, chapters } = state;
+  return {
+    members: selectedChapter == null ? [] : chapters.filter(chapter => chapter._id === selectedChapter)[0].organisers
+  }
+}
+
+
+export default connect(mapStateToProps)(ChapterMembers);
