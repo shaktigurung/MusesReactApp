@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import Description from '../structure/Description';
 import ChapterSelector from '../structure/ChapterSelector';
 import TeamMembers from '../structure/TeamMembers';
+import { getChaptersList } from "./../../actions/chapterActions";
+import { connect } from "react-redux";
 
 class AboutUsPage extends Component {
+  componentDidMount() {
+    this.props.getChaptersList();
+  }
   render() {
     return (
       <div>
@@ -26,4 +31,4 @@ class AboutUsPage extends Component {
   }
 }
 
-export default AboutUsPage;
+export default connect(null, { getChaptersList })(AboutUsPage);
