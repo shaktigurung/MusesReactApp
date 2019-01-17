@@ -1,17 +1,18 @@
 import React, { Component } from "react";
-import { getChaptersList } from "./../../actions/chapterActions";
+import { getChaptersList, selectChapter } from "./../../actions/chapterActions";
 import { connect } from "react-redux";
 
 class ChapterSelector extends Component {
+
   componentDidMount() {
     this.props.getChaptersList();
   }
 
   render() {
-    const { chapters } = this.props;
+    const { chapters, selectChapter } = this.props;
     return (
       <div>
-        <select>
+        <select onChange={event => selectChapter(event.target.value)}>
           {chapters.map(element => <option value={element._id}>{element.city}</option>)}
         </select>
       </div>
@@ -24,5 +25,6 @@ const mapStateToProps = (state) => {
     chapters: state.chapters
   }
 }
+// <ChapterSelector chapters={state.chapters} banana="blah" />
 
-export default connect(mapStateToProps, { getChaptersList })(ChapterSelector);
+export default connect(mapStateToProps, { getChaptersList, selectChapter })(ChapterSelector);

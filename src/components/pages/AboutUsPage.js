@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Description from '../structure/Description';
 import ChapterSelector from '../structure/ChapterSelector';
-import TeamMembers from '../structure/TeamMembers';
+import ChapterMembers from '../structure/ChapterMembers';
 
 class AboutUsPage extends Component {
   render() {
@@ -20,7 +20,28 @@ class AboutUsPage extends Component {
 
         <ChapterSelector />
 
-        <TeamMembers />
+        <ChapterMembers members={[
+          {
+            id: 1,
+            name: "Jessica",
+            chapter: "Sydney"
+          },
+          {
+            id: 2,
+            name: "John",
+            chapter: "Melbourne"
+          },
+          {
+            id: 3,
+            name: "Whatever",
+            chapter: "Brisbane"
+          },
+          {
+            id: 4,
+            name: "fdsflkjsd",
+            chapter: "Perth"
+          }
+        ]} />
 
       </div>
     );
