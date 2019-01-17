@@ -5,8 +5,8 @@ import indexReducers from './reducers/indexReducer';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default function configureStore(initialState={}) {
- return createStore(
-    indexReducers,
-   composeEnhancers(applyMiddleware(thunk))
- );
+  return createStore(
+      indexReducers,
+    composeEnhancers(applyMiddleware(thunk))
+  );
 }

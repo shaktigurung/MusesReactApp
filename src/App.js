@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import simpleAction from "./actions/simpleAction";
+// import simpleAction from "./actions/simpleAction";
 import { BrowserRouter, Route, Link } from 'react-router-dom'
 import Home from "./components/pages/HomePage";
 import Resource from "./components/pages/ResoursePage";
 import Contact from "./components/pages/ContactPage";
+import AdminPage from "./components/pages/AdminPage"
 import './App.css';
-require('dotenv').config()
+import dotenv from "dotenv"
+dotenv.config()
 
 
 class App extends Component {
@@ -16,9 +18,11 @@ class App extends Component {
   }
 
   render() {
+    const {token} = this.props
     return (
       
       <div className="App">
+        {token && <h4>User Logged In</h4>}
         <BrowserRouter>
           <div>
             <Link to="/"> Home </Link>
@@ -27,6 +31,9 @@ class App extends Component {
             <Route exact path="/" component= {Home} />
             <Route exact path="/resource" component= {Resource} />
             <Route exact path="/contact" component= {Contact} />
+            <Route path="/admin" render={(props) => {
+              return <AdminPage {...props} />
+            }} />
           </div>
         </BrowserRouter>
         {/* <Home/>
@@ -45,11 +52,11 @@ class App extends Component {
 
 
 const mapStateToProps = state => ({
-  ...state
- });
+  token: state.auth.token
+});
 
- const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
- });
+//  const mapDispatchToProps = dispatch => ({
+//   simpleAction: () => dispatch(simpleAction())
+//  });
 
- export default connect(mapStateToProps, mapDispatchToProps)(App);
+ export default connect(mapStateToProps)(App);
