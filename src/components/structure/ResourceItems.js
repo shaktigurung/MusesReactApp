@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
 const ResourceItems = (props) => {
 
   return (
     <div>
       <h4>{props.resourceTitle}</h4>
-      <a href={props.resourceLink} target="_blank">Resource Link</a>
+      <a href={props.resourceLink}> Resource Link</a>
     </div>
   )
 }
