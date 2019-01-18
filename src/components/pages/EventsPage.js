@@ -21,6 +21,11 @@ class EventsPage extends Component {
     this.getEvents();
   }
 
+  handleClick = async ()=>{
+    const events = await axios.get(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/:id`);
+    this.setState({ events: events.data});
+  }
+
   render() {
     const {events} = this.state;
     let currentDate = new Date();
@@ -61,7 +66,7 @@ class EventsPage extends Component {
                       <CardSubtitle> Sponsors:{event.sponsors}</CardSubtitle>
                       <CardSubtitle> Chapter:{event.chapter}</CardSubtitle>
                       <CardText>Description:{event.description.substr(0,50)} </CardText>
-                      <Button color="info" > More info</Button>
+                      <Button color="info" onClick = {this.handleClick()} > More info</Button>
                     </CardBody>
                   </Card> 
                   </CardGroup>

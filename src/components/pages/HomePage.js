@@ -3,8 +3,7 @@ import React, { Component } from "react";
 import logoImage from "./../images/logo.svg";
 import ReactRotatingText from "react-rotating-text";
 import "../structure/ReactRotatingText.css";
-import {connect} from "react-redux"
-import Navbar from "./homeComponents/Header";
+import {connect} from "react-redux";
 
 class HomePage extends Component {
 

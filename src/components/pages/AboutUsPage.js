@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Description from '../structure/Description';
-import ChapterSelector from '../structure/ChapterSelector';
+//import ChapterSelector from '../structure/ChapterSelector';
 import TeamMembers from '../structure/TeamMembers';
 import { getChaptersList } from "./../../actions/chapterActions";
 import { connect } from "react-redux";

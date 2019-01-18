@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import simpleAction from "./actions/simpleAction";
 import { BrowserRouter, Route } from 'react-router-dom';
 import HomePage from "./components/pages/HomePage";
+import AdminPage from "./components/pages/AdminPage";
 import AboutUsPage from "./components/pages/AboutUsPage";
 import EventsPage from "./components/pages/EventsPage";
 import NewsPage from "./components/pages/NewsPage";
