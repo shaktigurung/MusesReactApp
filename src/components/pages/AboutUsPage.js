@@ -18,7 +18,7 @@ class AboutUsPage extends Component {
           </p>
         </Description>
 
-        <ChapterSelector />
+        <ChapterSelector /><br />
 
         <ChapterMembers />
 
