@@ -1,17 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
 
 const ChapterSelector = (props) => {
+
+  const { chapterList } = props;
   return (
     <div>
       <h1>Select your city:</h1>
       <select>
-        <option value="sydney">Sydney</option>
-        <option value="melbourne">Melbourne</option>
-        <option value="brisbane">Brisbane</option>
-        <option value="perth">Perth</option>
+        {chapterList.map(element => <option value={element.id}>{element.name}</option>)}
       </select>
     </div>
   )
 }
 
-export default ChapterSelector;
+
+export default connect()(ChapterSelector);

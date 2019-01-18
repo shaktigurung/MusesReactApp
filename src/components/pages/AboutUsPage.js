@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import Description from '../structure/Description';
 import ChapterSelector from '../structure/ChapterSelector';
+import TeamMembers from '../structure/TeamMembers';
+import { getChaptersList } from "./../../actions/chapterActions";
+import { connect } from "react-redux";
 
 class AboutUsPage extends Component {
+  componentDidMount() {
+    this.props.getChaptersList();
+  }
   render() {
+    const { chapters } = this.props;
     return (
       <div>
         <h1>About Us</h1>
@@ -16,11 +23,21 @@ class AboutUsPage extends Component {
           </p>
         </Description>
 
-        <ChapterSelector />
+        <select>
+          {chapters.map(element => <option value={element._id}>{element.city}</option>)}
+        </select>
+
+        <TeamMembers />
 
       </div>
     );
   }
 }
 
-export default AboutUsPage;
+const mapStateToProps = (state) => {
+  return {
+    chapters: state.chapters
+  }
+}
+
+export default connect(mapStateToProps, { getChaptersList })(AboutUsPage);

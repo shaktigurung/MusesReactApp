@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import logoImage from "./../images/logo.svg";
 import ReactRotatingText from "react-rotating-text";
 import "../structure/ReactRotatingText.css";
+import {connect} from "react-redux"
+import Navbar from "./homeComponents/Header";
 
 class HomePage extends Component {
 
@@ -12,6 +14,7 @@ class HomePage extends Component {
       textAlign: 'center'
     }
     return (
+
       <div style={homeStyle}>
         <img src={logoImage} alt ="logo" style={{ width: "40%" }} />
         <p style={{ color: "#7985F0", fontSize: "20px" }}>
@@ -29,4 +32,11 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+const mapStateToProps = (state) => {
+  return {
+    token: state.auth.token
+  }
+}
+
+export default connect(mapStateToProps)(HomePage);
+
