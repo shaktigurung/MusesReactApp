@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import simpleReducer from './simpleReducer';
-import { reducer as formReducer } from "redux-form";
 import chaptersReducer from "./chaptersReducer";
 import selectChapterReducer from "./selectChapterReducer";
+import registerReducer from './registerReducer'
+import { reducer as formReducer } from "redux-form";
 
 export default combineReducers({
   simpleReducer,
-  form: formReducer,
+  auth: registerReducer,
   chapters: chaptersReducer,
-  selectedChapter: selectChapterReducer
+  selectedChapter: selectChapterReducer,
+  form: formReducer
 });

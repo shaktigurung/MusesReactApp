@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-// import homeImage from "./../images/typing.jpg";
 import logoImage from "./../images/logo.svg";
 import ReactRotatingText from "react-rotating-text";
 import "../structure/ReactRotatingText.css";
 import { Link } from "react-router-dom";
 import { Button, Jumbotron, Container } from 'reactstrap';
+import { connect } from "react-redux"
 
 class HomePage extends Component {
+
   render() {
+    let homeStyle = {
+      fontSize: '30px',
+      textAlign: 'center'
+    }
     return (
       <div>
         <div style={{ fontSize: '30px' }}>
-          {/* <img src={homeImage} style={{ width: "70%" }} /> */}
           <img src={logoImage} alt="logo" style={{ width: "40%" }} />
           <Jumbotron fluid>
             <Container fluid>
@@ -34,4 +38,11 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+const mapStateToProps = (state) => {
+  return {
+    token: state.auth.token
+  }
+}
+
+export default connect(mapStateToProps)(HomePage);
+
