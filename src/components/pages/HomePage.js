@@ -7,11 +7,16 @@ import {connect} from "react-redux"
 import Navbar from "./homeComponents/Header";
 
 class HomePage extends Component {
+
   render() {
+    let homeStyle = {
+      fontSize: '30px', 
+      textAlign: 'center'
+    }
     return (
-      <div style={{ fontSize: '30px' }}>
-        {/* <img src={homeImage} style={{ width: "70%" }} /> */}
-        <img src={logoImage} alt="logo" style={{ width: "40%" }} />
+
+      <div style={homeStyle}>
+        <img src={logoImage} alt ="logo" style={{ width: "40%" }} />
         <p style={{ color: "#7985F0", fontSize: "20px" }}>
           Muses run free JavaScript and Node.js workshops for women, non-binary and trans folk around Australia.
         </p>
