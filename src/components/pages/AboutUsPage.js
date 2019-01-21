@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import Description from '../structure/Description';
-import TeamMembers from '../structure/TeamMembers';
 import { getChaptersList } from "./../../actions/chapterActions";
 import { connect } from "react-redux";
 import { Jumbotron, Container, Button } from "reactstrap";
-import ChapterSelector from '../structure/ChapterSelector';
-import ChapterMembers from '../structure/ChapterMembers';
+import ChapterSelector from './../structure/ChapterSelector';
+import ChapterMembers from './../structure/ChapterMembers';
 
 class AboutUsPage extends Component {
   render() {
