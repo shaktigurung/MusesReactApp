@@ -12,7 +12,7 @@ class LoginForm extends Component {
     const { email, password } = this.state
     axios.post("http://localhost:3000/auth/login", { email, password })
       .then(response => {
-        this.props.setAuthToken(response.data)
+        this.props.setAuthToken(response.data.token)
         this.props.history.push("/admin")
       })
       .catch(err => console.log(err))
@@ -43,7 +43,10 @@ class LoginForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {token: state.token}
+  return {
+    token: state.token,
+    user: state.user
+  }
 }
 
 const wrappedLoginForm = reduxForm({

@@ -5,12 +5,19 @@ export default (state = defaultState, action) => {
     case "REGISTER_POST":
       return {
         ...state,
-        token: action.payload
+        token: action.payload.token,
+        user: action.payload.user
       }
     case "AUTH_TOKEN":
       return {
         ...state,
         token: action.payload
+      }
+    case "UPDATE_USER":
+      return {
+        ...state,
+        token: action.payload.token,
+        user: action.payload.user
       }
     default:
       return state
