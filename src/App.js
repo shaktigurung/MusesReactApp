@@ -12,7 +12,6 @@ import ContactPage from "./components/pages/ContactPage";
 import SingleEventPage from "./components/pages/SingleEventPage";
 import './App.css';
 import Header from './components/structure/Header';
-import './App.css';
 import dotenv from "dotenv"
 dotenv.config()
 

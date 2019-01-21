@@ -10,8 +10,12 @@ class AdminPage extends Component {
   render() {
     return (
       <div>
-        <Route exact path="/admin/login" component={LoginPage} />
-        <Route exact path="/admin/register" component={RegisterPage} />
+        <Route exact path="/admin/login" render={(props) => {
+          return <LoginPage {...props} />
+        }} />
+        <Route exact path="/admin/register" render={(props) => {
+          return <RegisterPage {...props} />
+        }} />
       </div>
     );
   }
