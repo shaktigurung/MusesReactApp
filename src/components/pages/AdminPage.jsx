@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import LoginPage from "./LoginPage"
 import RegisterPage from './RegisterPage';
 
 
 class AdminPage extends Component {
-  state = {  }
+  state = {}
   render() {
     return (
       <div>

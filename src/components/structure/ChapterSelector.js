@@ -44,8 +44,10 @@ class ChapterSelector extends Component {
 }
 
 const mapStateToProps = (state) => {
+  const { selectedChapter, chapters } = state;
   return {
-    chapters: state.chapters
+    chapters: state.chapters,
+    selectedCity: selectedChapter == null ? null : chapters.filter(chapter => chapter._id === selectedChapter)[0],
   }
 }
 
