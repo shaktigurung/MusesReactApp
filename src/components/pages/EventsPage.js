@@ -1,8 +1,12 @@
+
 import React, { Component } from 'react';
+import {getEvents} from "./../../actions/eventActions";
+import {connect} from "react-redux";
 import { Container, Row , Col, Button, Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Badge, CardGroup} from 'reactstrap';
-import axios from "axios";
-require('dotenv').config();
+ import axios from "axios";
+ require('dotenv').config();
+
 
 
 class EventsPage extends Component {
@@ -12,13 +16,13 @@ class EventsPage extends Component {
     events: []
   };
 
-  getEvents =  async ()=>{
-    const events = await axios.get(`${process.env.REACT_APP_BACK_END_DOMAIN}/events`);
-    this.setState({ events: events.data});
-  }
+  // getEvents =  async ()=>{
+  //   const events = await axios.get(`${process.env.REACT_APP_BACK_END_DOMAIN}/events`);
+  //   this.setState({ events: events.data});
+  // }
 
   componentDidMount(){
-    this.getEvents();
+    this.props.getEvents();
   }
 
   handleClick = async ()=>{
@@ -26,20 +30,27 @@ class EventsPage extends Component {
     this.setState({ events: events.data});
   }
 
-  render() {
-    const {events} = this.state;
+  futureEvents = ()=>{
+    const {events} = this.props;
     let currentDate = new Date();
-
-    //Future Events
-    const futureEvents = events.filter(function(event){
+     //Future Events
+     return events.filter(function(event){
       const eventDate = new Date(event.date);
       return eventDate > currentDate ;
       });
-    //Past Events
-    const pastEvents = events.filter(function(event){
-      const eventDate = new Date(event.date);
-      return eventDate < currentDate ;
-      });
+  }
+
+  pastEvents = ()=>{
+    const {events} = this.props;
+    let currentDate = new Date();
+      //Past Events
+      return events.filter(function(event){
+        const eventDate = new Date(event.date);
+        return eventDate < currentDate ;
+        });
+  }
+
+  render() {
       
     // Inline CSS
     const eventLeft = {
@@ -54,7 +65,7 @@ class EventsPage extends Component {
             <Row><h2 style = {mainCenter}> Upcoming  <Badge color="primary">Events</Badge></h2></Row>
             <Row>
                 
-                 {futureEvents.map(event => 
+                 {this.futureEvents().map(event => 
                 <Col xs="4" className="mt-3" key={event._id}>
                 <CardGroup>
                   <Card>
@@ -75,7 +86,7 @@ class EventsPage extends Component {
             </Row>
             <Row> <h2 style = {mainCenter} className="mt-3"> Past  <Badge color="danger">Events</Badge></h2></Row>
             <Row>
-                 {pastEvents.map(event => 
+                 {this.pastEvents().map(event => 
                 <Col xs="4" className="mt-3" key={event._id}>
                 <CardGroup>
                   <Card>
@@ -99,4 +110,10 @@ class EventsPage extends Component {
   }
 }
 
-export default EventsPage;
+function mapStateToProps(state){
+    return{
+      events: state.events
+    }
+}
+
+export default connect(mapStateToProps, {getEvents})(EventsPage);

@@ -9,10 +9,6 @@ import { Button, Jumbotron, Container } from 'reactstrap';
 class HomePage extends Component {
 
   render() {
-    let homeStyle = {
-      fontSize: '30px',
-      textAlign: 'center'
-    }
     return (
       <div>
         <div style={{ fontSize: '30px' }}>
