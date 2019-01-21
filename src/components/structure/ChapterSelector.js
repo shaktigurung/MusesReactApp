@@ -25,21 +25,19 @@ class ChapterSelector extends Component {
   }
 
   render() {
-    const { chapters, selectChapter } = this.props;
+    const { chapters, selectChapter, selectedCity } = this.props;
     return (
       <div>
         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret>
-            Select your city
-        </DropdownToggle>
+            {selectedCity ? selectedCity.city : "Select your city"}
+          </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem header>Cities</DropdownItem>
-            {chapters.map(element => <DropdownItem value={element._id}>{element.city}</DropdownItem>)}
+            {chapters.map(element => (
+              <DropdownItem value={element._id} onClick={() => selectChapter(element._id)}>{element.city}</DropdownItem>
+            ))}
           </DropdownMenu>
         </Dropdown>
-        <select onChange={event => selectChapter(event.target.value)}>
-          {chapters.map(element => <option value={element._id}>{element.city}</option>)}
-        </select>
       </div>
     )
   }

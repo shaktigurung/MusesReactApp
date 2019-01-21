@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import Description from '../structure/Description';
-import TeamMembers from '../structure/TeamMembers';
-import { getChaptersList } from "./../../actions/chapterActions";
-import { connect } from "react-redux";
-import { Jumbotron, Container, Button } from "reactstrap";
+import { Jumbotron, Container } from "reactstrap";
 import ChapterSelector from '../structure/ChapterSelector';
 import ChapterMembers from '../structure/ChapterMembers';
 
 
 class AboutUsPage extends Component {
   render() {
-    const { chapters } = this.props;
     return (
       <div>
         <Jumbotron fluid>
@@ -27,6 +22,8 @@ class AboutUsPage extends Component {
         <ChapterMembers />
 
       </div>
+
+      // Add a partners section 
     );
   }
 }
