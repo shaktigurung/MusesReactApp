@@ -7,7 +7,6 @@ import { Jumbotron, Container, Button } from "reactstrap";
 import ChapterSelector from '../structure/ChapterSelector';
 import ChapterMembers from '../structure/ChapterMembers';
 
-
 class AboutUsPage extends Component {
   render() {
     const { chapters } = this.props;

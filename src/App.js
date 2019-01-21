@@ -9,6 +9,7 @@ import EventsPage from "./components/pages/EventsPage";
 import NewsPage from "./components/pages/NewsPage";
 import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
+import SingleEventPage from "./components/pages/SingleEventPage";
 import './App.css';
 import Header from './components/structure/Header';
 import './App.css';
@@ -34,6 +35,7 @@ class App extends Component {
               <Route exact path="/" component={HomePage} />
               <Route exact path="/aboutus" component={AboutUsPage} />
               <Route exact path="/events" component={EventsPage} />
+              <Route exact path="/events/:id" component={SingleEventPage} />
               <Route exact path="/news" component={NewsPage} />
               <Route exact path="/resource" component={ResourcesPage} />
               <Route exact path="/contact" component={ContactPage} />
