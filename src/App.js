@@ -22,9 +22,9 @@ class App extends Component {
   simpleAction = (event) => {
     this.props.simpleAction();
   }
-  
+
   render() {
-    const {token} = this.props
+    const { token } = this.props
     return (
       <div className="App">
         {token && <h4>User Logged In</h4>}
@@ -37,7 +37,7 @@ class App extends Component {
               <Route exact path="/events" component={EventsPage} />
               <Route exact path="/events/:id" component={SingleEventPage} />
               <Route exact path="/news" component={NewsPage} />
-              <Route exact path="/resource" component={ResourcesPage} />
+              <Route exact path="/resources" component={ResourcesPage} />
               <Route exact path="/contact" component={ContactPage} />
               <Route path="/admin" render={(props) => {
                 return <AdminPage {...props} />

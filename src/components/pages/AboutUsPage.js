@@ -7,7 +7,6 @@ import ChapterMembers from './../structure/ChapterMembers';
 
 class AboutUsPage extends Component {
   render() {
-    const { chapters } = this.props;
     return (
       <div>
         <Jumbotron fluid>
@@ -24,6 +23,8 @@ class AboutUsPage extends Component {
         <ChapterMembers />
 
       </div>
+
+      // Add a partners section 
     );
   }
 }
