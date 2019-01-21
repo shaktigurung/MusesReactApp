@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Description from '../structure/Description';
+import TeamMembers from '../structure/TeamMembers';
 import { getChaptersList } from "./../../actions/chapterActions";
 import { connect } from "react-redux";
 import { Jumbotron, Container, Button } from "reactstrap";
