@@ -8,7 +8,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink} from 'reactstrap';
+  NavLink
+} from 'reactstrap';
 import "./Header.css";
 
 class Header extends Component {
@@ -28,33 +29,33 @@ class Header extends Component {
     return (
 
       <Navbar color="light" light expand="md">
-      <NavbarBrand href="/"> <img src={logoImage} alt ="logo" style={{ width: "50%", height:"50%" }} /></NavbarBrand>
-      <NavbarToggler onClick={this.toggle} />
-      <Collapse isOpen={this.state.isOpen} navbar>
-        <Nav className="ml-auto" navbar>
-          <NavItem>
-            <NavLink><Link to="/">Home</Link></NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink><Link to="/aboutus">About Us</Link></NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink> <Link to="/events">Events</Link></NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink><Link to="/news">News</Link></NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink> <Link to="/resource">Resources</Link></NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink><Link to="/sponsors">Sponsors</Link></NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink><Link to="/contact">Contact Us</Link></NavLink>
-          </NavItem>
-        </Nav>
-      </Collapse>
+        <NavbarBrand href="/"> <img src={logoImage} alt="logo" style={{ width: "50%", height: "50%" }} /></NavbarBrand>
+        <NavbarToggler onClick={this.toggle} />
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink><Link to="/">Home</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><Link to="/aboutus">About Us</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink> <Link to="/events">Events</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><Link to="/news">News</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink> <Link to="/resources">Resources</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><Link to="/sponsors">Sponsors</Link></NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink><Link to="/contact">Contact Us</Link></NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
       </Navbar>
     )
   }
