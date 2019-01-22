@@ -5,6 +5,7 @@ import selectChapterReducer from "./selectChapterReducer";
 import registerReducer from './registerReducer'
 import { reducer as formReducer } from "redux-form";
 import eventListReducer from './eventListReducer';
+import sponsorReducer from "./sponsorReducer"
 
 export default combineReducers({
   simpleReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   chapters: chaptersReducer,
   selectedChapter: selectChapterReducer,
   form: formReducer,
-  events: eventListReducer
+  events: eventListReducer,
+  sponsors: sponsorReducer
 });
