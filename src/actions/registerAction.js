@@ -1,4 +1,3 @@
-import LocalApi from '../apis/local'
 import axios from 'axios'
 
 export const createUser = (formData) => {
@@ -13,12 +12,12 @@ export const createUser = (formData) => {
   }
 }
 
-export const setAuthToken = (token) => {
-  sessionStorage.setItem("token", token)
+export const setAuthToken = (data) => {
+  sessionStorage.setItem("token", data.token)
 
   return {
     type: "AUTH_TOKEN",
-    payload: token
+    payload: data
   }
 }
 
@@ -28,6 +27,20 @@ export const updateUser = (formData) => {
 
     dispatch({
       type: "UPDATE_USER",
+      payload: response.data
+    })
+  }
+}
+
+export const refreshUser = (token) => {
+  return async(dispatch) => {
+    let response = await axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}/auth/refresh`, {}, {headers: {
+      Authorization: `Bearer ${token}`
+    }})
+    sessionStorage.setItem("token", response.data.token)
+
+    dispatch({
+      type: "REFRESH_USER",
       payload: response.data
     })
   }
