@@ -9,7 +9,7 @@ class ChapterMembers extends Component {
         {this.props.members.map(member =>
           <p key={member.id}>
             Name: {member.name}<br />
-            Chapter: {member.chapter}<br />
+            Bio: {member.bio}<br />
             <br />
           </p>
         )}
