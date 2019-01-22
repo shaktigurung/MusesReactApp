@@ -53,6 +53,7 @@ class EventsPage extends Component {
     const mainCenter ={
       textAlign: "center"
     }
+    console.log(this.props)
     return (
         <Container style = {eventLeft}>
             <h1 style = {mainCenter}> Events <Badge color="secondary">Page</Badge></h1>
