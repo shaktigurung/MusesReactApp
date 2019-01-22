@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import simpleAction from "./actions/simpleAction";
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import {refreshUser} from './actions/registerAction';
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
 import AboutUsPage from "./components/pages/AboutUsPage";
@@ -20,6 +21,17 @@ class App extends Component {
 
   simpleAction = (event) => {
     this.props.simpleAction();
+  }
+
+
+  componentDidMount = async() => {
+    const {refreshUser} = this.props
+    const token = sessionStorage.getItem("token")
+    if (token) {
+      await refreshUser(token)
+    } else {
+      console.log("error")
+    }
   }
 
   render() {
@@ -60,11 +72,12 @@ class App extends Component {
 
 
 const mapStateToProps = state => ({
-  token: state.auth.token
+  token: state.auth.token,
+  user: state.auth.user
 });
 
 const mapDispatchToProps = dispatch => ({
   simpleAction: () => dispatch(simpleAction())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, {refreshUser})(App);
