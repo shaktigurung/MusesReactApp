@@ -9,18 +9,24 @@ class ResourceItems extends Component {
   }
 
   render() {
-    const resources = [];
-    return (
-      <div>
-        {resources.map(resource =>
-          <p key={resource.id}>
-            Title: {resource.title} <br />
-            Description: {resource.description} <br />
-            Link: {resource.link} <br />
-          </p>
-        )}
-      </div>
-    )
+
+    if (this.props.resources.resources) {
+      return (
+        <div>
+          {this.props.resources.resources.map(resource =>
+            <p key={resource._id}>
+              Title: {resource.title} <br />
+              Description: {resource.description} <br />
+              Link: {resource.link} <br />
+            </p>
+          )}
+        </div>
+      )
+    } else {
+      return (
+        <h1>loading</h1>
+      )
+    }
   }
 }
 
