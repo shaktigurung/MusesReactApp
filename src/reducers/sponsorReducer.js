@@ -1,10 +1,9 @@
 export default (state = [], action) => {
   switch (action.type) {
     case "GET_SPONSORS":
-      return {
-        ...state,
-        sponsors: action.payload
-      }
+      return action.payload
+    case "CREATE_SPONSOR":
+      return action.payload
     default:
       return state
   }

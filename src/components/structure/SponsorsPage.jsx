@@ -13,11 +13,10 @@ class SponsorsPage extends Component {
     getSponsors()
   }
   render() {
-    console.log(this.props)
-    if (this.props.sponsors.sponsors) { 
+    if (this.props.sponsors) { 
       return (
         <div>
-          {this.props.sponsors.sponsors.map(sponsor => 
+          {this.props.sponsors.map(sponsor => 
             <>  
               <div>
                 {sponsor.name}
