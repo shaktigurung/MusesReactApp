@@ -16,7 +16,7 @@ class ResourceItems extends Component {
                 <Card body>
                   <CardTitle><b>{resource.title}</b></CardTitle>
                   <CardText>{resource.description}</CardText>
-                  <a href={resource.link} target="_blank">
+                  <a href={resource.link} >
                     <Button outline color="info">See resource</Button>
                   </a>
                 </Card>
