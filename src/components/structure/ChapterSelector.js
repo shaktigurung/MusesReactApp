@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { getChaptersList, selectChapter } from "./../../actions/chapterActions";
+import { getChapters, selectChapter } from "./../../actions/chapterActions";
 import { connect } from "react-redux";
 
 class ChapterSelector extends Component {
@@ -18,10 +18,6 @@ class ChapterSelector extends Component {
     this.setState(prevState => ({
       dropdownOpen: !prevState.dropdownOpen
     }));
-  }
-
-  componentDidMount() {
-    this.props.getChaptersList();
   }
 
   render() {
@@ -51,4 +47,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getChaptersList, selectChapter })(ChapterSelector);
+export default connect(mapStateToProps, { getChapters, selectChapter })(ChapterSelector);

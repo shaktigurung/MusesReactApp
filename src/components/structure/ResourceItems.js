@@ -5,10 +5,6 @@ import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 
 class ResourceItems extends Component {
 
-  componentDidMount() {
-    this.props.getResources();
-  }
-
   render() {
 
     if (this.props.resources) {
