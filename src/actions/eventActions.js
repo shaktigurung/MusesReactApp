@@ -1,5 +1,4 @@
 import axios from "axios";
-require('dotenv').config();
 
 export const getEvents = ()=>{
     return async (dispatch) => {

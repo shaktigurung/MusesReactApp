@@ -4,14 +4,14 @@ import {getSponsors} from '../../actions/sponsorAction'
 
 class SponsorsPage extends Component {
 
-  componentDidMount(){
-    this.populateSponsors()
-  }
+  // componentDidMount(){
+  //   this.populateSponsors()
+  // }
 
-  populateSponsors = () => {
-    const {getSponsors} = this.props
-    getSponsors()
-  }
+  // populateSponsors = () => {
+  //   const {getSponsors} = this.props
+  //   getSponsors()
+  // }
   render() {
     if (this.props.sponsors) { 
       return (

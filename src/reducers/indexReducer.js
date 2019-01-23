@@ -15,6 +15,6 @@ export default combineReducers({
   selectedChapter: selectChapterReducer,
   form: formReducer,
   events: eventListReducer,
-  sponsors: sponsorReducer
+  sponsors: sponsorReducer,
   resources: resourcesReducer
 });
