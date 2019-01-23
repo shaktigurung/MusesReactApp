@@ -21,7 +21,6 @@ export default (state = defaultState, action) => {
         user: action.payload.user
       }
     case "REFRESH_USER":
-      console.log(action.payload)
       return {
         ...state,
         token: action.payload.token,

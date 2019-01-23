@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import simpleAction from "./actions/simpleAction";
 import { BrowserRouter, Route} from 'react-router-dom';
 import {refreshUser} from './actions/registerAction';
 import {getEvents} from "./actions/eventActions"
@@ -92,10 +91,6 @@ const mapStateToProps = state => ({
   sponsors: state.sponsors,
   events: state.events,
   chapters: state.chapters
-});
-
-const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
 });
 
 export default connect(mapStateToProps, {
