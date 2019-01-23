@@ -4,7 +4,9 @@ import { connect } from "react-redux"
 import LoginPage from "./LoginPage"
 import RegisterPage from './RegisterPage';
 import ProfilePage from './ProfilePage'
+import CreateResourcePage from "./CreateResourcePage";
 import CreateSponsorPage from './CreateSponsorPage';
+
 
 
 class AdminPage extends Component {
@@ -22,6 +24,7 @@ class AdminPage extends Component {
           return <ProfilePage {...props} />
         }} /> */}
         <Route exact path="/admin/profile" component={ProfilePage} />
+        <Route exact path="/admin/createResource" component={CreateResourcePage} />
         <Route exact path="/admin/sponsor" component={CreateSponsorPage} />
       </div>
     );
