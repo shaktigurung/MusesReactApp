@@ -13,7 +13,7 @@ export const getSponsors = () => {
 
 export const createSponsor = (formData, token) => {
   return async(dispatch) => {
-    let response = await axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}`, formData, {headers: {
+    let response = await axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}/sponsor`, formData, {headers: {
       Authorization: `Bearer ${token}`
     }})
 

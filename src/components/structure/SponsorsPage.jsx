@@ -28,7 +28,7 @@ class SponsorsPage extends Component {
                 {sponsor.website}
               </div>
               <div>
-                <img src={sponsor.website} alt=""/>
+                <img src={sponsor.logo} alt=""/>
               </div>
             </>
           )}
