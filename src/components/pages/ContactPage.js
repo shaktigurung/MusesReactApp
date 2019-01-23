@@ -11,9 +11,9 @@ class ContactPage extends Component {
           <hr className="my-2" />
           <Container>
             <Row>
-              <Col><a href="https://twitter.com/MusesCodeJSSyd" target="_blank"><i class="fab fa-5x fa-twitter"></i></a></Col>
-              <Col><a href="https://www.instagram.com/musescodejssyd/" target="_blank"><i class="fab fa-5x fa-instagram"></i></a></Col>
-              <Col><a href="https://github.com/node-girls-australia" target="_blank"><i class="fab fa-5x fa-github"></i></a></Col>
+              <Col><a href="https://twitter.com/MusesCodeJSSyd" ><i class="fab fa-5x fa-twitter"></i></a></Col>
+              <Col><a href="https://www.instagram.com/musescodejssyd/" ><i class="fab fa-5x fa-instagram"></i></a></Col>
+              <Col><a href="https://github.com/node-girls-australia" ><i class="fab fa-5x fa-github"></i></a></Col>
             </Row>
           </Container>
         </Jumbotron>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {getEvents} from "./../../actions/eventActions";
 import {connect} from "react-redux";
-import { Container, Row , Col, Button, Card, CardImg, CardText, CardBody,
+import { Container, Row , Col, Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Badge, CardGroup} from 'reactstrap';
 
 class SingleEventPage extends Component{

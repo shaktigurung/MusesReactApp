@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import simpleAction from "./actions/simpleAction";
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route} from 'react-router-dom';
 import {refreshUser} from './actions/registerAction';
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
@@ -24,7 +23,6 @@ class App extends Component {
   simpleAction = (event) => {
     this.props.simpleAction();
   }
-
 
   componentDidMount = async() => {
     const {refreshUser} = this.props
@@ -60,14 +58,6 @@ class App extends Component {
             </div>
           </div>
         </BrowserRouter>
-
-        {/* <h1>Muses</h1>
-        <button onClick={this.simpleAction}>Test Redux action</button>
-        <pre>
-          {
-            JSON.stringify(this.props)
-          }
-        </pre> */}
       </div>
     );
   }
@@ -78,10 +68,6 @@ class App extends Component {
 const mapStateToProps = state => ({
   token: state.auth.token,
   user: state.auth.user
-});
-
-const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
 });
 
 export default connect(mapStateToProps, {refreshUser})(App);
