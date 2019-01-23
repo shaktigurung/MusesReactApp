@@ -7,7 +7,7 @@ class ChapterMembers extends Component {
       <div>
         <h1>Our Team</h1>
         {this.props.members.map(member =>
-          <p key={member.id}>
+          <p key={member._id}>
             Name: {member.name}<br />
             Bio: {member.bio}<br />
             <br />
