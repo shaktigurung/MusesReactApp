@@ -6,13 +6,14 @@ import {withRouter} from "react-router-dom";
 
 class CreateEventPage extends Component {
     state={
-            events: []
+            events: [],
+           
     };
     
   onFormSubmit = values => {
     // print the form values to the console
     
-    this.props.createEvent(values)
+    this.props.createEvent(values, this.props.token)
         .then(()=> this.props.history.push("/events"))
         
     console.log(values);
@@ -25,7 +26,9 @@ class CreateEventPage extends Component {
 
 function mapStateToProps(state){
     return{
-      events: state.events
+      events: state.events,
+      sponsors: state.sponsors,
+      token: state.auth.token
     }
 }
 export default  connect(mapStateToProps, {createEvent}) (withRouter(CreateEventPage));

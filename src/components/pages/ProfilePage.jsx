@@ -20,7 +20,11 @@ class ProfilePage extends Component {
           Website: {user.website}
         </div>
         <div>  
+<<<<<<< HEAD
+          Avatar: <img src={user.avatar} alt="avatar"/>
+=======
           Avatar: <img src={user.avatar} alt={`${user.name}'s avatar`} />
+>>>>>>> 01d4fe1c670c77241ff1b8ffc59d61f260c072c2
         </div>
 
       </>

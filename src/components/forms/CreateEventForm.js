@@ -1,10 +1,35 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
-import axios from "axios";
+import {getSponsors} from "./../../actions/sponsorAction";
+import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
+//import axios from "axios";
 require('dotenv').config();
 
-let CreateEvent = props => {
-  const { handleSubmit } = props
+class CreateEvent extends Component{
+
+  state = {
+    sponsors: [{
+      name:"abc",
+      _id: 1 
+      },
+      {
+        name:"def",
+        _id: 2 
+        },
+        {
+          name:"ghi",
+          _id: 3 
+          }, ]
+  }
+  componentDidMount(){
+    this.props.getSponsors();
+  }
+
+  render(){
+  const { handleSubmit } = this.props
+  const {sponsors} = this.state; // later change into props for data from database
+  console.log(sponsors);
   return (
     <form onSubmit={handleSubmit}>
         <div>
@@ -25,18 +50,15 @@ let CreateEvent = props => {
       </div>
       <div>
         <label htmlFor="eventDate"> Date </label>
-        <Field name="date" component="input" type="text" />
+        <Field name="date" component="input" type="date" />
       </div>
       <div>
-        <label htmlFor="eventSponsor"> Sponsor </label>
-        <Field name="sponsors" component="input" type="text" />
-      </div>
-      <div>
-        <label>Select Sponsors </label>
+        <label> Select Sponsors </label>
         <div>
-          <Field name="sponsors" component="select">
-            
-            <option></option>
+          <Field multiple name="sponsors" component="select">
+            {sponsors.map((sponsor) => 
+            <option key={sponsor._id} value={sponsor._id}>{sponsor.name}</option>
+            )}
           </Field>
         </div>
       </div>
@@ -68,12 +90,18 @@ let CreateEvent = props => {
       <button type="submit">Submit</button>
     </form>
   )
+  }
 }
-
 CreateEvent = reduxForm({
     // a unique name for the form
     form: 'create',
     destroyOnUnmount: false
 })(CreateEvent)
 
-export default CreateEvent;
+function mapStateToProps(state){
+  return{
+    sponsors: state.sponsors
+  }
+}
+
+export default connect(mapStateToProps, { getSponsors}) (withRouter(CreateEvent));
