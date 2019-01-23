@@ -6,6 +6,7 @@ import registerReducer from './registerReducer'
 import { reducer as formReducer } from "redux-form";
 import eventListReducer from './eventListReducer';
 import sponsorReducer from "./sponsorReducer"
+import resourcesReducer from './resourcesReducer';
 
 export default combineReducers({
   simpleReducer,
@@ -15,4 +16,5 @@ export default combineReducers({
   form: formReducer,
   events: eventListReducer,
   sponsors: sponsorReducer
+  resources: resourcesReducer
 });

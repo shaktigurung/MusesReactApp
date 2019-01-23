@@ -13,6 +13,7 @@ class ResourcesPage extends Component {
                     <a href="https://github.com/node-girls-australia" target="_blank"><i class="fab fa-5x fa-github"></i></a>
                 </Jumbotron>
                 <ResourceItems />
+
             </div>
         );
     }
