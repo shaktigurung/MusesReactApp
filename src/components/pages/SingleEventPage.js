@@ -17,9 +17,7 @@ class SingleEventPage extends Component{
     singleEvent = ()=>{
         const {match} = this.props;
         const {events} = this.props;
-
         const id = match.params.id;
-        console.log(id);
 
         return events.filter(function(event){
             return event._id === id
