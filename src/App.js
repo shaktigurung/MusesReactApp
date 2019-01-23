@@ -11,7 +11,8 @@ import NewsPage from "./components/pages/NewsPage";
 import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
 import SingleEventPage from "./components/pages/SingleEventPage";
-import SponsorsPage from "./components/structure/SponsorsPage"
+import CreateEventPage from "./components/pages/CreateEventPage";
+import SponsorsPage from "./components/structure/SponsorsPage";
 import './App.css';
 import Header from './components/structure/Header';
 import dotenv from "dotenv"
@@ -47,6 +48,7 @@ class App extends Component {
               <Route exact path="/" component={HomePage} />
               <Route exact path="/aboutus" component={AboutUsPage} />
               <Route exact path="/events" component={EventsPage} />
+              <Route exact path="/create" component={CreateEventPage} />
               <Route exact path="/events/:id" component={SingleEventPage} />
               <Route exact path="/news" component={NewsPage} />
               <Route exact path="/resources" component={ResourcesPage} />

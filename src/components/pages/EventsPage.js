@@ -63,7 +63,7 @@ class EventsPage extends Component {
                 <Col xs="4" className="mt-3" key={event._id}>
                   <CardGroup>
                     <Card>
-                      <CardImg top width="100%" src="https://source.unsplash.com/collection/190727/1600x900" alt="Card image cap" />
+                      <CardImg top width="100%" src={event.image} alt="Card image cap" />
                       <CardBody>
                         <CardTitle> Event Name:{event.title} </CardTitle>
                         <CardSubtitle> Location:{event.location} </CardSubtitle>
@@ -84,7 +84,7 @@ class EventsPage extends Component {
                 <Col xs="4" className="mt-3" key={event._id}>
                 <CardGroup>
                   <Card>
-                    <CardImg top width="100%" src="https://source.unsplash.com/collection/190727/1600x900" alt="Card image cap" />
+                    <CardImg top width="100%" src={event.image} alt="Card image cap" />
                     <CardBody>
                       <CardTitle> Event Name:{event.title} </CardTitle>
                       <CardSubtitle> Location:{event.location} </CardSubtitle>
