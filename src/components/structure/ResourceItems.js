@@ -1,25 +1,28 @@
 import React, { Component } from "react";
-import { getResourcesList } from "./../../actions/resourceAction";
+import { getResources } from "./../../actions/resourceAction";
 import { connect } from "react-redux";
+import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 
 class ResourceItems extends Component {
 
-  componentDidMount() {
-    this.props.getResourcesList();
-  }
-
   render() {
 
-    if (this.props.resources.resources) {
+    if (this.props.resources) {
       return (
         <div>
-          {this.props.resources.resources.map(resource =>
-            <p key={resource._id}>
-              Title: {resource.title} <br />
-              Description: {resource.description} <br />
-              Link: {resource.link} <br />
-            </p>
-          )}
+          <Row>
+            <Col sm="6" md={{ size: 6, offset: 3 }}>
+              {this.props.resources.map(resource =>
+                <Card body>
+                  <CardTitle><b>{resource.title}</b></CardTitle>
+                  <CardText>{resource.description}</CardText>
+                  <a href={resource.link} target="_blank">
+                    <Button outline color="info">See resource</Button>
+                  </a>
+                </Card>
+              )}
+            </Col>
+          </Row>
         </div>
       )
     } else {
@@ -37,4 +40,7 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { getResourcesList })(ResourceItems);
+export default connect(mapStateToProps, { getResources })(ResourceItems);
+
+// TO DO:
+// add pagination to resources page

@@ -1,10 +1,8 @@
 
 import React, { Component } from 'react';
-import {getEvents} from "./../../actions/eventActions";
 import {connect} from "react-redux";
 import { Container, Row , Col, Button, Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Badge, CardGroup} from 'reactstrap';
-//require('dotenv').config();
 import {withRouter} from "react-router-dom";
 
 class EventsPage extends Component {
@@ -12,10 +10,6 @@ class EventsPage extends Component {
   state={
     events: []
   };
-
-  componentDidMount(){
-    this.props.getEvents();
-  }
 
   handleClick = (id)=>{
     // alert(`HandleClick is clicked, ${id}`);
@@ -52,7 +46,6 @@ class EventsPage extends Component {
     const mainCenter ={
       textAlign: "center"
     }
-    console.log(this.props)
     return (
         <Container style = {eventLeft}>
             <h1 style = {mainCenter}> Events <Badge color="secondary">Page</Badge></h1>
@@ -110,4 +103,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {getEvents})(withRouter(EventsPage));
+export default connect(mapStateToProps)(withRouter(EventsPage));

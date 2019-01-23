@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { BrowserRouter, Route} from 'react-router-dom';
 import {refreshUser} from './actions/registerAction';
+import {getEvents} from "./actions/eventActions"
+import {getSponsors} from "./actions/sponsorAction"
+import {getResources} from "./actions/resourceAction"
+import {getChapters} from "./actions/chapterActions"
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
 import AboutUsPage from "./components/pages/AboutUsPage";
@@ -25,12 +29,20 @@ class App extends Component {
   }
 
   componentDidMount = async() => {
-    const {refreshUser} = this.props
+    const {refreshUser, getSponsors, getResources, getEvents, getChapters} = this.props
     const token = sessionStorage.getItem("token")
     if (token) {
       await refreshUser(token)
     } else {
       console.log("error")
+    }
+    try {
+      await getSponsors();
+      await getResources();
+      await getEvents();
+      await getChapters();
+    } catch (err) {
+      console.log(err)
     }
   }
 
@@ -67,7 +79,24 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   token: state.auth.token,
+<<<<<<< HEAD
   user: state.auth.user
 });
 
 export default connect(mapStateToProps, {refreshUser})(App);
+=======
+  user: state.auth.user,
+  resources: state.resources,
+  sponsors: state.sponsors,
+  events: state.events,
+  chapters: state.chapters
+});
+
+export default connect(mapStateToProps, {
+  refreshUser,
+  getSponsors,
+  getResources,
+  getEvents,
+  getChapters
+})(App);
+>>>>>>> 01d4fe1c670c77241ff1b8ffc59d61f260c072c2
