@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { BrowserRouter, Route} from 'react-router-dom';
-import {refreshUser} from './actions/registerAction';
-import {getEvents} from "./actions/eventActions"
-import {getSponsors} from "./actions/sponsorAction"
-import {getResources} from "./actions/resourceAction"
-import {getChapters} from "./actions/chapterActions"
+import { BrowserRouter, Route } from 'react-router-dom';
+import { refreshUser } from './actions/registerAction';
+import { getEvents } from "./actions/eventActions"
+import { getSponsors } from "./actions/sponsorAction"
+import { getResources } from "./actions/resourceAction"
+import { getChapters } from "./actions/chapterActions"
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
 import AboutUsPage from "./components/pages/AboutUsPage";
@@ -28,8 +28,8 @@ class App extends Component {
     this.props.simpleAction();
   }
 
-  componentDidMount = async() => {
-    const {refreshUser, getSponsors, getResources, getEvents, getChapters} = this.props
+  componentDidMount = async () => {
+    const { refreshUser, getSponsors, getResources, getEvents, getChapters } = this.props
     const token = sessionStorage.getItem("token")
     if (token) {
       await refreshUser(token)
@@ -79,12 +79,6 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   token: state.auth.token,
-<<<<<<< HEAD
-  user: state.auth.user
-});
-
-export default connect(mapStateToProps, {refreshUser})(App);
-=======
   user: state.auth.user,
   resources: state.resources,
   sponsors: state.sponsors,
@@ -99,4 +93,3 @@ export default connect(mapStateToProps, {
   getEvents,
   getChapters
 })(App);
->>>>>>> 01d4fe1c670c77241ff1b8ffc59d61f260c072c2
