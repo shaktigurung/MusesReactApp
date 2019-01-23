@@ -30,6 +30,7 @@ class EventsPage extends Component {
   pastEvents = ()=>{
       const {events} = this.props;
       let currentDate = new Date();
+      //console.log(events);
       //Past Events
       return events.filter(function(event){
         const eventDate = new Date(event.date);
@@ -61,8 +62,8 @@ class EventsPage extends Component {
                         <CardTitle> Event Name:{event.title} </CardTitle>
                         <CardSubtitle> Location:{event.location} </CardSubtitle>
                         <CardSubtitle> Date:{event.date} </CardSubtitle>
-                        <CardSubtitle> Sponsors:{event.sponsors}</CardSubtitle>
-                        <CardSubtitle> Chapter:{event.chapter}</CardSubtitle>
+                        <CardSubtitle> Sponsors:{event.sponsors.map(sponsor=>sponsor.name)}</CardSubtitle>
+                        <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                         <CardText>Description:{event.description.substr(0,50)} </CardText>
                         <Button color="info" onClick = {()=> this.handleClick(event._id)} > More info</Button>
                       </CardBody>
@@ -82,8 +83,8 @@ class EventsPage extends Component {
                       <CardTitle> Event Name:{event.title} </CardTitle>
                       <CardSubtitle> Location:{event.location} </CardSubtitle>
                       <CardSubtitle> Date:{event.date} </CardSubtitle>
-                      <CardSubtitle> Sponsors:{event.sponsors}</CardSubtitle>
-                      <CardSubtitle> Chapter:{event.chapter}</CardSubtitle>
+                      <CardSubtitle> Sponsors:{event.sponsors.map(sponsor=>sponsor.name)}</CardSubtitle>
+                      <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                       <CardText>Description:{event.description.substr(0,50)} </CardText>
                       <Button color="info" onClick = {()=> this.handleClick(event._id)}> More info</Button>
                     </CardBody>
