@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import LoginPage from "./LoginPage"
 import RegisterPage from './RegisterPage';
+import ProfilePage from './ProfilePage'
+import CreateSponsorPage from './CreateSponsorPage';
 
 
 class AdminPage extends Component {
-  state = {  }
+  state = {}
   render() {
     return (
       <div>
@@ -16,6 +18,11 @@ class AdminPage extends Component {
         <Route exact path="/admin/register" render={(props) => {
           return <RegisterPage {...props} />
         }} />
+        {/* <Route exact path="/admin/profile" render={(props) => {
+          return <ProfilePage {...props} />
+        }} /> */}
+        <Route exact path="/admin/profile" component={ProfilePage} />
+        <Route exact path="/admin/sponsor" component={CreateSponsorPage} />
       </div>
     );
   }
@@ -23,7 +30,8 @@ class AdminPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    token: state.auth.token
+    token: state.auth.token,
+    user: state.auth.user
   }
 }
 

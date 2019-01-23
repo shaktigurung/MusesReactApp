@@ -12,12 +12,14 @@ class RegisterForm extends Component {
   onFormSubmit = (formValues) => {
     const {createUser} = this.props
     let formData = new FormData();
-    formData.append('file', this.state.file[0])
+    if (this.state.file) {
+      formData.append('file', this.state.file[0])
+    }
     for(let key in formValues) {
       formData.append(key, formValues[key])
     }
     createUser(formData)
-    .then(() => this.props.history.push("/"))
+    .then(() => this.props.history.push("/admin/profile"))
 
 
     

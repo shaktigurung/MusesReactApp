@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import simpleAction from "./actions/simpleAction";
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import {refreshUser} from './actions/registerAction';
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
 import AboutUsPage from "./components/pages/AboutUsPage";
@@ -11,6 +12,7 @@ import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
 import SingleEventPage from "./components/pages/SingleEventPage";
 import CreateEventPage from "./components/pages/CreateEventPage";
+import SponsorsPage from "./components/structure/SponsorsPage";
 import './App.css';
 import Header from './components/structure/Header';
 import dotenv from "dotenv"
@@ -21,6 +23,17 @@ class App extends Component {
 
   simpleAction = (event) => {
     this.props.simpleAction();
+  }
+
+
+  componentDidMount = async() => {
+    const {refreshUser} = this.props
+    const token = sessionStorage.getItem("token")
+    if (token) {
+      await refreshUser(token)
+    } else {
+      console.log("error")
+    }
   }
 
   render() {
@@ -40,6 +53,7 @@ class App extends Component {
               <Route exact path="/news" component={NewsPage} />
               <Route exact path="/resources" component={ResourcesPage} />
               <Route exact path="/contact" component={ContactPage} />
+              <Route exact path="/sponsors" component={SponsorsPage} />
               <Route path="/admin" render={(props) => {
                 return <AdminPage {...props} />
               }} />
@@ -62,11 +76,12 @@ class App extends Component {
 
 
 const mapStateToProps = state => ({
-  token: state.auth.token
+  token: state.auth.token,
+  user: state.auth.user
 });
 
 const mapDispatchToProps = dispatch => ({
   simpleAction: () => dispatch(simpleAction())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, {refreshUser})(App);
