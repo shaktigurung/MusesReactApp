@@ -1,6 +1,6 @@
 import LocalApi from "./../apis/local";
 
-export const getChaptersList = () => {
+export const getChapters = () => {
   return async (dispatch) => {
     const response = await LocalApi.get("/chapter");
     dispatch({

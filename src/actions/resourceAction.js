@@ -1,6 +1,6 @@
 import LocalApi from "./../apis/local";
 
-export const getResourcesList = () => {
+export const getResources = () => {
   return async (dispatch) => {
     let response = await LocalApi.get("/resources");
 

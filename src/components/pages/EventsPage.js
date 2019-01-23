@@ -1,10 +1,8 @@
 
 import React, { Component } from 'react';
-import {getEvents} from "./../../actions/eventActions";
 import {connect} from "react-redux";
 import { Container, Row , Col, Button, Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Badge, CardGroup} from 'reactstrap';
-//require('dotenv').config();
 import {withRouter} from "react-router-dom";
 
 class EventsPage extends Component {
@@ -12,10 +10,6 @@ class EventsPage extends Component {
   state={
     events: []
   };
-
-  componentDidMount(){
-    this.props.getEvents();
-  }
 
   handleClick = (id)=>{
     // alert(`HandleClick is clicked, ${id}`);
@@ -110,4 +104,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {getEvents})(withRouter(EventsPage));
+export default connect(mapStateToProps)(withRouter(EventsPage));

@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import { getResourcesList } from "./../../actions/resourceAction";
+import { getResources } from "./../../actions/resourceAction";
 import { connect } from "react-redux";
 
 class ResourceItems extends Component {
-
-  componentDidMount() {
-    this.props.getResourcesList();
-  }
 
   render() {
 
@@ -37,4 +33,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { getResourcesList })(ResourceItems);
+export default connect(mapStateToProps, { getResources })(ResourceItems);
