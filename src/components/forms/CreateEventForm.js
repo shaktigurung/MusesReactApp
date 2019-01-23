@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import {getSponsors} from "./../../actions/sponsorAction";
+import {getChapters} from "./../../actions/chapterActions";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 //import axios from "axios";
@@ -8,28 +9,33 @@ require('dotenv').config();
 
 class CreateEvent extends Component{
 
+  // state = {
+  //   sponsors: [{
+  //     name:"abc",
+  //     _id: 1 
+  //     },
+  //     {
+  //       name:"def",
+  //       _id: 2 
+  //       },
+  //       {
+  //         name:"ghi",
+  //         _id: 3 
+  //         }, ]
+  // }
   state = {
-    sponsors: [{
-      name:"abc",
-      _id: 1 
-      },
-      {
-        name:"def",
-        _id: 2 
-        },
-        {
-          name:"ghi",
-          _id: 3 
-          }, ]
+    sponsors: [],
+    chapter: []
   }
   componentDidMount(){
     this.props.getSponsors();
+    this.props.getChapters();
   }
 
   render(){
   const { handleSubmit } = this.props
-  const {sponsors} = this.state; // later change into props for data from database
-  console.log(sponsors);
+  const {sponsors, chapters} = this.props; // later change into props for data from database
+  console.log(chapters);
   return (
     <form onSubmit={handleSubmit}>
         <div>
@@ -63,8 +69,14 @@ class CreateEvent extends Component{
         </div>
       </div>
       <div>
-        <label htmlFor="eventChapter"> Chapter </label>
-        <Field name="chapter" component="input" type="text" />
+        <label> Select Chapter </label>
+        <div>
+          <Field name="chapter" component="select">
+            {chapters.map((chapter) => 
+            <option key={chapter._id} value={chapter._id}>{chapter.city}</option>
+            )}
+          </Field>
+        </div>
       </div>
       <div>
         <label>Event Type</label>
@@ -81,8 +93,8 @@ class CreateEvent extends Component{
         <div>
           <Field name="approved" component="select">
             <option />
-            <option value="Yes"> Yes </option>
-            <option value="No"> No </option>
+            <option value="true"> Yes </option>
+            <option value="false"> No </option>
           </Field>
         </div>
       </div>
@@ -100,8 +112,9 @@ CreateEvent = reduxForm({
 
 function mapStateToProps(state){
   return{
-    sponsors: state.sponsors
+    sponsors: state.sponsors,
+    chapters: state.chapters
   }
 }
 
-export default connect(mapStateToProps, { getSponsors}) (withRouter(CreateEvent));
+export default connect(mapStateToProps, { getSponsors, getChapters}) (withRouter(CreateEvent));

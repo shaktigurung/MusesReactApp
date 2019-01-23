@@ -79,12 +79,6 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   token: state.auth.token,
-<<<<<<< HEAD
-  user: state.auth.user
-});
-
-export default connect(mapStateToProps, {refreshUser})(App);
-=======
   user: state.auth.user,
   resources: state.resources,
   sponsors: state.sponsors,
@@ -99,4 +93,3 @@ export default connect(mapStateToProps, {
   getEvents,
   getChapters
 })(App);
->>>>>>> 01d4fe1c670c77241ff1b8ffc59d61f260c072c2
