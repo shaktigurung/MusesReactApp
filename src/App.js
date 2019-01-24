@@ -31,12 +31,11 @@ class App extends Component {
   componentDidMount = async() => {
     const {refreshUser, getSponsors, getResources, getEvents, getChapters} = this.props
     const token = sessionStorage.getItem("token")
-    if (token) {
-      await refreshUser(token)
-    } else {
-      console.log("error")
-    }
+    
     try {
+      if (token) {
+        await refreshUser(token)
+      }
       await getSponsors();
       await getResources();
       await getEvents();
@@ -83,7 +82,8 @@ const mapStateToProps = state => ({
   resources: state.resources,
   sponsors: state.sponsors,
   events: state.events,
-  chapters: state.chapters
+  chapters: state.chapters,
+  alert: state.alert
 });
 
 export default connect(mapStateToProps, {
