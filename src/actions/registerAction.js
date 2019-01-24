@@ -46,6 +46,16 @@ export const refreshUser = (token) => {
   }
 }
 
+export const logout = () => {
+  return (dispatch) => {
+    sessionStorage.removeItem("token")
+
+    dispatch({
+      type: "LOGOUT"
+    })
+  }
+}
+
 // export const loginUser = ({name, email}) => {
 //   return
 // }
