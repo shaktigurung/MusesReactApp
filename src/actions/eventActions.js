@@ -11,9 +11,9 @@ export const getEvents = ()=>{
     
 }
 
-export const createEvent = ({image,title, description, date, location, chapter,sponsors, type, approved}, token) =>{
+export const createEvent = (formData, token) =>{
     return async (dispatch , getState)=>{
-        let events = await axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}/events`, {image, title, description, location, date, chapter,sponsors, type, approved}, {
+        let response = await axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}/events`,formData, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -22,8 +22,11 @@ export const createEvent = ({image,title, description, date, location, chapter,s
         dispatch(
             {
                 type: "EVENT_CREATE",
-                payload: events.data
+                payload: response.data
             }
         );
     }
 }
+
+
+//{image, title, description, date, location, chapter,sponsors, type, approved}

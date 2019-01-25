@@ -2,45 +2,63 @@ import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import {getSponsors} from "./../../actions/sponsorAction";
 import {getChapters} from "./../../actions/chapterActions";
+import FileUploadForm from './FileUploadForm';
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
+import {createEvent} from "./../../actions/eventActions";
 //import axios from "axios";
 require('dotenv').config();
 
 class CreateEvent extends Component{
 
-  // state = {
-  //   sponsors: [{
-  //     name:"abc",
-  //     _id: 1 
-  //     },
-  //     {
-  //       name:"def",
-  //       _id: 2 
-  //       },
-  //       {
-  //         name:"ghi",
-  //         _id: 3 
-  //         }, ]
-  // }
   state = {
     sponsors: [],
     chapter: []
+    //file: null
   }
+
   componentDidMount(){
     this.props.getSponsors();
     this.props.getChapters();
   }
+   
+  onFormSubmit = values => {
+
+    let formData = new FormData();
+    //console.log(this.state);
+    if (this.state.file) {
+      formData.append('file', this.state.file[0])
+  
+    }
+    for(let key in values) {
+      formData.append(key, values[key])
+      console.log(key);
+      console.log(values[key]);
+      console.log(formData.get(key));
+    }
+
+    //console.log(values);
+    
+    this.props.createEvent(formData, this.props.token)
+        .then(()=> this.props.history.push("/events"))
+        
+    //console.log(formData.get("title"));
+    //console.log("event created");
+  }
+
+  handleFileUpload = (event) => {
+    this.setState({ file: event.target.files })
+  }
 
   render(){
   const { handleSubmit } = this.props
-  const {sponsors, chapters} = this.props; // later change into props for data from database
-  console.log(chapters);
+  const {sponsors, chapters} = this.props; 
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(this.onFormSubmit)}>
         <div>
         <label htmlFor="eventImage"> Event Image</label>
-        <Field name="image" component="input" type="text" />
+        <Field name="image" component={FileUploadForm} type="file" handleFileUpload={this.handleFileUpload}/>
       </div>
       <div>
         <label htmlFor="eventTitle"> Event title</label>
@@ -113,8 +131,9 @@ CreateEvent = reduxForm({
 function mapStateToProps(state){
   return{
     sponsors: state.sponsors,
-    chapters: state.chapters
+    chapters: state.chapters,
+    token: state.auth.token
   }
 }
 
-export default connect(mapStateToProps, { getSponsors, getChapters}) (withRouter(CreateEvent));
+export default connect(mapStateToProps,{ getSponsors, getChapters, createEvent})(withRouter(CreateEvent));
