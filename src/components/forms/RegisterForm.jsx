@@ -73,7 +73,7 @@ class RegisterForm extends Component {
         <div>
           <Field name="chapter" component="select" >
             {chapters.map(chapter =>
-              <option key={chapter_id} value={chapter._id}>{chapter.city}</option>
+              <option key={chapter._id} value={chapter._id}>{chapter.city}</option>
             )}
           </Field>
         </div>
