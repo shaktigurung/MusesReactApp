@@ -19,6 +19,7 @@ class EventsPage extends Component {
 
   futureEvents = ()=>{
       const {events} = this.props;
+      //console.log(events);
       let currentDate = new Date();
       //Future Events
       return events.filter(function(event){

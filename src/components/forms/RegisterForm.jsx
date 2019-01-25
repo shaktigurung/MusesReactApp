@@ -20,8 +20,6 @@ class RegisterForm extends Component {
     }
     createUser(formData)
     .then(() => this.props.history.push("/admin/profile"))
-
-
     
   }
 
