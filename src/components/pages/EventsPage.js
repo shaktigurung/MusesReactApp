@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { Container, Row , Col, Button, Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Badge, CardGroup} from 'reactstrap';
-import {withRouter} from "react-router-dom";
+import {withRouter, Link} from "react-router-dom";
+import {editEvent} from "./../../actions/eventActions";
+//import EditEventPage from './EditEventPage';
 
 class EventsPage extends Component {
   
@@ -67,6 +69,7 @@ class EventsPage extends Component {
                         <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                         <CardText>Description:{event.description.substr(0,50)} </CardText>
                         <Button color="info" onClick = {()=> this.handleClick(event._id)} > More info</Button>
+                        <Link to="./edit"><Button color="primary"> Edit </Button> </Link>
                       </CardBody>
                     </Card> 
                   </CardGroup>
@@ -99,10 +102,11 @@ class EventsPage extends Component {
   }
 }
 
+
 function mapStateToProps(state){
     return{
       events: state.events
     }
 }
 
-export default connect(mapStateToProps)(withRouter(EventsPage));
+export default connect(mapStateToProps, {editEvent})(withRouter(EventsPage));

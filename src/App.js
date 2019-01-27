@@ -15,6 +15,7 @@ import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
 import SingleEventPage from "./components/pages/SingleEventPage";
 import CreateEventPage from "./components/pages/CreateEventPage";
+import EditEventPage from "./components/pages/EditEventPage";
 import SponsorsPage from "./components/structure/SponsorsPage";
 import './App.css';
 import Header from './components/structure/Header';
@@ -58,6 +59,7 @@ class App extends Component {
               <Route exact path="/aboutus" component={AboutUsPage} />
               <Route exact path="/events" component={EventsPage} />
               <Route exact path="/create" component={CreateEventPage} />
+              <Route exact path="/edit" component={EditEventPage} />
               <Route exact path="/events/:id" component={SingleEventPage} />
               <Route exact path="/news" component={NewsPage} />
               <Route exact path="/resources" component={ResourcesPage} />

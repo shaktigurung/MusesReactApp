@@ -5,10 +5,10 @@ import {getChapters} from "./../../actions/chapterActions";
 import FileUploadForm from './FileUploadForm';
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-import {createEvent} from "./../../actions/eventActions";
+import {editEvent} from "./../../actions/eventActions";
 require('dotenv').config();
 
-class CreateEventForm extends Component{
+class EditEventForm extends Component{
 
   state = {
     sponsors: [],
@@ -18,9 +18,22 @@ class CreateEventForm extends Component{
   componentDidMount(){
     this.props.getSponsors();
     this.props.getChapters();
+    this.handleInitialize();
+  }
+
+  handleInitialize() {
+    //console.log(this.props);
+    const initData = {
+      "title": this.props.title,
+      "location": this.props.location,
+    };
+    this.props.initialize(initData);
+    console.log("done");
+    console.log(initData);
+    
   }
    
-  onFormSubmit = formValues => {
+  onFormSubmit = values => {
 
     let formData = new FormData();
   
@@ -28,11 +41,11 @@ class CreateEventForm extends Component{
       formData.append('file', this.state.file[0])
   
     }
-    for(let key in formValues) {
-      formData.append(key, formValues[key])
+    for(let key in values) {
+      formData.append(key, values[key])
     }
     
-    this.props.createEvent(formData, this.props.token)
+    this.props.EditEvent(formData, this.props.token)
         .then(()=> this.props.history.push("/events"))
         
   }
@@ -113,11 +126,11 @@ class CreateEventForm extends Component{
   )
   }
 }
-const WrappedCreateEventForm = reduxForm({
+EditEventForm = reduxForm({
     // a unique name for the form
-    form: 'create',
+    form: 'edit',
     destroyOnUnmount: false
-})(CreateEventForm)
+})(EditEventForm)
 
 function mapStateToProps(state){
   return{
@@ -127,4 +140,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps,{ getSponsors, getChapters, createEvent})(withRouter(WrappedCreateEventForm));
+export default connect(mapStateToProps,{ getSponsors, getChapters, editEvent})(withRouter(EditEventForm));

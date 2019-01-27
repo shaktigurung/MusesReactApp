@@ -5,7 +5,6 @@ import {withRouter} from "react-router-dom";
 
 class CreateEventPage extends Component {
    
-  
   render() {
     return <CreateEventForm />
   }
@@ -18,4 +17,4 @@ function mapStateToProps(state){
       //token: state.auth.token
     }
 }
-export default  connect(mapStateToProps) (withRouter(CreateEventPage));
+export default connect(mapStateToProps) (withRouter(CreateEventPage));
