@@ -55,21 +55,21 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-            <div>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/aboutus" component={AboutUsPage} />
-              <Route exact path="/events" component={EventsPage} />
-              <Route exact path="/create" component={CreateEventPage} />
-              <Route exact path="/edit" component={EditEventPage} />
-              <Route exact path="/events/:id" component={SingleEventPage} />
-              <Route exact path="/news" component={NewsPage} />
-              <Route exact path="/resources" component={ResourcesPage} />
-              <Route exact path="/contact" component={ContactPage} />
-              <Route exact path="/sponsors" component={SponsorsPage} />
-              <Route path="/admin" render={(props) => {
-                return <AdminPage {...props} />
-              }} />
-            </div>
+              <div>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/aboutus" component={AboutUsPage} />
+                <Route exact path="/events" component={EventsPage} />
+                <Route exact path="/events/create" component={CreateEventPage} />
+                <Route exact path="/events/edit/:id" component={EditEventPage} />
+                <Route exact path="/events/:id" component={SingleEventPage} />
+                <Route exact path="/news" component={NewsPage} />
+                <Route exact path="/resources" component={ResourcesPage} />
+                <Route exact path="/contact" component={ContactPage} />
+                <Route exact path="/sponsors" component={SponsorsPage} />
+                <Route path="/admin" render={(props) => {
+                  return <AdminPage {...props} />
+                }} />
+              </div>
             <Footer/>
           </div>
         </BrowserRouter>

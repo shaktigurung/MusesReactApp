@@ -6,7 +6,8 @@ import EditEventForm from "./../forms/EditEventForm";
 class EditEventPage extends Component {
    
   render() {
-    return <EditEventForm />
+    
+    return <EditEventForm id={this.props.match.params.id}/>
   }
 }
 function mapStateToProps(state){

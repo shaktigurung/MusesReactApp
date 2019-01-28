@@ -27,7 +27,7 @@ export const createEvent = (formData, token) =>{
         );
     }
 }
-
+//Edit Event
 export const editEvent = (formData, token) =>{
     return async (dispatch , getState)=>{
         let response = await axios.put(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/:id`,formData, {
@@ -44,7 +44,7 @@ export const editEvent = (formData, token) =>{
         );
     }
 }
-
+//Delete Event
 export const deleteEvent = (id, token) =>{
     return async (dispatch , getState)=>{
         let response = await axios.delete(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/${id}`, {
@@ -56,7 +56,7 @@ export const deleteEvent = (id, token) =>{
         dispatch(
             {
                 type: "EVENT_DELETE",
-                payload: response.data
+                payload: id
             }
         );
     }

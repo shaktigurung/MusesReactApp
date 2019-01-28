@@ -19,17 +19,16 @@ class EditEventForm extends Component{
     this.props.getSponsors();
     this.props.getChapters();
     this.handleInitialize();
+    console.log(this.props);
   }
 
   handleInitialize() {
     //console.log(this.props);
-    const initData = {
-      "title": this.props.title,
-      "location": this.props.location,
-    };
-    this.props.initialize(initData);
-    console.log("done");
-    console.log(initData);
+    // const initData = {
+    //   "title": this.props.title,
+    //   "location": this.props.location,
+    // };
+    // this.props.initialize(initData);
     
   }
    
@@ -45,7 +44,7 @@ class EditEventForm extends Component{
       formData.append(key, values[key])
     }
     
-    this.props.EditEvent(formData, this.props.token)
+    this.props.editEvent(formData, this.props.token)
         .then(()=> this.props.history.push("/events"))
         
   }
@@ -132,11 +131,13 @@ EditEventForm = reduxForm({
     destroyOnUnmount: false
 })(EditEventForm)
 
-function mapStateToProps(state){
+function mapStateToProps(state, props){
+  console.log(props.id);
   return{
     sponsors: state.sponsors,
     chapters: state.chapters,
     token: state.auth.token
+    //event: props.id
   }
 }
 
