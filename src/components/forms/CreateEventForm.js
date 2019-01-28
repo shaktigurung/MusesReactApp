@@ -1,107 +1,147 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import {getSponsors} from "./../../actions/sponsorAction";
+import {getChapters} from "./../../actions/chapterActions";
+import FileUploadForm from './FileUploadForm';
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-//import axios from "axios";
+import {createEvent} from "./../../actions/eventActions";
+import {
+  Container, Col, Form,
+  FormGroup, Label,
+  Button,
+} from 'reactstrap';
 require('dotenv').config();
 
-class CreateEvent extends Component{
+class CreateEventForm extends Component{
 
   state = {
-    sponsors: [{
-      name:"abc",
-      _id: 1 
-      },
-      {
-        name:"def",
-        _id: 2 
-        },
-        {
-          name:"ghi",
-          _id: 3 
-          }, ]
+    sponsors: [],
+    chapter: []
   }
+
   componentDidMount(){
     this.props.getSponsors();
+    this.props.getChapters();
+  }
+   
+  onFormSubmit = formValues => {
+
+    let formData = new FormData();
+  
+    if (this.state.file) {
+      formData.append('file', this.state.file[0])
+  
+    }
+    for(let key in formValues) {
+      formData.append(key, formValues[key])
+    }
+    
+    this.props.createEvent(formData, this.props.token)
+        .then(()=> this.props.history.push("/events"))
+        
+  }
+
+  handleFileUpload = (event) => {
+    this.setState({ file: event.target.files })
   }
 
   render(){
   const { handleSubmit } = this.props
-  const {sponsors} = this.state; // later change into props for data from database
-  console.log(sponsors);
+  const {sponsors, chapters} = this.props; 
+
   return (
-    <form onSubmit={handleSubmit}>
-        <div>
-        <label htmlFor="eventImage"> Event Image</label>
-        <Field name="image" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="eventTitle"> Event title</label>
-        <Field name="title" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="eventDescription">Description</label>
-        <Field name="description" component="textarea" />
-      </div>
-      <div>
-        <label htmlFor="eventLocation"> Location </label>
-        <Field name="location" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="eventDate"> Date </label>
-        <Field name="date" component="input" type="date" />
-      </div>
-      <div>
-        <label> Select Sponsors </label>
-        <div>
-          <Field multiple name="sponsors" component="select">
-            {sponsors.map((sponsor) => 
-            <option key={sponsor._id} value={sponsor._id}>{sponsor.name}</option>
-            )}
-          </Field>
-        </div>
-      </div>
-      <div>
-        <label htmlFor="eventChapter"> Chapter </label>
-        <Field name="chapter" component="input" type="text" />
-      </div>
-      <div>
-        <label>Event Type</label>
-        <div>
-          <Field name="type" component="select">
-            <option />
-            <option value="Workshop">Workshop</option>
-            <option value="Meetup">Meetup</option>
-          </Field>
-        </div>
-      </div>
-      <div>
-        <label>Approved</label>
-        <div>
-          <Field name="approved" component="select">
-            <option />
-            <option value="Yes"> Yes </option>
-            <option value="No"> No </option>
-          </Field>
-        </div>
-      </div>
-      <br/>
-      <button type="submit">Submit</button>
-    </form>
+    <Container>
+      <Form className="form" onSubmit={handleSubmit(this.onFormSubmit)}>
+        <Col>
+            <FormGroup>
+              <Label htmlFor="eventImage"> Event Image</Label>
+              <Field name="image" component={FileUploadForm} type="file" handleFileUpload={this.handleFileUpload}/>
+            </FormGroup>
+        </Col>
+        <Col>
+          <FormGroup>
+            <Label htmlFor="eventTitle"> Event title </Label>
+            <Field name="title" component="input" type="text" />
+          </FormGroup>
+        </Col>
+        <Col>
+          <FormGroup>
+            <Label htmlFor="eventDescription"> Description </Label>
+            <Field name="description" component="textarea" />
+          </FormGroup>
+        </Col>
+        <Col>
+          <FormGroup>
+            <Label htmlFor="eventLocation"> Location </Label>
+            <Field name="location" component="input" type="text" />
+          </FormGroup>
+        </Col>
+        <Col>
+          <FormGroup>
+            <Label htmlFor="eventDate"> Date </Label>
+            <Field name="date" component="input" type="date" />
+          </FormGroup>
+        </Col>
+        <Col>
+          <Label> Select Sponsors </Label>
+          <FormGroup>
+            <Field multiple name="sponsors" component="select">
+              {sponsors.map((sponsor) => 
+              <option key={sponsor._id} value={sponsor._id}>{sponsor.name}</option>
+              )}
+            </Field>
+          </FormGroup>
+        </Col>
+        <Col>
+          <Label> Select Chapter </Label>
+          <FormGroup>
+            <Field name="chapter" component="select">
+              {chapters.map((chapter) => 
+              <option key={chapter._id} value={chapter._id}>{chapter.city}</option>
+              )}
+            </Field>
+          </FormGroup>
+        </Col>
+        <Col>
+          <Label> Event Type </Label>
+          <FormGroup>
+            <Field name="type" component="select">
+              <option />
+              <option value="Workshop">Workshop</option>
+              <option value="Meetup">Meetup</option>
+            </Field>
+          </FormGroup>
+        </Col>
+        <Col>
+          <Label> Approved </Label>
+          <FormGroup>
+            <Field name="approved" component="select">
+              <option />
+              <option value="true"> Yes </option>
+              <option value="false"> No </option>
+            </Field>
+          </FormGroup>
+        </Col>
+       
+        <Button type="submit"> Submit </Button>
+      </Form>
+    </Container>
   )
   }
 }
-CreateEvent = reduxForm({
+const WrappedCreateEventForm = reduxForm({
     // a unique name for the form
     form: 'create',
     destroyOnUnmount: false
-})(CreateEvent)
+})(CreateEventForm)
 
 function mapStateToProps(state){
   return{
-    sponsors: state.sponsors
+    sponsors: state.sponsors,
+    chapters: state.chapters,
+    token: state.auth.token
   }
 }
 
-export default connect(mapStateToProps, { getSponsors}) (withRouter(CreateEvent));
+export default connect(mapStateToProps,{ getSponsors, getChapters, createEvent})(withRouter(WrappedCreateEventForm));

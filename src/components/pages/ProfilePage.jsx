@@ -9,7 +9,6 @@ class ProfilePage extends Component {
       return (
         <>
           <h1>hey</h1>
-
           <div>
             <h4>{user.name}</h4>
           </div>
@@ -22,7 +21,6 @@ class ProfilePage extends Component {
           <div>
             Avatar: <img src={user.avatar} alt={`${user.name}'s avatar`} />
           </div>
-
         </>
 
       );

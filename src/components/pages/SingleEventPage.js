@@ -36,13 +36,13 @@ class SingleEventPage extends Component{
                     <Col>
                         <CardGroup>
                             <Card>
-                            <CardImg top width="100%" src="https://source.unsplash.com/collection/190727/1600x900" alt="Card image cap" />
+                            <CardImg top width="100%" src={event.image} alt="Card image cap" />
                             <CardBody>
                                 <CardTitle> Event Name:{event.title} </CardTitle>
                                 <CardSubtitle> Location:{event.location} </CardSubtitle>
                                 <CardSubtitle> Date:{event.date} </CardSubtitle>
-                                <CardSubtitle> Sponsors:{event.sponsors}</CardSubtitle>
-                                <CardSubtitle> Chapter:{event.chapter}</CardSubtitle>
+                                <CardSubtitle> Sponsors:{event.sponsors.map(sponsor=>sponsor.name)}</CardSubtitle>
+                                <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                                 <CardText>Description:{event.description} </CardText>  
                             </CardBody>
                             </Card> 

@@ -21,5 +21,43 @@
 }
 
 body {
-  background-color: rgb(242, 242, 242)
+  background-color: white;
 }
+/* Token */
+.token h4{
+  color: #7986E8;
+  /* display: none; */
+}
+
+ /* Footer */
+ .footer-cols{
+  background: #F8F9FA;
+  color:#7986E8;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 2rem;
+  text-align: left;
+  font-size: 14px;
+}
+.footer-cols ul{
+  list-style: none;
+ 
+}
+.footer-cols ul li a{
+  color:#7986E8;
+}
+
+.footer-cols ul li:first-child{
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom:  #7986E8 solid 1px;
+  margin-bottom: 1rem;
+}
+.footer-bottom{
+  background: #E5BC54;
+  padding: 1rem;
+  /* color: #CA4590; */
+  color:#7986E8;
+}
+  

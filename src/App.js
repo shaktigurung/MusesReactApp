@@ -15,9 +15,11 @@ import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
 import SingleEventPage from "./components/pages/SingleEventPage";
 import CreateEventPage from "./components/pages/CreateEventPage";
+import EditEventPage from "./components/pages/EditEventPage";
 import SponsorsPage from "./components/structure/SponsorsPage";
 import './App.css';
 import Header from './components/structure/Header';
+import Footer from './components/structure/Footer';
 import dotenv from "dotenv"
 dotenv.config()
 
@@ -31,12 +33,11 @@ class App extends Component {
   componentDidMount = async () => {
     const { refreshUser, getSponsors, getResources, getEvents, getChapters } = this.props
     const token = sessionStorage.getItem("token")
-    if (token) {
-      await refreshUser(token)
-    } else {
-      console.log("error")
-    }
+    
     try {
+      if (token) {
+        await refreshUser(token)
+      }
       await getSponsors();
       await getResources();
       await getEvents();
@@ -50,7 +51,7 @@ class App extends Component {
     const { token } = this.props
     return (
       <div className="App">
-        {token && <h4>User Logged In</h4>}
+        <div className="token">{token && <h4>User Logged In</h4>}</div>
         <BrowserRouter>
           <div>
             <Header />
@@ -59,6 +60,7 @@ class App extends Component {
               <Route exact path="/aboutus" component={AboutUsPage} />
               <Route exact path="/events" component={EventsPage} />
               <Route exact path="/create" component={CreateEventPage} />
+              <Route exact path="/edit" component={EditEventPage} />
               <Route exact path="/events/:id" component={SingleEventPage} />
               <Route exact path="/news" component={NewsPage} />
               <Route exact path="/resources" component={ResourcesPage} />
@@ -68,6 +70,7 @@ class App extends Component {
                 return <AdminPage {...props} />
               }} />
             </div>
+            <Footer/>
           </div>
         </BrowserRouter>
       </div>
@@ -83,7 +86,8 @@ const mapStateToProps = state => ({
   resources: state.resources,
   sponsors: state.sponsors,
   events: state.events,
-  chapters: state.chapters
+  chapters: state.chapters,
+  alert: state.alert
 });
 
 export default connect(mapStateToProps, {

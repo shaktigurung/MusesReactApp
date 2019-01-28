@@ -20,8 +20,6 @@ class RegisterForm extends Component {
     }
     createUser(formData)
     .then(() => this.props.history.push("/admin/profile"))
-
-
     
   }
 
@@ -47,13 +45,13 @@ class RegisterForm extends Component {
           <label htmlFor="password">Password</label>
         </div>
         <div>
-          <Field name="password" component="input" type="password" onChange={(event) => this.onFormChange('password', event)}/>
+          <Field name="password" component="input" type="password"  onChange={(event) => this.onFormChange('password', event)}/>
         </div>
         <div>
           <label htmlFor="name">Name</label>
         </div>
         <div>
-          <Field name="name" component="input" type="text" onChange={(event) => this.onFormChange('name', event)}/>
+          <Field name="name" component="input" type="text"  onChange={(event) => this.onFormChange('name', event)}/>
         </div>
         <div>
           <label htmlFor="bio">Bio</label>
@@ -73,8 +71,8 @@ class RegisterForm extends Component {
         <div>
           <Field name="chapter" component="select" >
             {chapters.map(chapter =>
-            <option value={chapter._id}>{chapter.city}</option>
-              )}
+              <option key={chapter._id} value={chapter._id}>{chapter.city}</option>
+            )}
           </Field>
         </div>
         <div>

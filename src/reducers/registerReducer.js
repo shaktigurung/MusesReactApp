@@ -26,6 +26,11 @@ export default (state = defaultState, action) => {
         token: action.payload.token,
         user: action.payload.user
       }
+    case "LOGOUT":
+      return {
+        token: null,
+        user: null,
+      }
     default:
       return state
   }
