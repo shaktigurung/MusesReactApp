@@ -6,6 +6,7 @@ import RegisterPage from './RegisterPage';
 import ProfilePage from './ProfilePage'
 import CreateResourcePage from "./CreateResourcePage";
 import CreateSponsorPage from './CreateSponsorPage';
+import EditChapterPage from "./EditChapterPage";
 
 
 
@@ -26,6 +27,7 @@ class AdminPage extends Component {
         <Route exact path="/admin/profile" component={ProfilePage} />
         <Route exact path="/admin/createResource" component={CreateResourcePage} />
         <Route exact path="/admin/sponsor" component={CreateSponsorPage} />
+        <Route exact path="/admin/chapter/edit" component={EditChapterPage} />
       </div>
     );
   }

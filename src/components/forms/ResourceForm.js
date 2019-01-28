@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
 import { createResource } from "./../../actions/resourceAction";
 import { reduxForm, Field } from "redux-form";
 import Input from "./fields/Input";
@@ -10,7 +10,6 @@ class ResourceForm extends Component {
     onResourceFormSubmit = async (formValues) => {
         const { title, description, link } = formValues;
         const { createResource, token } = this.props;
-        console.log(token);
         createResource({ title, description, link }, token)
             .then(() => this.props.history.push("/resources"))
     }

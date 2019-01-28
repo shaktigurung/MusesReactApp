@@ -1,4 +1,4 @@
-const defaultState = {token: sessionStorage.getItem("token") || null}
+const defaultState = { token: sessionStorage.getItem("token") || null };
 
 export default (state = defaultState, action) => {
   switch (action.type) {
