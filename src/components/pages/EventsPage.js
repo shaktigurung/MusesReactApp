@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { Container, Row , Col, Button, Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Badge, CardGroup} from 'reactstrap';
-import {withRouter} from "react-router-dom";
+import {withRouter, Link} from "react-router-dom";
+import {editEvent, deleteEvent} from "./../../actions/eventActions";
+//import EditEventPage from './EditEventPage';
 
 class EventsPage extends Component {
   
@@ -12,9 +14,21 @@ class EventsPage extends Component {
   };
 
   handleClick = (id)=>{
-    // alert(`HandleClick is clicked, ${id}`);
     this.props.history.push(`/events/${id}`);
   
+  }
+  handleClickDelete = (id)=>{ 
+    // const {events} = this.props;
+    // const newEvents = events.filter(event => event._id !== id);
+    // this.setState({newEvents});
+    // this.props.history.push(`/events/`);
+    // console.log(newEvents);
+    //console.log(events);
+
+     let eventId = id;
+     this.props.deleteEvent(eventId, this.props.token)
+        .then(()=> this.props.history.push("/events/"));
+    console.log(eventId);
   }
 
   futureEvents = ()=>{
@@ -67,6 +81,9 @@ class EventsPage extends Component {
                         <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                         <CardText>Description:{event.description.substr(0,50)} </CardText>
                         <Button color="info" onClick = {()=> this.handleClick(event._id)} > More info</Button>
+                        <Link to="./edit"><Button color="primary"> Edit </Button> </Link>
+                        <Button color="info" onClick = {()=> this.handleClickDelete(event._id)} > Delete </Button>
+                       
                       </CardBody>
                     </Card> 
                   </CardGroup>
@@ -99,10 +116,11 @@ class EventsPage extends Component {
   }
 }
 
+
 function mapStateToProps(state){
     return{
       events: state.events
     }
 }
 
-export default connect(mapStateToProps)(withRouter(EventsPage));
+export default connect(mapStateToProps, {editEvent, deleteEvent})(withRouter(EventsPage));

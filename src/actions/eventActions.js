@@ -28,5 +28,39 @@ export const createEvent = (formData, token) =>{
     }
 }
 
+export const editEvent = (formData, token) =>{
+    return async (dispatch , getState)=>{
+        let response = await axios.put(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/:id`,formData, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+    
+        dispatch(
+            {
+                type: "EVENT_EDIT",
+                payload: response.data
+            }
+        );
+    }
+}
 
-//{image, title, description, date, location, chapter,sponsors, type, approved}
+export const deleteEvent = (id, token) =>{
+    return async (dispatch , getState)=>{
+        let response = await axios.delete(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+    
+        dispatch(
+            {
+                type: "EVENT_DELETE",
+                payload: response.data
+            }
+        );
+    }
+    
+}
+
+
