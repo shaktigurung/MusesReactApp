@@ -19,6 +19,7 @@ import EditEventPage from "./components/pages/EditEventPage";
 import SponsorsPage from "./components/structure/SponsorsPage";
 import './App.css';
 import Header from './components/structure/Header';
+import Footer from './components/structure/Footer';
 import dotenv from "dotenv"
 dotenv.config()
 
@@ -50,7 +51,7 @@ class App extends Component {
     const { token } = this.props
     return (
       <div className="App">
-        {token && <h4>User Logged In</h4>}
+        <div className="token">{token && <h4>User Logged In</h4>}</div>
         <BrowserRouter>
           <div>
             <Header />
@@ -69,6 +70,7 @@ class App extends Component {
                 return <AdminPage {...props} />
               }} />
             </div>
+            <Footer/>
           </div>
         </BrowserRouter>
       </div>
