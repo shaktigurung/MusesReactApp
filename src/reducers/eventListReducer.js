@@ -6,6 +6,8 @@ export default (state=[],action)=>{
             return  action.payload;
         case "EVENT_EDIT":
             return  action.payload;
+        case "EVENT_DELETE":
+            return  action.payload;
         default:
             return state;
     }

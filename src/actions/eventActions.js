@@ -45,4 +45,22 @@ export const editEvent = (formData, token) =>{
     }
 }
 
-//{image, title, description, date, location, chapter,sponsors, type, approved}
+export const deleteEvent = (id, token) =>{
+    return async (dispatch , getState)=>{
+        let response = await axios.delete(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+    
+        dispatch(
+            {
+                type: "EVENT_DELETE",
+                payload: response.data
+            }
+        );
+    }
+    
+}
+
+
