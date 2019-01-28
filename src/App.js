@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { BrowserRouter, Route} from 'react-router-dom';
-import {refreshUser} from './actions/registerAction';
-import {getEvents} from "./actions/eventActions"
-import {getSponsors} from "./actions/sponsorAction"
-import {getResources} from "./actions/resourceAction"
-import {getChapters} from "./actions/chapterActions"
+import { BrowserRouter, Route } from 'react-router-dom';
+import { refreshUser } from './actions/registerAction';
+import { getEvents } from "./actions/eventActions"
+import { getSponsors } from "./actions/sponsorAction"
+import { getResources } from "./actions/resourceAction"
+import { getChapters } from "./actions/chapterActions"
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
 import AboutUsPage from "./components/pages/AboutUsPage";
@@ -30,8 +30,8 @@ class App extends Component {
     this.props.simpleAction();
   }
 
-  componentDidMount = async() => {
-    const {refreshUser, getSponsors, getResources, getEvents, getChapters} = this.props
+  componentDidMount = async () => {
+    const { refreshUser, getSponsors, getResources, getEvents, getChapters } = this.props
     const token = sessionStorage.getItem("token")
     
     try {

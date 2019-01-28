@@ -3,7 +3,7 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import { getChapters, selectChapter } from "./../../actions/chapterActions";
 import { connect } from "react-redux";
 
-class ChapterSelector extends Component {
+export class ChapterSelector extends Component {
 
   constructor(props) {
     super(props);
@@ -21,16 +21,16 @@ class ChapterSelector extends Component {
   }
 
   render() {
-    const { chapters, selectChapter, selectedCity } = this.props;
+    const { chapters, onChange, selectedCity } = this.props;
     return (
       <div>
         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret>
-            {selectedCity ? selectedCity.city : "Select your city"}
+            {selectedCity ? selectedCity.city : "Select the city"}
           </DropdownToggle>
           <DropdownMenu>
             {chapters.map(element => (
-              <DropdownItem value={element._id} onClick={() => selectChapter(element._id)}>{element.city}</DropdownItem>
+              <DropdownItem value={element._id} onClick={() => onChange(element)}>{element.city}</DropdownItem>
             ))}
           </DropdownMenu>
         </Dropdown>
@@ -47,4 +47,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getChapters, selectChapter })(ChapterSelector);
+export const ConnectedChapterSelector = connect(mapStateToProps, { getChapters, onChange: selectChapter })(ChapterSelector);

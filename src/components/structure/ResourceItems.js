@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import { getResources } from "./../../actions/resourceAction";
 import { connect } from "react-redux";
 import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 
 class ResourceItems extends Component {
 
   render() {
-
     if (this.props.resources) {
       return (
         <div>
@@ -40,7 +38,7 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { getResources })(ResourceItems);
+export default connect(mapStateToProps)(ResourceItems);
 
 // TO DO:
 // add pagination to resources page
