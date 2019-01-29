@@ -3,7 +3,8 @@ import { Route } from 'react-router-dom'
 import { connect } from "react-redux"
 import LoginPage from "./LoginPage"
 import RegisterPage from './RegisterPage';
-import ProfilePage from './ProfilePage'
+import ProfilePage from './ProfilePage';
+import EditUserPage from "./EditUserPage";
 import CreateResourcePage from "./CreateResourcePage";
 import CreateSponsorPage from './CreateSponsorPage';
 
@@ -14,11 +15,14 @@ class AdminPage extends Component {
   render() {
     return (
       <div>
-        <Route exact path="/admin/login" render={(props) => {
+        <Route exact path="/admin/auth/login" render={(props) => {
           return <LoginPage {...props} />
         }} />
-        <Route exact path="/admin/register" render={(props) => {
+        <Route exact path="/admin/auth/register" render={(props) => {
           return <RegisterPage {...props} />
+        }} />
+        <Route exact path="/admin/auth/edit" render={(props) => {
+          return <EditUserPage {...props} />
         }} />
         {/* <Route exact path="/admin/profile" render={(props) => {
           return <ProfilePage {...props} />

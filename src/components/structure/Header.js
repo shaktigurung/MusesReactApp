@@ -56,6 +56,11 @@ class Header extends Component {
             <NavItem>
               <NavLink tag={Link} to="/contact">Contact Us</NavLink>
             </NavItem>
+            {loggedIn &&
+              <NavItem>
+                <NavLink tag={Link} to="/admin/auth/edit">Edit Profile</NavLink>
+              </NavItem>
+            }
             {loggedIn && <Logout />}
           </Nav>
         </Collapse>
