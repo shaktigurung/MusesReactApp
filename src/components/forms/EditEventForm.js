@@ -10,30 +10,12 @@ require('dotenv').config();
 
 class EditEventForm extends Component{
 
-  state = {
-    sponsors: [],
-    chapter: []
-  }
-
   componentDidMount(){
     this.props.getSponsors();
     this.props.getChapters();
-    this.handleInitialize();
-  }
-
-  handleInitialize() {
-    //console.log(this.props);
-    const initData = {
-      "title": this.props.title,
-      "location": this.props.location,
-    };
-    this.props.initialize(initData);
-    console.log("done");
-    console.log(initData);
-    
   }
    
-  onFormSubmit = values => {
+  onFormSubmit = formValues => {
 
     let formData = new FormData();
   
@@ -41,12 +23,14 @@ class EditEventForm extends Component{
       formData.append('file', this.state.file[0])
   
     }
-    for(let key in values) {
-      formData.append(key, values[key])
+    for(let key in formValues) {
+      formData.append(key, formValues[key])
     }
     
-    this.props.EditEvent(formData, this.props.token)
-        .then(()=> this.props.history.push("/events"))
+    this.props.editEvent(formData, this.props.token, this.props.event._id)
+        .then(()=> this.props.history.push("/events/"))
+
+    console.log("clicked");
         
   }
 
@@ -57,6 +41,7 @@ class EditEventForm extends Component{
   render(){
   const { handleSubmit } = this.props
   const {sponsors, chapters} = this.props; 
+  console.log(this.props);
 
   return (
     <form onSubmit={handleSubmit(this.onFormSubmit)}>
@@ -65,7 +50,7 @@ class EditEventForm extends Component{
         <Field name="image" component={FileUploadForm} type="file" handleFileUpload={this.handleFileUpload}/>
       </div>
       <div>
-        <label htmlFor="eventTitle"> Event title</label>
+        <label htmlFor="title"> Event title</label>
         <Field name="title" component="input" type="text" />
       </div>
       <div>
@@ -129,14 +114,23 @@ class EditEventForm extends Component{
 EditEventForm = reduxForm({
     // a unique name for the form
     form: 'edit',
+    enableReinitialize: true,
     destroyOnUnmount: false
 })(EditEventForm)
 
-function mapStateToProps(state){
+function mapStateToProps(state, props){
+  const {...initialValues} = props.event
+  initialValues.date = initialValues.date && initialValues.date.split("T")[0];
+  initialValues.sponsors = initialValues.sponsors && initialValues.sponsors.map((sponsor)=>{
+    return sponsor._id;
+  });
+  initialValues.chapters = initialValues.chapters && initialValues.chapters.map((chapter)=> chapter.city);
+  //console.log(props.id);
   return{
     sponsors: state.sponsors,
     chapters: state.chapters,
-    token: state.auth.token
+    token: state.auth.token,
+    initialValues
   }
 }
 

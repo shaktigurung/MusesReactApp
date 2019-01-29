@@ -18,22 +18,13 @@ class EventsPage extends Component {
   
   }
   handleClickDelete = (id)=>{ 
-    // const {events} = this.props;
-    // const newEvents = events.filter(event => event._id !== id);
-    // this.setState({newEvents});
-    // this.props.history.push(`/events/`);
-    // console.log(newEvents);
-    //console.log(events);
-
      let eventId = id;
      this.props.deleteEvent(eventId, this.props.token)
         .then(()=> this.props.history.push("/events/"));
-    console.log(eventId);
   }
 
   futureEvents = ()=>{
       const {events} = this.props;
-      //console.log(events);
       let currentDate = new Date();
       //Future Events
       return events.filter(function(event){
@@ -81,8 +72,8 @@ class EventsPage extends Component {
                         <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                         <CardText>Description:{event.description.substr(0,50)} </CardText>
                         <Button color="info" onClick = {()=> this.handleClick(event._id)} > More info</Button>
-                        <Link to="./edit"><Button color="primary"> Edit </Button> </Link>
-                        <Button color="info" onClick = {()=> this.handleClickDelete(event._id)} > Delete </Button>
+                        <Link to={`./events/edit/${event._id}`}> <Button color="primary"> Edit </Button> </Link>
+                        <Button color="danger" onClick = {()=> this.handleClickDelete(event._id)} > Delete </Button>
                        
                       </CardBody>
                     </Card> 
@@ -105,6 +96,8 @@ class EventsPage extends Component {
                       <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                       <CardText>Description:{event.description.substr(0,50)} </CardText>
                       <Button color="info" onClick = {()=> this.handleClick(event._id)}> More info</Button>
+                      <Link to={`./events/edit/${event._id}`}> <Button color="primary"> Edit </Button> </Link>
+                      <Button color="danger" onClick = {()=> this.handleClickDelete(event._id)} > Delete </Button>
                     </CardBody>
                   </Card> 
                   </CardGroup>
@@ -119,7 +112,8 @@ class EventsPage extends Component {
 
 function mapStateToProps(state){
     return{
-      events: state.events
+      events: state.events,
+      token: state.auth.token
     }
 }
 
