@@ -60,8 +60,8 @@ class App extends Component {
                 <Route exact path="/aboutus" component={AboutUsPage} />
                 <Route exact path="/events" component={EventsPage} />
                 <Route exact path="/events/create" component={CreateEventPage} />
-                <Route exact path="/events/edit/:id" component={EditEventPage} />
                 <Route exact path="/events/:id" component={SingleEventPage} />
+                <Route exact path="/events/edit/:id" component={EditEventPage} />
                 <Route exact path="/news" component={NewsPage} />
                 <Route exact path="/resources" component={ResourcesPage} />
                 <Route exact path="/contact" component={ContactPage} />
