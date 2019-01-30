@@ -6,6 +6,8 @@ import { reducer as formReducer } from "redux-form";
 import eventListReducer from './eventListReducer';
 import sponsorReducer from "./sponsorReducer"
 import resourcesReducer from './resourcesReducer';
+import alertReducer from "./alertReducer"
+import newsReducer from './newsReducer';
 
 export default combineReducers({
   auth: registerReducer,
@@ -14,5 +16,7 @@ export default combineReducers({
   form: formReducer,
   events: eventListReducer,
   sponsors: sponsorReducer,
-  resources: resourcesReducer
+  resources: resourcesReducer,
+  alert: alertReducer,
+  news: newsReducer
 });

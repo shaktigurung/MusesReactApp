@@ -2,19 +2,24 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import {Field, reduxForm} from 'redux-form'
 import {postMailingList} from "../../actions/mailingListActions"
+import Alert from "../structure/Alert"
+import {setAlert} from "../../actions/alertActions"
 
 class MailingListForm extends Component {
   
   onFormSubmit = async(formValues) => {
-    const {postMailingList} = this.props
+    const {postMailingList, setAlert} = this.props
 
     await postMailingList(formValues)
+      .then(response => setAlert("Success"))
+      .catch(err => setAlert("Please make sure you fill in all the fields"))
   }
   
   render() {
     const {handleSubmit, chapters} = this.props 
     return (  
       <form onSubmit={handleSubmit(this.onFormSubmit)} >
+        <Alert />
         <div>
           <label htmlFor="email">Email</label>
         </div>
@@ -55,4 +60,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {postMailingList})(wrappedMailingListForm);
+export default connect(mapStateToProps, {
+  postMailingList,
+  setAlert
+})(wrappedMailingListForm);

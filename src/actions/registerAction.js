@@ -21,9 +21,13 @@ export const setAuthToken = (data) => {
   }
 }
 
-export const updateUser = (formData) => {
+export const updateUser = (formData, token) => {
   return async(dispatch, getState) => {
-    let response = await axios.patch(`${process.env.REACT_APP_BACK_END_DOMAIN}/auth/login`, formData)
+    let response = await axios.patch(`${process.env.REACT_APP_BACK_END_DOMAIN}/auth/login`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
 
     dispatch({
       type: "UPDATE_USER",
@@ -42,6 +46,16 @@ export const refreshUser = (token) => {
     dispatch({
       type: "REFRESH_USER",
       payload: response.data
+    })
+  }
+}
+
+export const logout = () => {
+  return (dispatch) => {
+    sessionStorage.removeItem("token")
+
+    dispatch({
+      type: "LOGOUT"
     })
   }
 }

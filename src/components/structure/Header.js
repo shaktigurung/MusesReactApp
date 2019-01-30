@@ -11,6 +11,7 @@ import {
   NavLink
 } from 'reactstrap';
 import "./Header.css";
+import Logout from './Logout'
 
 class Header extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class Header extends Component {
     });
   }
   render() {
+    const loggedIn = sessionStorage.getItem("token")
     return (
 
       <Navbar color="light" light expand="md">
@@ -54,6 +56,12 @@ class Header extends Component {
             <NavItem>
               <NavLink tag={Link} to="/contact">Contact Us</NavLink>
             </NavItem>
+            {loggedIn &&
+              <NavItem>
+                <NavLink tag={Link} to="/admin/auth/edit">Edit Profile</NavLink>
+              </NavItem>
+            }
+            {loggedIn && <Logout />}
           </Nav>
         </Collapse>
       </Navbar>
