@@ -27,7 +27,7 @@ class EditNewsPage extends Component {
   render() {
     const {news} = this.props
     if (news) {
-      const newsItem = news.filter(newsItem => newsItem._id == this.props.match.params.id)
+      const newsItem = news.filter(newsItem => newsItem._id === this.props.match.params.id)
 
       return (  
         <NewsForm 

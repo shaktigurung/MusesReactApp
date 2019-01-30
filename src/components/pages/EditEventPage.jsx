@@ -21,8 +21,6 @@ class EditEventPage extends Component {
       formData.append(key, formValues[key])
     }
 
-    console.log(formValues)
-
     editEvent(formData, token, event[0]._id)
       .then(() => this.props.history.push("/events/"))
   }
@@ -41,11 +39,11 @@ class EditEventPage extends Component {
   }
 }
 function mapStateToProps(state){
-    return{
-      events: state.events,
-      sponsors: state.sponsors,
-      token: state.auth.token
-    }
+  return{
+    events: state.events,
+    sponsors: state.sponsors,
+    token: state.auth.token
+  }
 }
 export default connect(mapStateToProps, {editEvent})(withRouter(EditEventPage));
 

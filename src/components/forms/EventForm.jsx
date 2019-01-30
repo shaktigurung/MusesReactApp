@@ -51,7 +51,7 @@ class EventForm extends Component{
         <Col>
           <Label> Select Sponsors </Label>
           <FormGroup>
-            <Field multiple name="sponsors" component="select">
+            <Field multiple name="sponsors" component="select" type="select-multiple">
               {sponsors.map((sponsor) => 
               <option key={sponsor._id} value={sponsor._id}>{sponsor.name}</option>
               )}
@@ -108,7 +108,7 @@ function mapStateToProps(state, props){
   initialValues.sponsors = initialValues.sponsors && initialValues.sponsors.map((sponsor) => {
     return sponsor._id;
   });
-  initialValues.chapters = initialValues.chapters && initialValues.chapters.map((chapter) => chapter.city);
+  initialValues.chapter = initialValues.chapter && initialValues.chapter._id;
 
   return {
     sponsors: state.sponsors,
