@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-<<<<<<< HEAD
 import { BrowserRouter, Route} from 'react-router-dom';
 import {refreshUser} from './actions/registerAction';
 import {getEvents} from "./actions/eventActions"
@@ -8,14 +7,6 @@ import {getSponsors} from "./actions/sponsorAction"
 import {getResources} from "./actions/resourceAction"
 import {getChapters} from "./actions/chapterActions"
 import {getNews} from "./actions/newsActions"
-=======
-import { BrowserRouter, Route } from 'react-router-dom';
-import { refreshUser } from './actions/registerAction';
-import { getEvents } from "./actions/eventActions"
-import { getSponsors } from "./actions/sponsorAction"
-import { getResources } from "./actions/resourceAction"
-import { getChapters } from "./actions/chapterActions"
->>>>>>> 8adc4906af6d4a0ebec31ed141ec4d40b1f245c1
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
 import AboutUsPage from "./components/pages/AboutUsPage";
@@ -70,9 +61,6 @@ class App extends Component {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/aboutus" component={AboutUsPage} />
                 <Route exact path="/events" component={EventsPage} />
-                <Route exact path="/events/create" component={CreateEventPage} />
-                <Route exact path="/events/:id" component={SingleEventPage} />
-                <Route exact path="/events/edit/:id" component={EditEventPage} />
                 <Route exact path="/news" component={NewsPage} />
                 <Route exact path="/resources" component={ResourcesPage} />
                 <Route exact path="/contact" component={ContactPage} />
