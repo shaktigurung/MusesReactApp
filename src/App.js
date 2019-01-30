@@ -48,10 +48,10 @@ class App extends Component {
   }
 
   render() {
-    const { token } = this.props
+    // const { token } = this.props
     return (
       <div className="App">
-        <div className="token">{token && <h4>User Logged In</h4>}</div>
+        {/* <div className="token">{token && <p>You are logged in </p>}</div> */}
         <BrowserRouter>
           <div>
             <Header />

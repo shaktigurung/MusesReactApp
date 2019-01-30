@@ -122,7 +122,7 @@ function mapStateToProps(state, props){
   const {...initialValues} = props.event
   initialValues.date = initialValues.date && initialValues.date.split("T")[0];
   initialValues.sponsors = initialValues.sponsors && initialValues.sponsors.map((sponsor)=>{
-    return sponsor._id;
+    return sponsor.name;
   });
   initialValues.chapters = initialValues.chapters && initialValues.chapters.map((chapter)=> chapter.city);
   //console.log(props.id);

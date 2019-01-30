@@ -6,6 +6,7 @@ import { Container, Row , Col, Button, Card, CardImg, CardText, CardBody,
 import {withRouter, Link} from "react-router-dom";
 import {editEvent, deleteEvent} from "./../../actions/eventActions";
 //import EditEventPage from './EditEventPage';
+import './../../App.css';
 
 class EventsPage extends Component {
   
@@ -17,27 +18,30 @@ class EventsPage extends Component {
     this.props.history.push(`/events/${id}`);
   
   }
+  //Delete Event
   handleClickDelete = (id)=>{ 
      let eventId = id;
      this.props.deleteEvent(eventId, this.props.token)
         .then(()=> this.props.history.push("/events/"));
   }
 
+   //Future Events
   futureEvents = ()=>{
       const {events} = this.props;
       let currentDate = new Date();
-      //Future Events
+     
       return events.filter(function(event){
       const eventDate = new Date(event.date);
       return eventDate > currentDate ;
       });
   }
 
+  //Past Events
   pastEvents = ()=>{
       const {events} = this.props;
       let currentDate = new Date();
       //console.log(events);
-      //Past Events
+      
       return events.filter(function(event){
         const eventDate = new Date(event.date);
         return eventDate < currentDate ;
@@ -55,8 +59,8 @@ class EventsPage extends Component {
     }
     return (
         <Container style = {eventLeft}>
-            <h1 style = {mainCenter}> Events <Badge color="secondary">Page</Badge></h1>
-            <Row><h2 style = {mainCenter}> Upcoming  <Badge color="primary">Events</Badge></h2></Row>
+            <h1 style = {mainCenter}> Events <Badge className="muses-primary">Page</Badge></h1>
+            <Row><h2 style = {mainCenter}> Upcoming  <Badge className="muses-secondary" >Events</Badge></h2></Row>
             <Row>
                 
                 {this.futureEvents().map(event => 
@@ -71,9 +75,9 @@ class EventsPage extends Component {
                         <CardSubtitle> Sponsors:{event.sponsors.map(sponsor=>sponsor.name)}</CardSubtitle>
                         <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                         <CardText>Description:{event.description.substr(0,50)} </CardText>
-                        <Button color="info" onClick = {()=> this.handleClick(event._id)} > More info</Button>
-                        <Link to={`./events/edit/${event._id}`}> <Button color="primary"> Edit </Button> </Link>
-                        <Button color="danger" onClick = {()=> this.handleClickDelete(event._id)} > Delete </Button>
+                        <Button className="muses-primary" onClick = {()=> this.handleClick(event._id)} > More info</Button>
+                        <Link to={`./events/edit/${event._id}`}> <Button className="muses-secondary"> Edit </Button> </Link>
+                        <Button className="muses-tertiary" onClick = {()=> this.handleClickDelete(event._id)} > Delete </Button>
                        
                       </CardBody>
                     </Card> 
@@ -81,7 +85,7 @@ class EventsPage extends Component {
                 </Col>
                 )}
             </Row>
-            <Row> <h2 style = {mainCenter} className="mt-3"> Past  <Badge color="danger">Events</Badge></h2></Row>
+            <Row> <h2 style = {mainCenter} className="mt-3"> Past  <Badge className="muses-tertiary">Events</Badge></h2></Row>
             <Row>
                 {this.pastEvents().map(event => 
                 <Col xs="4" className="mt-3" key={event._id}>
@@ -95,9 +99,9 @@ class EventsPage extends Component {
                       <CardSubtitle> Sponsors:{event.sponsors.map(sponsor=>sponsor.name)}</CardSubtitle>
                       <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                       <CardText>Description:{event.description.substr(0,50)} </CardText>
-                      <Button color="info" onClick = {()=> this.handleClick(event._id)}> More info</Button>
-                      <Link to={`./events/edit/${event._id}`}> <Button color="primary"> Edit </Button> </Link>
-                      <Button color="danger" onClick = {()=> this.handleClickDelete(event._id)} > Delete </Button>
+                      <Button className="muses-primary" onClick = {()=> this.handleClick(event._id)}> More info</Button>
+                      <Link to={`./events/edit/${event._id}`}> <Button className="muses-secondary"> Edit </Button> </Link>
+                      <Button className="muses-tertiary" onClick = {()=> this.handleClickDelete(event._id)} > Delete </Button>
                     </CardBody>
                   </Card> 
                   </CardGroup>
