@@ -24,19 +24,28 @@ class EditNewsPage extends Component {
     this.setState({ file: event.target.files })
   }
 
-  render() { 
-    return (  
-      <NewsForm 
-        onFormSubmit={this.onFormSubmit} 
-        handleFileUpload={this.handleFileUpload}
-      />
-    );
+  render() {
+    const {news} = this.props
+    if (news) {
+      const newsItem = news.filter(newsItem => newsItem._id === this.props.match.params.id)
+
+      return (  
+        <NewsForm 
+          onFormSubmit={this.onFormSubmit} 
+          handleFileUpload={this.handleFileUpload}
+          newsItem={newsItem[0]}
+        />
+      );
+    } else {
+      return null
+    }
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    token: state.auth.token
+    token: state.auth.token,
+    news: state.news
   }
 }
 

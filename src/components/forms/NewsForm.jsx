@@ -53,8 +53,8 @@ const wrappedNewsForm = reduxForm({
   enableReinitialize: true
 })(NewsForm)
 
-const mapStateToProps = (state) => {
-  const {...initialValues} = state.news
+const mapStateToProps = (state, props) => {
+  const {...initialValues} = props.newsItem
   return {
     initialValues
   }

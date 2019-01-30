@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux"
+import {Link} from "react-router-dom"
+import {Button} from "reactstrap"
 
 class NewsPage extends Component {
   
   render() {
     const {news} = this.props
-    const scriptTag = /<script[\s\S]*?>[\s\S]*?<\/script>/
+    // const scriptTag = /<script[\s\S]*?>[\s\S]*?<\/script>/
     if (news){
     return (
       <div>
@@ -22,6 +24,7 @@ class NewsPage extends Component {
                 {/* } */}
               <div>
                 Created at: {newsItem.date_created}
+                <Link to={`/admin/news/edit/${newsItem._id}`}> <Button color="primary"> Edit </Button> </Link>
               </div>
             </div>
           )}

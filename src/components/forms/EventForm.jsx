@@ -1,62 +1,27 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
-import {getSponsors} from "./../../actions/sponsorAction";
-import {getChapters} from "./../../actions/chapterActions";
-import FileUploadForm from './FileUploadForm';
+import FileUploadForm from './fields/FileUploadForm';
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-import {createEvent} from "./../../actions/eventActions";
 import {
   Container, Col, Form,
   FormGroup, Label,
   Button,
 } from 'reactstrap';
-require('dotenv').config();
 
-class CreateEventForm extends Component{
-
-  state = {
-    sponsors: [],
-    chapter: []
-  }
-
-  componentDidMount(){
-    this.props.getSponsors();
-    this.props.getChapters();
-  }
-   
-  onFormSubmit = formValues => {
-
-    let formData = new FormData();
-  
-    if (this.state.file) {
-      formData.append('file', this.state.file[0])
-  
-    }
-    for(let key in formValues) {
-      formData.append(key, formValues[key])
-    }
-    
-    this.props.createEvent(formData, this.props.token)
-        .then(()=> this.props.history.push("/events"))
-        
-  }
-
-  handleFileUpload = (event) => {
-    this.setState({ file: event.target.files })
-  }
+class EventForm extends Component{
 
   render(){
-  const { handleSubmit } = this.props
+  const { handleSubmit, onFormSubmit, handleFileUpload } = this.props
   const {sponsors, chapters} = this.props; 
 
   return (
     <Container>
-      <Form className="form" onSubmit={handleSubmit(this.onFormSubmit)}>
+      <Form className="form" onSubmit={handleSubmit(onFormSubmit)}>
         <Col>
             <FormGroup>
               <Label htmlFor="eventImage"> Event Image</Label>
-              <Field name="image" component={FileUploadForm} type="file" handleFileUpload={this.handleFileUpload}/>
+              <Field name="image" component={FileUploadForm} type="file" handleFileUpload={handleFileUpload}/>
             </FormGroup>
         </Col>
         <Col>
@@ -86,7 +51,7 @@ class CreateEventForm extends Component{
         <Col>
           <Label> Select Sponsors </Label>
           <FormGroup>
-            <Field multiple name="sponsors" component="select">
+            <Field multiple name="sponsors" component="select" type="select-multiple">
               {sponsors.map((sponsor) => 
               <option key={sponsor._id} value={sponsor._id}>{sponsor.name}</option>
               )}
@@ -123,25 +88,34 @@ class CreateEventForm extends Component{
             </Field>
           </FormGroup>
         </Col>
-       
         <Button type="submit"> Submit </Button>
       </Form>
     </Container>
   )
   }
 }
-const WrappedCreateEventForm = reduxForm({
+const wrappedEventForm = reduxForm({
     // a unique name for the form
-    form: 'create',
+    form: 'event',
+    enableReinitialize: true,
     destroyOnUnmount: false
-})(CreateEventForm)
+})(EventForm)
 
-function mapStateToProps(state){
-  return{
+function mapStateToProps(state, props){
+  const { ...initialValues } = props.event
+  
+  initialValues.date = initialValues.date && initialValues.date.split("T")[0];
+  initialValues.sponsors = initialValues.sponsors && initialValues.sponsors.map((sponsor) => {
+    return sponsor._id;
+  });
+  initialValues.chapter = initialValues.chapter && initialValues.chapter._id;
+
+  return {
     sponsors: state.sponsors,
     chapters: state.chapters,
-    token: state.auth.token
+    token: state.auth.token,
+    initialValues
   }
 }
 
-export default connect(mapStateToProps,{ getSponsors, getChapters, createEvent})(withRouter(WrappedCreateEventForm));
+export default connect(mapStateToProps)(withRouter(wrappedEventForm));
