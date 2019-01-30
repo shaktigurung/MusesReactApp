@@ -11,9 +11,9 @@ export const getChapters = () => {
   }
 }
 
-export const selectChapter = (chapterId) => {
+export const selectChapter = (chapter) => {
   return {
     type: "SELECTED_CHAPTER",
-    chapterId: chapterId
+    chapterId: chapter._id
   }
 }

@@ -1,34 +1,33 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 class ProfilePage extends Component {
-  state = { }
+  state = {}
   render() {
-    const {user} = this.props
+    const { user } = this.props
     if (user) {
-    return (
+      return (
         <>
-        <h1>hey</h1>
+          <h1>hey</h1>
+          <div>
+            <h4>{user.name}</h4>
+          </div>
+          <div>
+            Bio: {user.bio}
+          </div>
+          <div>
+            Website: {user.website}
+          </div>
+          <div>
+            Avatar: <img src={user.image} alt={`${user.name}'s avatar`} />
+          </div>
+        </>
 
-        <div>  
-          <h4>{user.name}</h4>
-        </div>
-        <div>  
-          Bio: {user.bio}
-        </div>
-        <div>  
-          Website: {user.website}
-        </div>
-        <div>  
-          Avatar: <img src={user.image} alt={`${user.name}'s avatar`} />
-        </div>
-
-      </>
-
-    );
-  } else {
-    return <h1>Loading</h1>
-  }}
+      );
+    } else {
+      return <h1>Loading</h1>
+    }
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -37,4 +36,4 @@ const mapStateToProps = (state) => {
   }
 }
 
- export default connect(mapStateToProps)(ProfilePage);
+export default connect(mapStateToProps)(ProfilePage);

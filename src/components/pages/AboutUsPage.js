@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron, Container } from "reactstrap";
-import ChapterSelector from '../structure/ChapterSelector';
-import ChapterMembers from '../structure/ChapterMembers';
+import { ConnectedChapterSelector } from '../structure/ChapterSelector';
+import ChapterOrganisers from '../structure/ChapterOrganisers';
 
 class AboutUsPage extends Component {
   render() {
@@ -16,9 +16,9 @@ class AboutUsPage extends Component {
           </Container>
         </Jumbotron>
 
-        <ChapterSelector /><br />
+        <ConnectedChapterSelector /><br />
 
-        <ChapterMembers />
+        <ChapterOrganisers />
 
       </div>
 

@@ -11,9 +11,9 @@ export const getEvents = ()=>{
     
 }
 
-export const createEvent = ({image,title, description, date, location, chapter,sponsors, type, approved}, token) =>{
+export const createEvent = (formData, token) =>{
     return async (dispatch , getState)=>{
-        let events = await axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}/events`, {image, title, description, location, date, chapter,sponsors, type, approved}, {
+        let response = await axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}/events`,formData, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -22,8 +22,48 @@ export const createEvent = ({image,title, description, date, location, chapter,s
         dispatch(
             {
                 type: "EVENT_CREATE",
-                payload: events.data
+                payload: response.data
             }
         );
     }
 }
+//Edit Event
+export const editEvent = (formData, token, id) =>{
+    return async (dispatch , getState)=>{
+        for(var value of formData.values()){
+            console.log(value);
+        }
+        let response = await axios.put(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/${id}`,formData, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+    
+        dispatch(
+            {
+                type: "EVENT_EDIT",
+                payload: response.data
+            }
+        );
+    }
+}
+//Delete Event
+export const deleteEvent = (id, token) =>{
+    return async (dispatch , getState)=>{
+         await axios.delete(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+    
+        dispatch(
+            {
+                type: "EVENT_DELETE",
+                payload: id
+            }
+        );
+    }
+    
+}
+
+

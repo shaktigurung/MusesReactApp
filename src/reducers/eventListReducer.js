@@ -3,7 +3,11 @@ export default (state=[],action)=>{
         case "EVENT_LIST":
             return action.payload;
         case "EVENT_CREATE":
-            return [...state, action.payload];
+            return  action.payload;
+        case "EVENT_EDIT":
+            return  action.payload;
+        case "EVENT_DELETE":
+            return  state.filter(event => event._id !== action.payload) ;
         default:
             return state;
     }
