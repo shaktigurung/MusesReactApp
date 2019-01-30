@@ -28,7 +28,11 @@ class EditUserPage extends Component {
 
   render() {
     return (
-      <UserForm onFormSubmit={this.onFormSubmit} handleFileUpload={this.handleFileUpload} formType="Update"/>
+      <UserForm 
+        onFormSubmit={this.onFormSubmit} 
+        handleFileUpload={this.handleFileUpload} 
+        formType="Update"
+      />
     );
   }
 }

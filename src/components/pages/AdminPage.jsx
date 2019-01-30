@@ -7,6 +7,8 @@ import ProfilePage from './ProfilePage';
 import EditUserPage from "./EditUserPage";
 import CreateResourcePage from "./CreateResourcePage";
 import CreateSponsorPage from './CreateSponsorPage';
+import CreateNewsPage from './CreateNewsPage';
+import EditNewsPage from "./EditNewsPage"
 
 
 
@@ -30,6 +32,8 @@ class AdminPage extends Component {
         <Route exact path="/admin/profile" component={ProfilePage} />
         <Route exact path="/admin/createResource" component={CreateResourcePage} />
         <Route exact path="/admin/sponsor" component={CreateSponsorPage} />
+        <Route exact path="/admin/news/create" component={CreateNewsPage} />
+        <Route exact path="/admin/news/edit" component={EditNewsPage} />
       </div>
     );
   }
