@@ -27,10 +27,10 @@ class HomePage extends Component {
           </Container>
           <Jumbotron fluid>
             <Container fluid>
-              <h1 className="display-4">Hello, world!</h1>
+              <h1 className="display-4">Hello, EveryOne!</h1>
               <p className="lead" style={{ color: "#7985F0" }}>Muses run free JavaScript and Node.js workshops for women, non-binary and trans folk around Australia.We are a community of people who learn together.</p>
               <Link to="/aboutus">
-                <Button outline color="info" size="lg">See more</Button>
+                <Button outline className="muses-secondary" size="lg">See more</Button>
               </Link>
             </Container>
           </Jumbotron>

@@ -7,7 +7,7 @@ export default (state=[],action)=>{
         case "EVENT_EDIT":
             return  action.payload;
         case "EVENT_DELETE":
-            return  action.payload;
+            return  state.filter(event => event._id !== action.payload) ;
         default:
             return state;
     }

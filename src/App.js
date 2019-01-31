@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { BrowserRouter, Route } from 'react-router-dom';
 import { refreshUser } from './actions/registerAction';
-import { getEvents } from "./actions/eventActions"
-import { getSponsors } from "./actions/sponsorAction"
-import { getResources } from "./actions/resourceAction"
-import { getChapters } from "./actions/chapterActions"
+import { getEvents } from "./actions/eventActions";
+import { getSponsors } from "./actions/sponsorAction";
+import { getResources } from "./actions/resourceAction";
+import { getChapters } from "./actions/chapterActions";
+import { getNews } from "./actions/newsActions";
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
 import AboutUsPage from "./components/pages/AboutUsPage";
+// import CreateEventPage from "./components/pages/CreateEventPage";
 import EventsPage from "./components/pages/EventsPage";
+import SingleEventPage from "./components/pages/SingleEventPage";
 import NewsPage from "./components/pages/NewsPage";
 import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
-import SingleEventPage from "./components/pages/SingleEventPage";
-import CreateEventPage from "./components/pages/CreateEventPage";
-import EditEventPage from "./components/pages/EditEventPage";
 import SponsorsPage from "./components/structure/SponsorsPage";
 import UnauthorizedPage from './components/pages/UnauthorizedPage';
 import ErrorPage from './components/pages/ErrorPage';
@@ -32,49 +32,52 @@ class App extends Component {
     this.props.simpleAction();
   }
 
-  componentDidMount = async () => {
-    const { refreshUser, getSponsors, getResources, getEvents, getChapters } = this.props
-    const token = sessionStorage.getItem("token")
-
+  componentDidMount = async() => {
+    const {refreshUser, getSponsors, getResources, getEvents, getChapters, getNews} = this.props;
+    const token = sessionStorage.getItem("token");
+    
     try {
       if (token) {
-        await refreshUser(token)
+        await refreshUser(token);
       }
       await getSponsors();
       await getResources();
       await getEvents();
       await getChapters();
+      await getNews();
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
   render() {
-    const { token } = this.props
+
+    // const { token } = this.props
+
     return (
       <div className="App">
-        <div className="token">{token && <h4>User Logged In</h4>}</div>
+        {/* <div className="token">{token && <p>You are logged in </p>}</div> */}
         <BrowserRouter>
           <div>
             <Header />
-            <div>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/aboutus" component={AboutUsPage} />
-              <Route exact path="/events" component={EventsPage} />
-              <Route exact path="/create" component={CreateEventPage} />
-              <Route exact path="/edit" component={EditEventPage} />
-              <Route exact path="/events/:id" component={SingleEventPage} />
-              <Route exact path="/news" component={NewsPage} />
-              <Route exact path="/resources" component={ResourcesPage} />
-              <Route exact path="/contact" component={ContactPage} />
-              <Route exact path="/sponsors" component={SponsorsPage} />
-              <Route exact path="/unauthorized" component={UnauthorizedPage} />
-              <Route exact path="/error" component={ErrorPage} />
-              <Route path="/admin" render={(props) => {
-                return <AdminPage {...props} />
-              }} />
-            </div>
-            <Footer />
+              <div>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/aboutus" component={AboutUsPage} />
+                <Route exact path="/events" component={EventsPage} />
+                {/* <Route exact path="/events/create" component={CreateEventPage} /> */}
+                <Route exact path="/events/:id" component={SingleEventPage} />
+                <Route exact path="/news" component={NewsPage} />
+                <Route exact path="/resources" component={ResourcesPage} />
+                <Route exact path="/contact" component={ContactPage} />
+                <Route exact path="/sponsors" component={SponsorsPage} />
+                <Route exact path="/unauthorized" component={UnauthorizedPage} />
+                <Route exact path="/error" component={ErrorPage} />
+                <Route path="/admin" render={(props) => {
+                  return <AdminPage {...props} />
+                }} />
+              </div>
+            <Footer/>
+
           </div>
         </BrowserRouter>
       </div>
@@ -99,5 +102,6 @@ export default connect(mapStateToProps, {
   getSponsors,
   getResources,
   getEvents,
-  getChapters
+  getChapters,
+  getNews
 })(App);

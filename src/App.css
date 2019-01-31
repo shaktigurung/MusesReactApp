@@ -1,3 +1,18 @@
+/*==================================================
+ *  APP CSS
+ * ===============================================*/
+
+/*==================================================
+ *  Font used
+ * ===============================================*/
+
+/* font-family: 'Libre Baskerville', serif;
+font-family: 'EB Garamond', serif; */
+
+
+/*==================================================
+ *  General
+ * ===============================================*/
 .App {
   text-align: center; 
 }
@@ -21,15 +36,99 @@
 }
 
 body {
-  background-color: white;
-}
-/* Token */
-.token h4{
-  color: #7986E8;
-  /* display: none; */
+  font-family: 'Libre Baskerville', serif;
 }
 
- /* Footer */
+
+/*==================================================
+ *  Navigation
+ * ===============================================*/
+.muses-primary-text {
+  color:#7986E8;
+}
+.muses-secondary-text {
+  color:#E5BC54;
+}
+.muses-tertiary-text {
+  color:#7986E8;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color:#DE148C;
+}
+/*==================================================
+ *  logo
+ * ===============================================*/
+.logo{
+  border: 2px solid #7986E8;
+  background: white;
+  width: 50%;
+  height: 50%;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+       -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
+}
+/*==================================================
+ * Shadow Effect for logo
+ * ===============================================*/
+ .effect
+ {
+     position:relative;
+     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+             box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+ }
+ .effect:before, .effect:after
+ {
+     content:"";
+     position:absolute;
+     z-index:-1;
+     -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+     -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+     box-shadow:0 0 20px rgba(0,0,0,0.8);
+     top:0;
+     bottom:0;
+     left:10px;
+     right:10px;
+     -moz-border-radius:100px / 10px;
+     border-radius:100px / 10px;
+ }
+ .effect:after
+ {
+     right:10px;
+     left:auto;
+     -webkit-transform:skew(8deg) rotate(3deg);
+        -moz-transform:skew(8deg) rotate(3deg);
+         -ms-transform:skew(8deg) rotate(3deg);
+          -o-transform:skew(8deg) rotate(3deg);
+             transform:skew(8deg) rotate(3deg);
+ }
+/*==================================================
+ *  Token
+ * ===============================================*/
+.token p{
+  color: #7986E8;
+  font-family: 'EB Garamond', serif;
+ 
+}
+
+
+/*==================================================
+ *  Button
+ * ===============================================*/
+ .muses-primary {
+  background:#7986E8;
+}
+.muses-secondary {
+  background:#E5BC54;
+}
+.muses-tertiary {
+  background:#DE148C;
+}
+
+ /*==================================================
+ * Footer
+ * ===============================================*/
  .footer-cols{
   background: #F8F9FA;
   color:#7986E8;
@@ -58,6 +157,11 @@ body {
   background: #E5BC54;
   padding: 1rem;
   /* color: #CA4590; */
-  color:#7986E8;
+  color:#DE148C;
 }
+
+
+/*==================================================
+ * CSS Ends
+ * ===============================================*/
   

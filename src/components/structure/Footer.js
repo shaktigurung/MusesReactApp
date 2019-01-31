@@ -15,77 +15,77 @@ class Footer extends Component {
                     <ul>
                         <li> Workshops </li>
                         <li>
-                        <a href="">Music</a>
+                             Music
                         </li>
                         <li>
-                        <a href="">Movies</a>
+                            Movies
                         </li>
                         <li>
-                        <a href="">Shows</a>
+                             Shows
                         </li>
                         <li>
-                        <a href="">Apps</a>
+                             Apps
                         </li>
                         <li>
-                        <a href="">Gift-Cards</a>
+                            Gift-Cards
                         </li>
                     </ul>
                     <ul>
                         <li>Resources</li>
                         <li>
-                        <a href="">Find a Store</a>
+                            Find a Store
                         </li>
                         <li>
-                        <a href="">Today at Muses</a>
+                            Today at Muses
                         </li>
                         <li>
-                        <a href="">Muses Camp</a>
+                            Muses Camp
                         </li>
                         <li>
-                        <a href="">Financing</a>
+                            Financing
                         </li>
                         <li>
-                        <a href="">Order Status</a>
+                            Order Status
                         </li>
                     </ul>
                     <ul>
                         <li> Our Team </li>
                         <li>
-                        <a href="">Muses & Education</a>
+                            Muses & Education
                         </li>
                         <li>
-                        <a href="">Shop For College</a>
+                            Shop For College
                         </li>
                         <li>
-                        <a href="">Muses campaign</a>
+                            Muses campaign
                         </li>
                         <li>
-                        <a href="">Muses offers </a>
+                            Muses offers 
                         </li>
                         <li>
-                        <a href=""> Jobs </a>
+                             Jobs 
                         </li>
                     </ul>
                     <ul>
                         <li> Chapters </li>
                         <li>
-                        <a href="">Newsroom</a>
+                            Newsroom
                         </li>
                         <li>
-                        <a href="">Muses Leadership</a>
+                            Muses Leadership
                         </li>
                         <li>
-                        <a href="">Investors</a>
+                            Investors
                         </li>
                         <li>
-                        <a href="">Events</a>
+                            Events
                         </li>
                         <li>
-                        <a href="">Contact Muses</a>
+                            Contact Muses
                         </li>
                     </ul>   
                 </div>
-                <div className ="footer-bottom text-center">Copyright &copy; 2019 Muses</div>
+                <div className ="footer-bottom text-center">Copyright &copy; 2019 Muses Code JS</div>
             </div>
     );
   }
