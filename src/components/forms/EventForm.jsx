@@ -19,11 +19,12 @@ import {
 class EventForm extends Component{
   state = { modal: false}
 
-  handleFormSubmit = (formValues) => {
+  handleFormSubmit = async(formValues) => {
     const {onFormSubmit, eventItem} = this.props
     console.log(eventItem)
     // console.log(formValues)
-    onFormSubmit(formValues, eventItem)
+    await onFormSubmit(formValues, eventItem)
+    this.toggle()
   }
 
   toggle = () => {
@@ -31,8 +32,8 @@ class EventForm extends Component{
   }
 
   render(){
-  const { handleSubmit, onFormSubmit, handleFileUpload } = this.props
-  const {sponsors, chapters, eventItem} = this.props; 
+  const { handleSubmit, handleFileUpload } = this.props
+  const {sponsors, chapters} = this.props; 
 
   return (
     <>
