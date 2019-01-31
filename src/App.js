@@ -17,6 +17,8 @@ import NewsPage from "./components/pages/NewsPage";
 import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
 import SponsorsPage from "./components/structure/SponsorsPage";
+import UnauthorizedPage from './components/pages/UnauthorizedPage';
+import ErrorPage from './components/pages/ErrorPage';
 import './App.css';
 import Header from './components/structure/Header';
 import Footer from './components/structure/Footer';
@@ -68,11 +70,14 @@ class App extends Component {
                 <Route exact path="/resources" component={ResourcesPage} />
                 <Route exact path="/contact" component={ContactPage} />
                 <Route exact path="/sponsors" component={SponsorsPage} />
+                <Route exact path="/unauthorized" component={UnauthorizedPage} />
+                <Route exact path="/error" component={ErrorPage} />
                 <Route path="/admin" render={(props) => {
                   return <AdminPage {...props} />
                 }} />
               </div>
             <Footer/>
+
           </div>
         </BrowserRouter>
       </div>

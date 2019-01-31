@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getUsers } from "./../../actions/userAction";
+import { updateOrganisers } from "./../../actions/chapterActions";
 import { Typeahead } from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { Container, Row, Col, Button } from "reactstrap";
@@ -15,12 +16,24 @@ class OrganisersForm extends Component {
     };
   }
 
+  addOrganisers = () => {
+    const { chapter, selectedUsers } = this.state;
+    const { updateOrganisers, token } = this.props;
+    updateOrganisers({ city: chapter.city, organisers: selectedUsers }, chapter._id, token)
+      .then(() => {
+        this.setState({
+          selectedUsers: [],
+        });
+      });
+  }
+
   render() {
     const { chapters, getUsers, token } = this.props;
     const { chapter, selectedUsers } = this.state;
 
     return (
       <div>
+        <h1>Organisers</h1>
         <Container>
           <Row>
             <Col sm="12" md={{ size: 6, offset: 3 }}>
@@ -44,15 +57,10 @@ class OrganisersForm extends Component {
                       options={this.props.users}
                       placeholder="Choose an user..."
                     /> <br />
-                    <Button outline color="info">Add to organisers</Button> <br /> <br />
-                    <h4>Organisers</h4>
-                    <p>
-                      {/* {organisers} */}
-                    </p>
+                    <Button outline color="info" onClick={this.addOrganisers} >Add to organisers</Button>
                   </>
                 )
               }
-
             </Col>
           </Row>
         </Container>
@@ -65,9 +73,9 @@ const mapStateToProps = (state) => {
   return {
     users: state.users,
     token: state.auth.token,
-    selectedChapter: state.selectedChapter,
+    selectedChapter: state.selectedChapter, // do I need this ?
     chapters: state.chapters,
   };
 }
 
-export default connect(mapStateToProps, { getUsers })(OrganisersForm);
+export default connect(mapStateToProps, { getUsers, updateOrganisers })(OrganisersForm);

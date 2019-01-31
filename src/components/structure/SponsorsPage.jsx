@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {connect} from "react-redux";
-import {getSponsors} from '../../actions/sponsorAction'
+import { connect } from "react-redux";
+import { getSponsors } from '../../actions/sponsorAction';
+import { Container, Row, Col, Card, CardText, CardBody, CardLink, CardTitle } from "reactstrap";
 
 class SponsorsPage extends Component {
 
@@ -13,25 +14,27 @@ class SponsorsPage extends Component {
   //   getSponsors()
   // }
   render() {
-    if (this.props.sponsors) { 
+    if (this.props.sponsors) {
       return (
         <div>
-          {this.props.sponsors.map(sponsor => 
-            <>  
-              <div>
-                {sponsor.name}
-              </div>
-              <div>
-                {sponsor.description}
-              </div>
-              <div>
-                {sponsor.website}
-              </div>
-              <div>
-                <img src={sponsor.logo} alt=""/>
-              </div>
-            </>
-          )}
+          <Container fluid>
+            <Row>
+              <Col sm="12" md={{ size: 6, offset: 3 }}>
+                {this.props.sponsors.map(sponsor =>
+                  <Card>
+                    <CardBody>
+                      <CardTitle>{sponsor.name}</CardTitle>
+                    </CardBody>
+                    <img width="100%" src={sponsor.logo} alt="Sponsor logo" />
+                    <CardBody>
+                      <CardText>{sponsor.description}</CardText>
+                      <CardLink href={sponsor.website}>Website</CardLink>
+                    </CardBody>
+                  </Card>
+                )}
+              </Col>
+            </Row>
+          </Container>
         </div>
       )
     } else {
@@ -46,4 +49,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {getSponsors})(SponsorsPage);
+export default connect(mapStateToProps, { getSponsors })(SponsorsPage);

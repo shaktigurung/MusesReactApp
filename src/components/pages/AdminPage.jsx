@@ -33,9 +33,7 @@ class AdminPage extends Component {
         }} /> */}
         
         <Route exact path="/admin/profile" component={ProfilePage} />
-
-        <Route exact path="/admin/createResource" component={CreateResourcePage} />
-
+        <Route exact path="/admin/resources/create" component={CreateResourcePage} />
         <Route exact path="/admin/sponsor" component={CreateSponsorPage} />
 
         <Route exact path="/admin/news/create" component={CreateNewsPage} />
