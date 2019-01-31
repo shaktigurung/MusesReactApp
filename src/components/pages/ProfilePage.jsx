@@ -40,13 +40,13 @@ class ProfilePage extends Component {
                   <Row><h4>Please select the following options</h4></Row>
                   <Row>
                       <Col xs="4">
-                          <Link to="/admin/events/create"> <Button className="muses-secondary" style={{margin: "20px"}}> New Event</Button></Link>
+                          <Link to="/admin/events/create"> <Button className="muses-secondary" style={{margin: "20px"}}> Event</Button></Link>
                       </Col>
                       <Col xs="4">
-                          <Link to="/admin/news/create"> <Button className="muses-secondary" style={{marginTop: "20px"}}> New News</Button></Link>
+                          <Link to="/admin/news/create"> <Button className="muses-secondary" style={{marginTop: "20px"}}> News</Button></Link>
                       </Col>
                       <Col xs="4">
-                          <Link to="/admin/post/create"> <Button className="muses-secondary" style={{marginTop: "20px"}}>  New Post</Button></Link>
+                          <Link to="/admin/post/create"> <Button className="muses-secondary" style={{marginTop: "20px"}}>  Post</Button></Link>
                       </Col>
                   </Row>
                   <Row>
@@ -57,7 +57,7 @@ class ProfilePage extends Component {
                           <Link to="/admin/sponsor"> <Button className="muses-secondary" style={{marginTop: "20px"}}> Sponsors </Button></Link>
                       </Col>
                       <Col xs="4">
-                          <Link to="/admin/createResource"><Button className="muses-secondary" style={{marginTop: "20px"}}> New Resources</Button></Link>
+                          <Link to="/admin/resources/create"><Button className="muses-secondary" style={{marginTop: "20px"}}> Resources</Button></Link>
                       </Col>
                   </Row>
                   <Row></Row>

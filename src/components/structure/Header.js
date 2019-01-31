@@ -53,7 +53,7 @@ class Header extends Component {
     const loggedIn = sessionStorage.getItem("token");
     return (
 
-      <Navbar className="muses-secondary" light expand="md">
+      <Navbar color="light" light expand="md">
         <NavbarBrand > <img src={logoImage} alt="logo" className="logo effect" /></NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
