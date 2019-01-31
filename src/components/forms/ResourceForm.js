@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { createResource } from "./../../actions/resourceAction";
 import { reduxForm, Field } from "redux-form";
 import Input from "./fields/Input";
+import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 class ResourceForm extends Component {
@@ -17,35 +18,41 @@ class ResourceForm extends Component {
     render() {
         const { handleSubmit } = this.props;
         return (
-            <form onSubmit={handleSubmit(this.onResourceFormSubmit)}>
-                <p>
-                    <label htmlFor="title">Title</label>
-                    <Field
-                        type="text"
-                        name="title"
-                        component={Input}
-                    />
-                </p>
-                <p>
-                    <label htmlFor="description">Description</label>
-                    <Field
-                        type="text"
-                        name="description"
-                        component={Input}
-                    />
-                </p>
-                <p>
-                    <label htmlFor="link">Link</label>
-                    <Field
-                        type="text"
-                        name="link"
-                        component={Input}
-                    />
-                </p>
-                <p>
-                    <input type="submit" value="Create New Resource" />
-                </p>
-            </form>
+            <div>
+                <ModalHeader toggle={this.toggle}>Create a new resource</ModalHeader>
+                <form onSubmit={handleSubmit(this.onResourceFormSubmit)}>
+                    <ModalBody>
+                        <p>
+                            <label htmlFor="title">Title</label>
+                            <Field
+                                type="text"
+                                name="title"
+                                component={Input}
+                            />
+                        </p>
+                        <p>
+                            <label htmlFor="description">Description</label>
+                            <Field
+                                type="text"
+                                name="description"
+                                component={Input}
+                            />
+                        </p>
+                        <p>
+                            <label htmlFor="link">Link</label>
+                            <Field
+                                type="text"
+                                name="link"
+                                component={Input}
+                            />
+                        </p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="info" type="submit">Create</Button>
+                        <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                    </ModalFooter>
+                </form>
+            </div>
         );
     }
 }
@@ -78,6 +85,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {
-    createResource
-})(withRouter(WrappedResourceForm));
+export default connect(mapStateToProps, { createResource })(withRouter(WrappedResourceForm));

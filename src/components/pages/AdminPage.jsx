@@ -25,7 +25,7 @@ class AdminPage extends Component {
           return <ProfilePage {...props} />
         }} /> */}
         <Route exact path="/admin/profile" component={ProfilePage} />
-        <Route exact path="/admin/createResource" component={CreateResourcePage} />
+        <Route exact path="/admin/resources/create" component={CreateResourcePage} />
         <Route exact path="/admin/sponsor" component={CreateSponsorPage} />
         <Route exact path="/admin/chapter/edit" component={EditChapterPage} />
       </div>

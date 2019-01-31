@@ -17,6 +17,8 @@ import SingleEventPage from "./components/pages/SingleEventPage";
 import CreateEventPage from "./components/pages/CreateEventPage";
 import EditEventPage from "./components/pages/EditEventPage";
 import SponsorsPage from "./components/structure/SponsorsPage";
+import UnauthorizedPage from './components/pages/UnauthorizedPage';
+import ErrorPage from './components/pages/ErrorPage';
 import './App.css';
 import Header from './components/structure/Header';
 import Footer from './components/structure/Footer';
@@ -33,7 +35,7 @@ class App extends Component {
   componentDidMount = async () => {
     const { refreshUser, getSponsors, getResources, getEvents, getChapters } = this.props
     const token = sessionStorage.getItem("token")
-    
+
     try {
       if (token) {
         await refreshUser(token)
@@ -66,11 +68,13 @@ class App extends Component {
               <Route exact path="/resources" component={ResourcesPage} />
               <Route exact path="/contact" component={ContactPage} />
               <Route exact path="/sponsors" component={SponsorsPage} />
+              <Route exact path="/unauthorized" component={UnauthorizedPage} />
+              <Route exact path="/error" component={ErrorPage} />
               <Route path="/admin" render={(props) => {
                 return <AdminPage {...props} />
               }} />
             </div>
-            <Footer/>
+            <Footer />
           </div>
         </BrowserRouter>
       </div>
