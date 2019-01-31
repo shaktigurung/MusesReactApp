@@ -13,7 +13,7 @@ export const getNews = (formData) => {
 
 export const createNews = (formData, token) => {
   return async(dispatch) => {
-    let response = await axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}/news`, formData, {
+    let response = await axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}/news/`, formData, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -26,9 +26,9 @@ export const createNews = (formData, token) => {
   }
 }
 
-export const updateNews = (formData, token) => {
+export const updateNews = (formData, id, token) => {
   return async (dispatch) => {
-    let response = await axios.patch(`${process.env.REACT_APP_BACK_END_DOMAIN}/news`, formData, {
+    let response = await axios.patch(`${process.env.REACT_APP_BACK_END_DOMAIN}/news/${id}`, formData, {
       headers: {
         Authorization: `Bearer ${token}`
       }
