@@ -13,8 +13,6 @@ import CreateSponsorPage from './CreateSponsorPage';
 import CreateNewsPage from './CreateNewsPage';
 import EditNewsPage from "./EditNewsPage"
 
-
-
 class AdminPage extends Component {
   state = {}
   render() {
@@ -32,6 +30,7 @@ class AdminPage extends Component {
         {/* <Route exact path="/admin/profile" render={(props) => {
           return <ProfilePage {...props} />
         }} /> */}
+        
         <Route exact path="/admin/profile" component={ProfilePage} />
 
         <Route exact path="/admin/createResource" component={CreateResourcePage} />

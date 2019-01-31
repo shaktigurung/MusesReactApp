@@ -5,6 +5,7 @@ import { editEvent } from "./../../actions/eventActions";
 import EventForm from "./../forms/EventForm";
 
 class EditEventPage extends Component {
+  
   state = { file: null }
 
   onFormSubmit = formValues => {
@@ -36,6 +37,7 @@ class EditEventPage extends Component {
       handleFileUpload={this.handleFileUpload} 
       event={event[0]}
     />
+
   }
 }
 function mapStateToProps(state){
