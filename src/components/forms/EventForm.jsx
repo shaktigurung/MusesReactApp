@@ -36,7 +36,7 @@ class EventForm extends Component{
 
   return (
     <>
-      <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+      <Button className="muses-secondary" onClick={this.toggle}>{this.props.buttonLabel}</Button>
       <Modal 
         isOpen={this.state.modal} 
         toggle={this.toggle} 
