@@ -50,7 +50,7 @@ class Header extends Component {
   }
 
   render() {
-    const loggedIn = sessionStorage.getItem("token")
+    const loggedIn = sessionStorage.getItem("token");
     return (
 
       <Navbar className="muses-secondary" light expand="md">
@@ -80,17 +80,7 @@ class Header extends Component {
               <NavLink tag={Link} to="/contact">Contact Us</NavLink>
             </NavItem>
             <div className="token">
-               {loggedIn &&
-              <NavItem>
-                {/* <NavLink tag={Link} to="/admin/auth/edit">Edit Profile</NavLink> */}
-                <UserForm 
-                  buttonLabel="Edit Profile"
-                  onFormSubmit={this.onFormSubmit}
-                  handleFileUpload={this.handleFileUpload}
-                  formType="Update"
-                />
-              </NavItem>
-               }
+              {loggedIn && <Link to="/admin/profile" className="muses-primary-text"><i class="fas fa-user-circle"></i>Profile</Link>}
               {loggedIn && <p>You are logged in </p>}
               {loggedIn && <Logout />}
             </div>
