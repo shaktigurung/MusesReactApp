@@ -35,7 +35,7 @@ class UserForm extends Component {
           <Modal 
             isOpen={this.state.modal} 
             toggle={this.toggle} 
-            // className={this.props.className}
+            className={this.props.className}
           >
             <ModalHeader toggle={this.toggle}>User Information</ModalHeader>
             <form onSubmit={handleSubmit(onFormSubmit)}>

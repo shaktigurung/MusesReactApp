@@ -40,7 +40,7 @@ class EventForm extends Component{
       <Modal 
         isOpen={this.state.modal} 
         toggle={this.toggle} 
-        // className={this.props.className}
+        className={this.props.className}
       >
         <ModalHeader toggle={this.toggle}>Event</ModalHeader>
         <Container>
@@ -129,7 +129,6 @@ class EventForm extends Component{
 }
 const wrappedEventForm = reduxForm({
     // a unique name for the form
-    form: 'event',
     enableReinitialize: true,
     destroyOnUnmount: false
 })(EventForm)
@@ -147,7 +146,8 @@ function mapStateToProps(state, props){
     sponsors: state.sponsors,
     chapters: state.chapters,
     token: state.auth.token,
-    initialValues
+    initialValues,
+    form: props.eventItem._id
   }
 }
 

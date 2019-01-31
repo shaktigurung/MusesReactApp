@@ -105,6 +105,7 @@ class EventsPage extends Component {
                             handleFileUpload={this.handleFileUpload}
                             eventItem={eventItem}
                             buttonLabel="Edit"
+                            className={eventItem._id}
                           />
                         <Button color="danger" onClick = {()=> this.handleClickDelete(eventItem._id)} > Delete </Button>
                       </CardBody>
@@ -135,6 +136,7 @@ class EventsPage extends Component {
                             handleFileUpload={this.handleFileUpload}
                             eventItem={eventItem}
                             buttonLabel="Edit"
+                            className={eventItem._id}
                           />
                       <Button color="danger" onClick = {()=> this.handleClickDelete(eventItem._id)} > Delete </Button>
                     </CardBody>
