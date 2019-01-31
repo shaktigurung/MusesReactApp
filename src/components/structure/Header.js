@@ -57,6 +57,11 @@ class Header extends Component {
               <NavLink tag={Link} to="/contact">Contact Us</NavLink>
             </NavItem>
             <div className="token">
+               {loggedIn &&
+              <NavItem>
+                <NavLink tag={Link} to="/admin/auth/edit">Edit Profile</NavLink>
+              </NavItem>
+               }
               {loggedIn && <p>You are logged in </p>}
               {loggedIn && <Logout />}
             </div>

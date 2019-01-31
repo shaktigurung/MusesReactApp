@@ -30,10 +30,8 @@ export const createEvent = (formData, token) =>{
 //Edit Event
 export const editEvent = (formData, token, id) =>{
     return async (dispatch , getState)=>{
-        for(var value of formData.values()){
-            console.log(value);
-        }
-        let response = await axios.put(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/${id}`,formData, {
+
+        let response = await axios.put(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/${id}`, formData, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

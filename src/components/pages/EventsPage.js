@@ -76,8 +76,9 @@ class EventsPage extends Component {
                         <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                         <CardText>Description:{event.description.substr(0,50)} </CardText>
                         <Button className="muses-primary" onClick = {()=> this.handleClick(event._id)} > More info</Button>
-                        <Link to={`./events/edit/${event._id}`}> <Button className="muses-secondary"> Edit </Button> </Link>
+                        <Link to={`./admin/events/edit/${event._id}`}> <Button className="muses-secondary"> Edit </Button> </Link>
                         <Button className="muses-tertiary" onClick = {()=> this.handleClickDelete(event._id)} > Delete </Button>
+
                        
                       </CardBody>
                     </Card> 
@@ -100,7 +101,7 @@ class EventsPage extends Component {
                       <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                       <CardText>Description:{event.description.substr(0,50)} </CardText>
                       <Button className="muses-primary" onClick = {()=> this.handleClick(event._id)}> More info</Button>
-                      <Link to={`./events/edit/${event._id}`}> <Button className="muses-secondary"> Edit </Button> </Link>
+                      <Link to={`./admin/events/edit/${event._id}`}> <Button className="muses-secondary"> Edit </Button> </Link>
                       <Button className="muses-tertiary" onClick = {()=> this.handleClickDelete(event._id)} > Delete </Button>
                     </CardBody>
                   </Card> 

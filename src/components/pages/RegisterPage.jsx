@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
-import RegisterForm from "../forms/RegisterForm"
+import UserForm from "../forms/UserForm";
+import {connect} from "react-redux";
+import {withRouter} from "react-router-dom";
+import {createUser} from "../../actions/registerAction"
+
+
 
 class RegisterPage extends Component {
-  state = {  }
-  
+  state = { file: null }
+
+  onFormSubmit = (formValues) => {
+    const { createUser } = this.props
+    let formData = new FormData();
+    if (this.state.file) {
+      formData.append('file', this.state.file[0])
+    }
+    for (let key in formValues) {
+      formData.append(key, formValues[key])
+    }
+    createUser(formData)
+      .then(() => this.props.history.push("/admin/profile"))
+  }
+
+  handleFileUpload = (event) => {
+    this.setState({ file: event.target.files })
+  }
+
   render() { 
     return (
-      <RegisterForm />
+      <UserForm onFormSubmit={this.onFormSubmit} handleFileUpload={this.handleFileUpload} formType="Register"/>
     );
   }
 }
 
-export default RegisterPage;
+export default connect(null, { createUser })(withRouter(RegisterPage))
