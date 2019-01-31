@@ -16,11 +16,10 @@ class MailingListForm extends Component {
   state = { modal: false }
 
   onFormSubmit = async(formValues) => {
-    const {postMailingList, setAlert} = this.props
+    const {postMailingList} = this.props
 
     await postMailingList(formValues)
-      .then(response => setAlert("Success"))
-      .catch(err => setAlert("Please make sure you fill in all the fields"))
+    this.toggle()
   } 
   
   toggle = () => {
