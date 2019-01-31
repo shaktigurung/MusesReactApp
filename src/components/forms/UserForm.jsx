@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import {Field, reduxForm} from "redux-form"
 import {connect} from "react-redux"
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter
+} from "reactstrap"
 import {createUser} from "../../actions/registerAction"
 import FileUploadForm from './fields/FileUploadForm';
 import { withRouter } from "react-router-dom";
@@ -8,9 +15,14 @@ import {renderField, email, required} from "../../services/formValidation"
 
 
 class UserForm extends Component {
+  state = {modal: false}
 
   onFormChange(name, event) {
     this.setState({ [name]: event.target.value })
+  }
+
+  toggle = () => {
+    this.setState({modal: !this.state.modal})
   }
 
   render() {
