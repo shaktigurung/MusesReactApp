@@ -11,7 +11,8 @@ import EditUserPage from "./EditUserPage";
 import CreateResourcePage from "./CreateResourcePage";
 import CreateSponsorPage from './CreateSponsorPage';
 import CreateNewsPage from './CreateNewsPage';
-import EditNewsPage from "./EditNewsPage"
+import EditNewsPage from "./EditNewsPage";
+import EditChapterPage from "./EditChapterPage";
 
 class AdminPage extends Component {
   state = {}
@@ -43,6 +44,9 @@ class AdminPage extends Component {
         <Route exact path="/admin/events/create" component={CreateEventPage} />
         <Route exact path="/admin/events/:id" component={SingleEventPage} />
         <Route exact path="/admin/events/edit/:id" component={EditEventPage} />
+        
+        <Route exact path="/admin/chapter" component={EditChapterPage} />
+
       </div>
     );
   }

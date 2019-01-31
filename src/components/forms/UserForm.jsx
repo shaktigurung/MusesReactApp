@@ -83,15 +83,15 @@ class UserForm extends Component {
             </Field>
           </div>
           <div>
-            <label htmlFor="avatar">Avatar</label>
+            <label htmlFor="image">Image</label>
           </div>
           <div>
             {user &&
-            <img src={user["avatar"]} alt={`${user["name"]}'s avatar`}/>}
+            <img src={user["image"]} alt={`${user["name"]}`}/>}
           </div>
           <div>
             <Field 
-              name="avatar" 
+              name="image" 
               component={FileUploadForm} 
               type="file" 
               handleFileUpload={handleFileUpload}/>

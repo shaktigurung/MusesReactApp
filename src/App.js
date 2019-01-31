@@ -10,6 +10,7 @@ import { getNews } from "./actions/newsActions";
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
 import AboutUsPage from "./components/pages/AboutUsPage";
+// import CreateEventPage from "./components/pages/CreateEventPage";
 import EventsPage from "./components/pages/EventsPage";
 import SingleEventPage from "./components/pages/SingleEventPage";
 import NewsPage from "./components/pages/NewsPage";
@@ -61,6 +62,7 @@ class App extends Component {
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/aboutus" component={AboutUsPage} />
                 <Route exact path="/events" component={EventsPage} />
+                {/* <Route exact path="/events/create" component={CreateEventPage} /> */}
                 <Route exact path="/events/:id" component={SingleEventPage} />
                 <Route exact path="/news" component={NewsPage} />
                 <Route exact path="/resources" component={ResourcesPage} />

@@ -3,7 +3,7 @@ import EventForm from '../forms/EventForm';
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 
-class CreateEventPage extends Component {
+export class CreateEventPage extends Component {
   state = { file: null }
 
   onFormSubmit = formValues => {
