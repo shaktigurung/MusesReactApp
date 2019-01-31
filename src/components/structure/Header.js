@@ -11,7 +11,7 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
-import "./Header.css";
+import "./../../App.css";
 import Logout from './Logout'
 import UserForm from "../forms/UserForm";
 import {updateUser} from "../../actions/registerAction"
@@ -53,11 +53,11 @@ class Header extends Component {
     const loggedIn = sessionStorage.getItem("token")
     return (
 
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/"> <img src={logoImage} alt="logo" style={{ width: "50%", height: "50%" }} /></NavbarBrand>
+      <Navbar className="muses-secondary" light expand="md">
+        <NavbarBrand > <img src={logoImage} alt="logo" className="logo effect" /></NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav className="ml-auto" navbar>
+          <Nav className="ml-auto " navbar>
             <NavItem>
               <NavLink tag={Link} to="/">Home</NavLink>
             </NavItem>
@@ -79,7 +79,8 @@ class Header extends Component {
             <NavItem>
               <NavLink tag={Link} to="/contact">Contact Us</NavLink>
             </NavItem>
-            {loggedIn &&
+            <div className="token">
+               {loggedIn &&
               <NavItem>
                 {/* <NavLink tag={Link} to="/admin/auth/edit">Edit Profile</NavLink> */}
                 <UserForm 
@@ -89,8 +90,10 @@ class Header extends Component {
                   formType="Update"
                 />
               </NavItem>
-            }
-            {loggedIn && <Logout />}
+               }
+              {loggedIn && <p>You are logged in </p>}
+              {loggedIn && <Logout />}
+            </div>
           </Nav>
         </Collapse>
       </Navbar>
