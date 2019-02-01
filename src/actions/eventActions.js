@@ -18,7 +18,10 @@ export const createEvent = (formData, token) =>{
                 Authorization: `Bearer ${token}`
             }
         });
-    
+        // if (response.status !== 200) {
+
+        // }
+        
         dispatch(
             {
                 type: "EVENT_CREATE",
@@ -48,7 +51,7 @@ export const editEvent = (formData, token, id) =>{
 //Delete Event
 export const deleteEvent = (id, token) =>{
     return async (dispatch , getState)=>{
-         await axios.delete(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/${id}`, {
+        await axios.delete(`${process.env.REACT_APP_BACK_END_DOMAIN}/events/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

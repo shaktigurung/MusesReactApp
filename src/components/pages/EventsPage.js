@@ -46,8 +46,8 @@ class EventsPage extends Component {
   }
   //Delete Event
   handleClickDelete = (id)=>{ 
-     let eventId = id;
-     this.props.deleteEvent(eventId, this.props.token)
+    let eventId = id;
+    this.props.deleteEvent(eventId, this.props.token)
         .then(()=> this.props.history.push("/events/"));
   }
 
@@ -83,6 +83,8 @@ class EventsPage extends Component {
     const mainCenter ={
       textAlign: "center"
     }
+
+    const {user} = this.props
     return (
         <Container style = {eventLeft}>
             <h1 style = {mainCenter}> Events <Badge className="muses-primary">Page</Badge></h1>
@@ -103,15 +105,16 @@ class EventsPage extends Component {
                         <CardText>Description:{eventItem.description.substr(0,50)} </CardText>
                         <Button className="muses-primary" onClick = {()=> this.handleClick(eventItem._id)} > More info</Button>
                         {/* <Link to={`/admin/events/edit/${eventItem._id}`}> <Button color="primary"> Edit </Button> </Link> */}
-                          <EventForm
+                          {user && <EventForm
                             key={eventItem._id}
                             onFormSubmit={this.onFormSubmit}
                             handleFileUpload={this.handleFileUpload}
                             eventItem={eventItem}
                             buttonLabel="Edit"
                             className={eventItem._id}
-                          />
-                        <Button className="muses-tertiary" onClick = {()=> this.handleClickDelete(eventItem._id)} > Delete </Button>
+                          />}
+                        {user &&
+                          <Button className="muses-tertiary" onClick = {()=> this.handleClickDelete(eventItem._id)} > Delete </Button>}
                       </CardBody>
                     </Card> 
                   </CardGroup>
@@ -134,15 +137,17 @@ class EventsPage extends Component {
                       <CardText>Description:{eventItem.description.substr(0,50)} </CardText>
                       <Button className="muses-primary" onClick = {()=> this.handleClick(eventItem._id)}> More info</Button>
                       {/* <Link to={`/admin/eventItems/edit/${eventItem._id}`}> <Button color="primary"> Edit </Button> </Link> */}
-                          <EventForm
-                            key={eventItem._id}
-                            onFormSubmit={this.onFormSubmit}
-                            handleFileUpload={this.handleFileUpload}
-                            eventItem={eventItem}
-                            buttonLabel="Edit"
-                            className={eventItem._id}
-                          />
-                      <Button className="muses-tertiary" onClick = {()=> this.handleClickDelete(eventItem._id)} > Delete </Button>
+                      {user &&
+                        <EventForm
+                          key={eventItem._id}
+                          onFormSubmit={this.onFormSubmit}
+                          handleFileUpload={this.handleFileUpload}
+                          eventItem={eventItem}
+                          buttonLabel="Edit"
+                          className={eventItem._id}
+                        />}
+                      {user &&
+                        <Button className="muses-tertiary" onClick = {()=> this.handleClickDelete(eventItem._id)} > Delete </Button>}
                     </CardBody>
                   </Card> 
                   </CardGroup>
@@ -158,7 +163,8 @@ class EventsPage extends Component {
 function mapStateToProps(state){
     return{
       events: state.events,
-      token: state.auth.token
+      token: state.auth.token,
+      user: state.auth.user
     }
 }
 

@@ -40,3 +40,18 @@ export const updateNews = (formData, id, token) => {
     })
   }
 }
+
+export const deleteNews = (id, token) => {
+  return async (dispatch) => {
+    let response = await axios.delete(`${process.env.REACT_APP_BACK_END_DOMAIN}/news/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+
+    dispatch({
+      type: "DELETE_NEWS",
+      payload: response.data
+    })
+  }
+}

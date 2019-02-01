@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
-import FileUploadForm from './fields/FileUploadForm';
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {
@@ -15,6 +14,8 @@ import {
   ModalBody, 
   ModalFooter
 } from 'reactstrap';
+import FileUploadForm from './fields/FileUploadForm';
+import QuillEditor from "./fields/QuillEditor"
 
 class EventForm extends Component{
   state = { modal: false}
@@ -37,7 +38,7 @@ class EventForm extends Component{
 
   return (
     <>
-      <Button className="muses-secondary" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+      <Button className="muses-secondary" style={{margin: "20px"}} onClick={this.toggle}>{this.props.buttonLabel}</Button>
       <Modal 
         isOpen={this.state.modal} 
         toggle={this.toggle} 
@@ -62,7 +63,7 @@ class EventForm extends Component{
               <Col>
                 <FormGroup>
                   <Label htmlFor="eventDescription"> Description </Label>
-                  <Field name="description" component="textarea" />
+                  <Field name="description" component={QuillEditor} />
                 </FormGroup>
               </Col>
               <Col>
@@ -148,7 +149,7 @@ function mapStateToProps(state, props){
     chapters: state.chapters,
     token: state.auth.token,
     initialValues,
-    form: props.eventItem._id
+    form: (props.eventItem && props.eventItem._id) || "event"
   }
 }
 

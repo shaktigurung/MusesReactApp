@@ -6,6 +6,8 @@ export default (state = null, action) => {
       return action.payload 
     case "UPDATE_NEWS":
       return action.payload
+    case "DELETE_NEWS":
+      return action.payload
     default:
       return state
   }
