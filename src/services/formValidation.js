@@ -33,16 +33,15 @@ const renderField = ({
   input,
   label,
   type,
-  initialValue,
   meta: { touched, error, warning }
 }) => (
     <div>
       <label>{label}</label>
       <div>
-        <input {...input} placeholder={initialValue} type={type} autoComplete="off"/>
+        <input {...input} type={type} autoComplete="off"/>
         {touched &&
-          ((error && <span>{error}</span>) ||
-            (warning && <span>{warning}</span>))}
+          ((error && <span className="red"><i class="fas fa-exclamation-circle"></i>{error}</span>) ||
+          (warning && <span><i class="fas fa-exclamation-circle"></i>{warning}</span>))}
       </div>
     </div>
   )

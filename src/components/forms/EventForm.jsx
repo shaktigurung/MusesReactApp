@@ -79,6 +79,16 @@ class EventForm extends Component{
                 </FormGroup>
               </Col>
               <Col>
+                <FormGroup>
+                  <Label htmlFor="start_time"> Start Time </Label>
+                  <Field name="start_time" component="input" type="time" />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="end_time"> End Time </Label>
+                  <Field name="end_time" component="input" type="time" />
+                </FormGroup>
+              </Col>
+              <Col>
                 <Label> Select Sponsors </Label>
                 <FormGroup>
                   <Field multiple name="sponsors" component="select" type="select-multiple">
