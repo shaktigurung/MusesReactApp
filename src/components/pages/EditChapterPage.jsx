@@ -29,10 +29,12 @@ class EditChapterPage extends Component {
         <div>
           <h1>Chapters</h1>
           <div className="createChapter">
-            <Button color="info" onClick={this.toggle}>Create a new chapter</Button>
+            {/* <Button color="info" onClick={this.toggle}>Create a new chapter</Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
               <CreateChapterForm />
-            </Modal>
+            </Modal> */}
+            <CreateChapterForm />
+            
           </div>
           <br />
           <div className="removeChapter">

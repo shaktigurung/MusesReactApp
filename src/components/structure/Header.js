@@ -80,7 +80,7 @@ class Header extends Component {
               <NavLink tag={Link} to="/contact">Contact Us</NavLink>
             </NavItem>
             <div className="token">
-              {loggedIn && <Link to="/admin/profile" className="muses-primary-text"><i class="fas fa-user-circle"></i>Profile</Link>}
+              {loggedIn && <Link to="/admin/profile" className="muses-primary-text"><i className="fas fa-user-circle"></i>Profile</Link>}
               {loggedIn && <p>You are logged in </p>}
               {loggedIn && <Logout />}
             </div>
@@ -93,7 +93,8 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    token: state.auth.token
+    token: state.auth.token,
+    user: state.auth.user
   }
 }
 

@@ -30,7 +30,7 @@ class NewsForm extends Component {
     const {handleSubmit, handleFileUpload} = this.props
     return (
       <>
-        <Button className="muses-secondary" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+        <Button className="muses-secondary" style={{margin: "20px"}} onClick={this.toggle}>{this.props.buttonLabel}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>News</ModalHeader>
           <form onSubmit={handleSubmit(this.handleFormSubmit)}>
@@ -83,7 +83,7 @@ const mapStateToProps = (state, props) => {
   const {...initialValues} = props.newsItem
   return {
     initialValues,
-    form: props.newsItem._id
+    form: (props.newsItem && props.newsItem._id) || "news"
   }
 }
 
