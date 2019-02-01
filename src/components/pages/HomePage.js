@@ -6,6 +6,7 @@ import "../structure/ReactRotatingText.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Button, Jumbotron, Container, Row, Col } from 'reactstrap';
+import HomeCarousel from "./../structure/HomeCarousel";
 
 
 class HomePage extends Component {
@@ -46,8 +47,9 @@ class HomePage extends Component {
               </Link>
             </Container>
           </Jumbotron>
-  
+         
         </div>
+        <HomeCarousel />
       </div>
     );
   }
