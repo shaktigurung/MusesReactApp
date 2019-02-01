@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createChapter } from "./../../actions/chapterActions";
 import Input from "./fields/Input";
-import { Button, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class CreateChapterForm extends Component {
   constructor(props) {
@@ -30,30 +30,37 @@ class CreateChapterForm extends Component {
     reset();
   }
 
+  handleCancelClick = () => {
+    this.toggle()
+  }
+
   render() {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <ModalHeader toggle={this.toggle}>Create a new chapter</ModalHeader>
-        <form onSubmit={handleSubmit(this.onFormSubmit)}>
-          <ModalBody>
-            <div>
-              <label>City</label>
+        <Button color="info" onClick={this.toggle}>Create a new chapter</Button>
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <ModalHeader toggle={this.toggle}>Create a new chapter</ModalHeader>
+          <form onSubmit={handleSubmit(this.onFormSubmit)}>
+            <ModalBody>
               <div>
-                <Field
-                  name="city"
-                  component={Input}
-                  type="text"
-                  placeholder="City"
-                />
+                <label>City</label>
+                <div>
+                  <Field
+                    name="city"
+                    component={Input}
+                    type="text"
+                    placeholder="City"
+                  />
+                </div>
               </div>
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="info" type="submit">Create</Button>
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-          </ModalFooter>
-        </form>
+            </ModalBody>
+            <ModalFooter>
+              <Button color="info" type="submit">Create</Button>
+              <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            </ModalFooter>
+          </form>
+        </Modal>
       </div>
     )
   }

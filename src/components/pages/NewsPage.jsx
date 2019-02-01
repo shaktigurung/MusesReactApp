@@ -3,7 +3,7 @@ import {connect} from "react-redux"
 import {Link} from "react-router-dom"
 import {Button} from "reactstrap"
 import NewsForm from "../forms/NewsForm"
-import {updateNews} from "../../actions/newsActions"
+import {updateNews, deleteNews} from "../../actions/newsActions"
 
 class NewsPage extends Component {
   state = { file: null }
@@ -21,12 +21,18 @@ class NewsPage extends Component {
       .then(this.props.history.push("/news"))
   }
 
+  handleClickDelete = (id) => {
+    const {deleteNews, token} = this.props
+    deleteNews(id, token)
+      .then(this.props.history.push("/news"))
+  }
+
   handleFileUpload = (event) => {
     this.setState({ file: event.target.files })
   }
   
   render() {
-    const {news} = this.props
+    const {news, user} = this.props
     // const scriptTag = /<script[\s\S]*?>[\s\S]*?<\/script>/
     if (news){
     return (
@@ -45,14 +51,17 @@ class NewsPage extends Component {
               <div>
                 Created at: {newsItem.date_created}
                 {/* <Link to={`/admin/news/edit/${newsItem._id}`}> <Button color="primary"> Edit </Button> </Link> */}
-                <NewsForm
-                  key={newsItem._id}
-                  onFormSubmit={this.onFormSubmit}
-                  handleFileUpload={this.handleFileUpload}
-                  newsItem={newsItem}
-                  buttonLabel="Edit"
-                  className={newsItem._id}
-                />
+                {user &&
+                  <NewsForm
+                    key={newsItem._id}
+                    onFormSubmit={this.onFormSubmit}
+                    handleFileUpload={this.handleFileUpload}
+                    newsItem={newsItem}
+                    buttonLabel="Edit"
+                    className={newsItem._id}
+                  />}
+                {user &&
+                        <Button className="muses-tertiary" onClick={() => this.handleClickDelete(newsItem._id)} > Delete </Button>}
               </div>
             </div>
           )}
@@ -66,8 +75,9 @@ class NewsPage extends Component {
 const mapStateToProps = (state) => {
   return {
     news: state.news,
-    token: state.auth.token
+    token: state.auth.token,
+    user: state.auth.user
   }
 }
 
-export default connect(mapStateToProps, {updateNews})(NewsPage);
+export default connect(mapStateToProps, {updateNews, deleteNews})(NewsPage);
