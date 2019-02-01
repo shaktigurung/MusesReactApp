@@ -4,8 +4,6 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {createUser} from "../../actions/registerAction"
 
-
-
 class RegisterPage extends Component {
   state = { file: null }
 
