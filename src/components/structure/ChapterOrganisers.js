@@ -1,18 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Container, CardColumns, Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
 
 class ChapterOrganisers extends Component {
   render() {
     return (
       <div>
-        <h1>Our Team</h1>
-        {this.props.organisers.map(organiser =>
-          <p key={organiser._id}>
-            Name: {organiser.name}<br />
-            Bio: {organiser.bio}<br />
-            <br />
-          </p>
-        )}
+        <Container fluid>
+          <h1>Our Team</h1>
+          <CardColumns>
+            {this.props.organisers.map(organiser =>
+              <Card body outline color="info">
+                <CardImg top style={{ maxHeight: 150, maxWidth: 150 }} src={organiser.image} alt={organiser.name} />
+                <CardBody>
+                  <CardTitle className="muses-primary-text" style={{ fontWeight: "bold" }}>{organiser.name}</CardTitle>
+                  <CardText><span dangerouslySetInnerHTML={{ __html: organiser.bio }}></span></CardText>
+                </CardBody>
+              </Card>
+            )}
+          </CardColumns>
+        </Container>
       </div>
     )
   }

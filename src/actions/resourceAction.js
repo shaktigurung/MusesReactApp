@@ -25,16 +25,30 @@ export const createResource = ({ title, description, link }, token) => {
   }
 }
 
-export const removeResource = (id, token) => {
+export const removeResource = (resourceId, token) => {
   return async (dispatch) => {
-    let response = await LocalApi.delete(`/resources/${id}`, {
+    let response = await LocalApi.delete(`/resources/${resourceId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
     });
     dispatch({
       type: "REMOVE_RESOURCE",
-      payload: response.data
+      resourceId: resourceId,
     });
+  }
+}
+
+export const updateResource = (formData, resourceId, token) => {
+  return async (dispatch) => {
+    let response = await LocalApi.patch(`/resources/${resourceId}`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    dispatch({
+      type: "UPDATE_RESOURCE",
+      payload: response.data,
+    })
   }
 }

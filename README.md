@@ -1,3 +1,76 @@
+# Real World Application - MusesCodeJS Website
+
+1. Link to published app 
+2. Link to [Back End repo](https://github.com/DanielTeale/muses-api)
+3. Link to [Front End repo](https://github.com/shaktigurung/MusesReactApp)
+
+## Problem definition / Purpose
+
+Web application designed, built, deployed and presented for a real world customer.
+The customer is a non-profit organisation called MusesCodeJS, which has the purpose of run free coding meetups and workshops to include women, non-binary and trans folk around Australia into Tech area.
+
+The project purpose is remake the organisation's website to improve its performance using technologies as React and Redux so that target people can explore and have a better understanding about the organisation according to their interests.
+
+## Functionality / Features
+
+- Landing page designed to include the organisation's logo; available chapters; description and testimonials from people that attended to workshops.
+- About Us page designed to include more details about the organisation and the organisation teams by chapter.
+- Events page designed to include the Upcoming Events and Past Events so that the user can explore and look for events of its interest.
+- News page designed to show 
+
+## Screenshots
+
+
+## Tech Stack
+
+- HTML
+- CSS
+- JavaScript
+- Reactjs
+- Redux
+- Heroku
+- AWS
+- Reactstrap
+- 
+
+## Instructions
+Instructions on how to setup, configure, deploy and use your App.
+
+## Design process
+
+## User stories
+
+## A workflow diagram of the user journey/s.
+
+## Wireframes
+
+## Database Entity Relationship Diagrams
+
+## Data Flow Diagram
+
+## OO design documentation
+
+## Project plan & timeline
+
+## Client communications
+
+## Screenshots of Trello board(s)
+
+
+Answers to the Short Answer questions (Section 2.2)
+#### What are the most important aspects of quality software?
+
+#### What libraries are being used in the app and why?
+
+#### A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
+
+#### Within your own project what knowledge or skills were required to complete your project, and overcome challenges?
+
+#### Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

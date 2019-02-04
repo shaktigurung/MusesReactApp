@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux'
-import {Field, reduxForm} from 'redux-form'
+import { connect } from 'react-redux'
+import { Field, reduxForm } from 'redux-form'
 import {
-  Button, 
-  Modal, 
-  ModalHeader, 
-  ModalBody, 
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
   ModalFooter
 } from "reactstrap"
-import {postMailingList} from "../../actions/mailingListActions"
+import { postMailingList } from "../../actions/mailingListActions"
 import Alert from "../structure/Alert"
 import {setAlert} from "../../actions/alertActions";
 import "./../../App.css";
@@ -16,19 +16,19 @@ import "./../../App.css";
 class MailingListForm extends Component {
   state = { modal: false }
 
-  onFormSubmit = async(formValues) => {
-    const {postMailingList} = this.props
+  onFormSubmit = async (formValues) => {
+    const { postMailingList } = this.props
 
     await postMailingList(formValues)
     this.toggle()
-  } 
-  
+  }
+
   toggle = () => {
     this.setState({ modal: !this.state.modal })
   }
 
   render() {
-    const {handleSubmit, chapters} = this.props 
+    const { handleSubmit, chapters } = this.props
     return (
       <>  
         <div className="mailing-list">
@@ -38,6 +38,7 @@ class MailingListForm extends Component {
           isOpen={this.state.modal} 
           toggle={this.toggle} 
           // className={this.props.className}
+
         >
           <ModalHeader toggle={this.toggle}>Join Mailing List</ModalHeader>
           <form onSubmit={handleSubmit(this.onFormSubmit)} >
@@ -67,7 +68,7 @@ class MailingListForm extends Component {
                 </Field>
               </div>
             </ModalBody>
-            <ModalFooter>        
+            <ModalFooter>
               <div>
                 <button onClick={this.toggle} type="submit">Submit</button>
               </div>

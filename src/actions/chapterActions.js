@@ -19,7 +19,7 @@ export const selectChapter = (chapter) => {
 
 export const updateOrganisers = (formData, id, token) => {
   return async (dispatch) => {
-    let response = await LocalApi.put(`/chapter/${id}`, formData, {
+    let response = await LocalApi.patch(`/chapter/${id}`, formData, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -54,7 +54,7 @@ export const removeChapter = (chapterId, token) => {
     });
     dispatch({
       type: "REMOVE_CHAPTER",
-      payload: response.data
+      chapterId: chapterId,
     });
   }
 }

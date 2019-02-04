@@ -8,10 +8,7 @@ export default (state = [], action) => {
         action.payload
       ];
     case "REMOVE_CHAPTER":
-      return [
-        ...state,
-        action.payload
-      ];
+      return state.filter((chapter) => chapter._id !== action.chapterId)
     default:
       return state;
   }

@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import { Table, Container, Row, Col, Button } from "reactstrap";
 import { getResources, removeResource } from "../../actions/resourceAction";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class ResourceList extends Component {
 
-  // handleRemoveResource = async (chapterId) => {
-  //   const { removeChapter, token } = this.props;
-  //   removeChapter(chapterId, token)
-  //     .then(() => this.props.history.push("/admin/chapter/edit"))
-  // }
+  handleRemoveResource = async (resourceId) => {
+    const { removeResource, token } = this.props;
+    removeResource(resourceId, token)
+      .then(() => {
+        alert("Resource removed!");
+        this.props.history.push("/admin/resources/create");
+      });
+  }
 
   render() {
-    const { resources } = this.props;
+    const { resources, onEdit } = this.props;
     return (
       <div>
         <Container fluid>
@@ -29,9 +33,9 @@ class ResourceList extends Component {
                 {resources.map(resource => (
                   <tbody>
                     <tr>
-                      <th scope="row">{resource.title}</th>
-                      <td><Button outline color="warning">Edit</Button></td>
-                      <td><Button outline color="danger">Delete</Button></td>
+                      <td scope="row">{resource.title}</td>
+                      <td><Button outline color="warning" onClick={() => onEdit(resource)}>Edit</Button></td>
+                      <td><Button outline color="danger" onClick={() => this.handleRemoveResource(resource._id)}>Delete</Button></td>
                     </tr>
                   </tbody>
                 ))}
@@ -51,4 +55,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getResources, removeResource })(ResourceList);
+export default connect(mapStateToProps, { getResources, removeResource })(withRouter(ResourceList));
