@@ -5,14 +5,6 @@ import { Container, Row, Col, Card, CardText, CardBody, CardLink, CardTitle } fr
 
 class SponsorsPage extends Component {
 
-  // componentDidMount(){
-  //   this.populateSponsors()
-  // }
-
-  // populateSponsors = () => {
-  //   const {getSponsors} = this.props
-  //   getSponsors()
-  // }
   render() {
     if (this.props.sponsors) {
       return (

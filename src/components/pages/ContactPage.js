@@ -1,27 +1,38 @@
 import React, { Component } from 'react';
 import MailingListForm from "../forms/MailingListForm"
-import { Jumbotron, Container, Row, Col } from "reactstrap";
+import { Jumbotron, Container, Row, Col, Button } from "reactstrap";
 
 class ContactPage extends Component {
   render() {
     return (
       <div>
-        <Jumbotron>
-          <h1 className="display-3">Contact Us</h1>
-          <p className="lead">If you have any questions, would like to become a mentor, sponsor an event or want to be involved in some way, drop us a line to<br /><b>info@musescodejs.org</b></p>
-          <hr className="my-2" />
-          <MailingListForm />
-          <Container>
+        <Container fluid>
+          <Jumbotron>
+            <h1 className="display-3">Contact Us</h1>
+            <p className="lead">If you have any questions, would like to become a mentor, sponsor an event or want to be involved in some way, drop us a line to<br /><b>info@musescodejs.org</b></p><br />
             <Row>
-              <Col><a href="https://twitter.com/MusesCodeJSSyd" ><i className="fab fa-5x fa-twitter"></i></a></Col>
-              <Col><a href="https://www.instagram.com/musescodejssyd/" ><i className="fab fa-5x fa-instagram"></i></a></Col>
-              <Col><a href="https://github.com/node-girls-australia" ><i className="fab fa-5x fa-github"></i></a></Col>
+              <Col sm="12" md={{ size: 6, offset: 3 }}>
+                <Row>
+                  <Col><MailingListForm /></Col>
+                  <Col>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqnLzA8mjXC54APqPcjHEPRIZ64lw4iKuo_wD1otR5szO54A/viewform?c=0&w=1" target="_blank"><Button className="muses-tertiary">Become a mentor</Button></a>
+                  </Col>
+                  <Col>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1piDKcJxZj3SkwGVN_eWM-qToHDzAE0SRjZNhVh9OLZ-qmQ/viewform?c=0&w=1" target="_blank"><Button className="muses-tertiary">Become a sponsor</Button></a>
+                  </Col>
+                </Row>
+              </Col>
             </Row>
-          </Container>
-        </Jumbotron>
+            <br /><hr className="my-2" /><br />
+            <Row>
+              <Col><a href="https://twitter.com/MusesCodeJSSyd" target="_blank"><i className="fab fa-5x fa-twitter"></i></a></Col>
+              <Col><a href="https://www.instagram.com/musescodejssyd/" target="_blank"><i className="fab fa-5x fa-instagram"></i></a></Col>
+              <Col><a href="https://github.com/node-girls-australia" target="_blank"><i className="fab fa-5x fa-github"></i></a></Col>
+              <Col><a href="https://www.meetup.com/en-AU/MusesCodeJS/" target="_blank"><i className="fab fa-5x fa-meetup"></i></a></Col>
+            </Row>
+          </Jumbotron>
+        </Container>
       </div>
-
-      // Add mentor's and sponsor's form.
     );
   }
 }

@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { Table, Container, Row, Col, Button } from "reactstrap";
 import { getChapters, removeChapter } from "../../actions/chapterActions";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class ChapterList extends Component {
 
   handleRemoveChapter = async (chapterId) => {
     const { removeChapter, token } = this.props;
     removeChapter(chapterId, token)
-      .then(() => this.props.history.push("/admin/chapter/edit"))
+      .then(() => {
+        alert("Chapter removed!");
+        this.props.history.push("/admin/chapter");
+      });
   }
 
   render() {
@@ -26,10 +30,10 @@ class ChapterList extends Component {
                   </tr>
                 </thead>
                 {chapters.map(element => (
-                  <tbody>
+                  <tbody className="muses-primary-text">
                     <tr>
                       <td scope="row">{element.city}</td>
-                      <td><Button outline color="danger" onClick={this.handleRemoveChapter}>X</Button></td>
+                      <td><Button outline color="danger" onClick={() => this.handleRemoveChapter(element._id)}>Delete</Button></td>
                     </tr>
                   </tbody>
                 ))}
@@ -49,4 +53,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getChapters, removeChapter })(ChapterList);
+export default connect(mapStateToProps, { getChapters, removeChapter })(withRouter(ChapterList));
