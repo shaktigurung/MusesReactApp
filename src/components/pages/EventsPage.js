@@ -81,7 +81,6 @@ class EventsPage extends Component {
       marginTop:"10px"
     }
 
-    const {user} = this.props
     return (
         <Container style = {eventLeft}>
             <h1 style = {mainCenter}> Events <Badge className="muses-primary">Page</Badge></h1>

@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from "react-redux"
 import {
-  Col, Button, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, CardGroup
+   Button, 
+   CardSubtitle
 } from 'reactstrap';
-import {Link} from "react-router-dom";
 import EventForm from "../forms/EventForm"
 import SponsorThumbnail from "../structure/SponsorThumbnail"
 

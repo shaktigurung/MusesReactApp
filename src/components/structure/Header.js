@@ -13,7 +13,7 @@ import {
 } from 'reactstrap';
 import "./../../App.css";
 import Logout from './Logout'
-import UserForm from "../forms/UserForm";
+// import UserForm from "../forms/UserForm";
 import {updateUser} from "../../actions/registerAction"
 
 class Header extends Component {
@@ -54,7 +54,7 @@ class Header extends Component {
     return (
 
       <Navbar color="light" light expand="md">
-        <NavbarBrand > <img src={logoImage} alt="logo" className="logo effect" /></NavbarBrand>
+        <NavbarBrand > <Link to="/"> <img src={logoImage} alt="logo" className="logo effect" /></Link></NavbarBrand>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto " navbar>

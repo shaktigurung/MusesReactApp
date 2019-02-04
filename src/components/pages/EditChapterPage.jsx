@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import OrganisersForm from "./../forms/OrganisersForm";
 import CreateChapterForm from "./../forms/CreateChapterForm";
 import ChapterList from '../structure/ChapterList';
-import { Button, Modal } from "reactstrap";
+//import { Button, Modal } from "reactstrap";
 import { connect } from "react-redux";
 import UnauthorizedPage from "./UnauthorizedPage";
 
