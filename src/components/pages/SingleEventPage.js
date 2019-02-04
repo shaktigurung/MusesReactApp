@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom"
 import { Container, Row , Col, Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Badge, CardGroup} from 'reactstrap';
+import SponsorThumbnail from "../structure/SponsorThumbnail"
 
 class SingleEventPage extends Component{
 
@@ -10,7 +11,7 @@ class SingleEventPage extends Component{
     const {match} = this.props;
     const {events} = this.props;
     const id = match.params.id;
-
+   
     return events.filter(function(event){
         return event._id === id
     });
@@ -19,7 +20,8 @@ class SingleEventPage extends Component{
   render(){
     const mainCenter ={
         textAlign: "center"
-      }
+      };
+   
     const event = this.singleEvent()
     if (event){
       return(
@@ -34,7 +36,7 @@ class SingleEventPage extends Component{
                     <CardTitle> Event Name:{event.title} </CardTitle>
                     <CardSubtitle> Location:{event.location} </CardSubtitle>
                     <CardSubtitle> Date:{event.date} </CardSubtitle>
-                    <CardSubtitle> Sponsors:{event.sponsors.map(sponsor=>sponsor.name)}</CardSubtitle>
+                    <CardSubtitle> Sponsors:{event.sponsors.map(sponsor => <SponsorThumbnail sponsor={sponsor} />)}</CardSubtitle>
                     <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
                     <CardText>Description:{event.description} </CardText>  
                     <CardText><Link to={`/admin/edit/${event._id}`}>Edit</Link> </CardText>  
@@ -53,7 +55,8 @@ class SingleEventPage extends Component{
 
 function mapStateToProps(state){
     return{
-      events: state.events
+      events: state.events,
+      sponsors: state.sponsors
     }
 }
 export default connect(mapStateToProps)(SingleEventPage);

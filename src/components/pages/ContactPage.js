@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MailingListForm from "../forms/MailingListForm"
 import { Jumbotron, Container, Row, Col, Button } from "reactstrap";
+import "./../../App.css";
 
 class ContactPage extends Component {
   render() {
@@ -29,6 +30,7 @@ class ContactPage extends Component {
               <Col><a href="https://www.instagram.com/musescodejssyd/" target="_blank"><i className="fab fa-5x fa-instagram"></i></a></Col>
               <Col><a href="https://github.com/node-girls-australia" target="_blank"><i className="fab fa-5x fa-github"></i></a></Col>
               <Col><a href="https://www.meetup.com/en-AU/MusesCodeJS/" target="_blank"><i className="fab fa-5x fa-meetup"></i></a></Col>
+              <Col xs="3"><a href="mailto:info@musescodejs.org" className="gmail"><i className="far fa-5x fa-envelope"></i></a></Col>
             </Row>
           </Jumbotron>
         </Container>

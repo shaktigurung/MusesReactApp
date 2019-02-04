@@ -10,7 +10,8 @@ import {
 } from "reactstrap"
 import { postMailingList } from "../../actions/mailingListActions"
 import Alert from "../structure/Alert"
-import { setAlert } from "../../actions/alertActions"
+import {setAlert} from "../../actions/alertActions";
+import "./../../App.css";
 
 class MailingListForm extends Component {
   state = { modal: false }
@@ -29,12 +30,15 @@ class MailingListForm extends Component {
   render() {
     const { handleSubmit, chapters } = this.props
     return (
-      <>
+      <>  
+        <div className="mailing-list">
         <Button className="muses-tertiary" onClick={this.toggle}>Join Mailing List</Button>
-        <Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-        // className={this.props.className}
+        </div>
+        <Modal 
+          isOpen={this.state.modal} 
+          toggle={this.toggle} 
+          // className={this.props.className}
+
         >
           <ModalHeader toggle={this.toggle}>Join Mailing List</ModalHeader>
           <form onSubmit={handleSubmit(this.onFormSubmit)} >
