@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux"
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 import {Button} from "reactstrap"
 import NewsForm from "../forms/NewsForm"
 import {updateNews, deleteNews} from "../../actions/newsActions"

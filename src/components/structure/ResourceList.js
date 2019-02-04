@@ -29,7 +29,7 @@ class ResourceList extends Component {
                 {resources.map(resource => (
                   <tbody>
                     <tr>
-                      <td scope="row">{resource.title}</td>
+                      <th scope="row">{resource.title}</th>
                       <td><Button outline color="warning">Edit</Button></td>
                       <td><Button outline color="danger">Delete</Button></td>
                     </tr>
