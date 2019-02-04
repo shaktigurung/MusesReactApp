@@ -1,9 +1,10 @@
 
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import { Container, Row , Badge} from 'reactstrap';
+import { Container, Row , Badge, Col} from 'reactstrap';
 import {withRouter} from "react-router-dom";
-import EventCard from "../structure/EventCard"
+import EventCard from "../structure/EventCard";
+import eventbg from "./../images/sydney-profile.jpg";
 import {editEvent, deleteEvent} from "./../../actions/eventActions";
 import './../../App.css';
 
@@ -72,19 +73,27 @@ class EventsPage extends Component {
       
     // Inline CSS
     const eventLeft = {
-      textAlign: "left"
+      textAlign: "left",
+      marginTop:"30px"
     }
     const mainCenter ={
-      textAlign: "center"
+      textAlign: "center",
+      marginTop:"10px"
     }
 
     const {user} = this.props
     return (
         <Container style = {eventLeft}>
             <h1 style = {mainCenter}> Events <Badge className="muses-primary">Page</Badge></h1>
-            <Row><h2 style = {mainCenter}> Upcoming  <Badge className="muses-secondary" >Events</Badge></h2></Row>
+            <h2 style = {mainCenter} className="muses-tertiary-text" >Join our events around Australia </h2>
             <Row>
-                
+              <Col xs="12">
+                <img src={eventbg} alt="mainbg" className="bg effect"  />
+              </Col>
+            </Row>
+            <Row> <h2 style = {eventLeft}> Upcoming  <Badge className="muses-secondary" >Events</Badge></h2></Row>
+            <Row>
+                <Col xs="12">
                 {this.futureEvents().map(eventItem => 
                   <EventCard 
                     handleClick={this.handleClick}
@@ -93,9 +102,12 @@ class EventsPage extends Component {
                     eventItem={eventItem}
                   />
                 )}
+                </Col>
+              
             </Row>
             <Row> <h2 style = {mainCenter} className="mt-3"> Past  <Badge className="muses-tertiary">Events</Badge></h2></Row>
             <Row>
+                <Col xs="12">
                 {this.pastEvents().map(eventItem =>
                   <EventCard
                     handleClick={this.handleClick}
@@ -104,6 +116,7 @@ class EventsPage extends Component {
                     eventItem={eventItem}
                   />
                 )}
+                </Col>
             </Row>
           </Container>
     );
