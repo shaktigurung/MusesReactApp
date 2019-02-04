@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ResourceItems from '../structure/ResourceItems';
 import { Jumbotron } from 'reactstrap';
+import "./../../App.css";
 
 class ResourcesPage extends Component {
     render() {
@@ -10,7 +11,7 @@ class ResourcesPage extends Component {
                     <h1 className="display-3">Resources</h1>
                     <p className="lead">Contribute with our projects on GitHub</p>
                     <hr className="my-2" />
-                    <a href="https://github.com/node-girls-australia" ><i className="fab fa-5x fa-github"></i></a>
+                    <a href="https://github.com/node-girls-australia" className="github"><i className="fab fa-5x fa-github"></i></a>
                 </Jumbotron>
                 <ResourceItems />
 
