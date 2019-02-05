@@ -54,7 +54,7 @@ class Header extends Component {
     return (
 
       <Navbar color="light" light expand="md">
-        <NavbarBrand > <Link to="/"> <img src={logoImage} alt="logo" className="logo effect" /></Link></NavbarBrand>
+        <Link to="/"><img src={logoImage} alt="logo" className="logo effect" /></Link>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto " navbar>
