@@ -14,8 +14,8 @@ class UnauthorizedPage extends Component {
                 <p className="lead">Sorry, but you're not authorized to see this page.</p>
                 <hr className="my-2" />
                 <p className="lead">
-                  <Link to="/">
-                    <Button color="info">Back to Home page</Button>
+                  <Link to="/admin/auth/login">
+                    <Button className="muses-primary">Log In</Button>
                   </Link>
                 </p>
               </Jumbotron>

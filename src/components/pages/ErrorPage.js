@@ -15,7 +15,7 @@ class ErrorPage extends Component {
                 <hr className="my-2" />
                 <p className="lead">
                   <Link to="/">
-                    <Button color="info">Back to Home page</Button>
+                    <Button className="muses-primary" >Back to Home page</Button>
                   </Link>
                 </p>
               </Jumbotron>
