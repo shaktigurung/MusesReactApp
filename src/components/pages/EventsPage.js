@@ -94,6 +94,7 @@ class EventsPage extends Component {
                 <Col xs="12">
                 {this.futureEvents().map(eventItem => 
                   <EventCard 
+                    handleClickDelete={this.handleClickDelete}
                     handleClick={this.handleClick}
                     handleFileUpload={this.handleFileUpload}
                     onFormSubmit={this.onFormSubmit}
@@ -109,6 +110,7 @@ class EventsPage extends Component {
                 <Col xs="12">
                 {this.pastEvents().map(eventItem =>
                   <EventCard
+                    handleClickDelete={this.handleClickDelete}
                     handleClick={this.handleClick}
                     handleFileUpload={this.handleFileUpload}
                     onFormSubmit={this.onFormSubmit}
