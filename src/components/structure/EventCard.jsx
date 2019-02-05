@@ -53,7 +53,6 @@ const EventCard = (props) => {
       {user &&
       <Button className="muses-tertiary" onClick={() => handleClickDelete(eventItem._id)} > Delete </Button>}
     </div>   
-      
   )
 }
 

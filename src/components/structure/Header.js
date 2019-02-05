@@ -13,7 +13,6 @@ import {
 } from 'reactstrap';
 import "./../../App.css";
 import Logout from './Logout'
-// import UserForm from "../forms/UserForm";
 import {updateUser} from "../../actions/registerAction"
 
 class Header extends Component {

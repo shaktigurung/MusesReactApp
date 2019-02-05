@@ -109,7 +109,7 @@ class UserForm extends Component {
                 </div>
                 <div>
                   {user &&
-                    <img src={user["image"]} alt={`${user["name"]}`} />}
+                    <img src={user["image"]} alt={`${user["name"]} profile`} />}
                 </div>
                 <div>
                   <Field
