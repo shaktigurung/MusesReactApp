@@ -18,14 +18,14 @@ class HomePage extends Component {
           <Container>
             <Row>
               <Col xs="12">
-                <img src={logoImage} alt="logo" style={{ width: "60%", marginTop: "-100px" }} />
+                <img src={logoImage} alt="logo" style={{ width: "60%", height:"90%" }} />
               </Col>
             </Row>
-            {/* <Row>
+            <Row>
               <Col xs="12">
                 <img src={bg} alt="mainbg" className="bg effect"  />
               </Col>
-            </Row> */}
+            </Row>
             <Row>
               <Col xs="12" style={{ marginTop: "20px", marginBottom: "20px" }}>
                 <div>

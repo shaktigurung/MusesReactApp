@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import UserForm from "../forms/UserForm";
-import {connect} from "react-redux";
-import {withRouter} from "react-router-dom";
-import {createUser} from "../../actions/registerAction"
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { createUser } from "../../actions/registerAction"
 
 class RegisterPage extends Component {
   state = { file: null }
@@ -24,7 +24,7 @@ class RegisterPage extends Component {
     this.setState({ file: event.target.files })
   }
 
-  render() { 
+  render() {
     return (
       <UserForm 
         onFormSubmit={this.onFormSubmit} 
@@ -36,4 +36,4 @@ class RegisterPage extends Component {
   }
 }
 
-export default connect(null, { createUser })(withRouter(RegisterPage))
+export default connect(null, { createUser })(withRouter(RegisterPage));

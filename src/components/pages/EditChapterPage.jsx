@@ -12,7 +12,7 @@ class EditChapterPage extends Component {
     if (user) {
       return (
         <div>
-          <h1>Chapters</h1>
+          <h1>Chapters Dashboard</h1>
           <div className="createChapter">
             <CreateChapterForm />
           </div>

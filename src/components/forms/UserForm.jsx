@@ -89,6 +89,7 @@ class UserForm extends Component {
                   <Field
                     name="chapter"
                     component="select" >
+                    <option>Select your chapter</option>
                     {chapters.map(chapter =>
                       <option key={chapter._id} value={chapter._id}>{chapter.city}</option>
                     )}
@@ -100,6 +101,8 @@ class UserForm extends Component {
                 <div>
                   {(user && user["image"]) &&
                     <img src={user["image"]} alt={`${user["name"]} profile`} />}
+                  {user &&
+                    <img style={{ maxHeight: 300, maxWidth: 300 }} src={user["image"]} alt={`${user["name"]}`} />}
                 </div>
                 <div>
                   <Field
@@ -141,3 +144,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { createUser })(withRouter(wrappedUserForm))
+
