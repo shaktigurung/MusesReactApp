@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
-import {connect} from "react-redux"
-// import {Link} from "react-router-dom"
-import {Button} from "reactstrap"
+import { connect } from "react-redux"
 import NewsForm from "../forms/NewsForm"
-import {updateNews, deleteNews} from "../../actions/newsActions"
+import { updateNews, deleteNews } from "../../actions/newsActions"
+import {
+  Container,
+  Row,
+  Col,
+  Badge,
+  Card,
+  Button,
+  CardHeader,
+  CardFooter,
+  CardBody,
+  CardImg,
+  CardText
+} from 'reactstrap';
 
 class NewsPage extends Component {
   state = { file: null }
@@ -22,7 +33,7 @@ class NewsPage extends Component {
   }
 
   handleClickDelete = (id) => {
-    const {deleteNews, token} = this.props
+    const { deleteNews, token } = this.props
     deleteNews(id, token)
       .then(this.props.history.push("/news"))
   }
@@ -30,43 +41,51 @@ class NewsPage extends Component {
   handleFileUpload = (event) => {
     this.setState({ file: event.target.files })
   }
-  
+
   render() {
-    const {news, user} = this.props
+    const { news, user } = this.props
     // const scriptTag = /<script[\s\S]*?>[\s\S]*?<\/script>/
-    if (news){
-    return (
-      <div>
-        <h1>News</h1>
-          {news.map(newsItem => 
-            <div>
-              <h2>{newsItem.title}</h2>
-              <div>
-                <img src={newsItem.image} alt={newsItem.title} />
-              </div>
-              {/* {scriptTag.test(newsItem.content) && */}
-                <div dangerouslySetInnerHTML={{__html: newsItem.content}}>
-                </div>
-                {/* } */}
-              <div>
-                Created at: {newsItem.date_created}
-                {/* <Link to={`/admin/news/edit/${newsItem._id}`}> <Button color="primary"> Edit </Button> </Link> */}
-                {user &&
-                  <NewsForm
-                    key={newsItem._id}
-                    onFormSubmit={this.onFormSubmit}
-                    handleFileUpload={this.handleFileUpload}
-                    newsItem={newsItem}
-                    buttonLabel="Edit"
-                    className={newsItem._id}
-                  />}
-                {user &&
+    if (news) {
+      return (
+        <div>
+          <Container fluid>
+            <br /><h1><Badge className="muses-primary"> Muses News </Badge></h1><br />
+            {news.map(newsItem =>
+              <Card>
+                <CardHeader style={{ fontWeight: "bold", fontSize: "30px" }} className="muses-primary-text">{newsItem.title}</CardHeader>
+                <CardBody>
+                  <Row>
+                    <Col xs="6">
+                      <CardImg style={{ maxHeight: 350, maxWidth: 350, padding: "5px" }} src={newsItem.image} alt={newsItem.title} /><br /><br />
+                    </Col>
+                    <Col xs="6">
+                      <CardText style={{ textAlign: "justify" }}><p dangerouslySetInnerHTML={{ __html: newsItem.content }}></p></CardText>
+                    </Col>
+                  </Row>
+                </CardBody>
+                <CardFooter>Created at {newsItem.date_created}
+                  <Row>
+                    <Col sm="12" md={{ size: 6, offset: 3 }}>
+                      {user &&
+                        <NewsForm
+                          key={newsItem._id}
+                          onFormSubmit={this.onFormSubmit}
+                          handleFileUpload={this.handleFileUpload}
+                          newsItem={newsItem}
+                          buttonLabel="Edit"
+                          className={newsItem._id}
+                        />}
+                      {user &&
                         <Button className="muses-tertiary" onClick={() => this.handleClickDelete(newsItem._id)} > Delete </Button>}
-              </div>
-            </div>
-          )}
-      </div>
-    )} else {
+                    </Col>
+                  </Row>
+                </CardFooter>
+              </Card>
+            )}
+          </Container>
+        </div>
+      )
+    } else {
       return null
     }
   }
@@ -80,4 +99,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {updateNews, deleteNews})(NewsPage);
+export default connect(mapStateToProps, { updateNews, deleteNews })(NewsPage);
