@@ -26,7 +26,10 @@ class CreateChapterForm extends Component {
     const { city } = formValues;
     const { createChapter, reset, token } = this.props;
     createChapter({ city }, token)
-      .then(() => this.props.history.push("/aboutus"))
+      .then(() => {
+        alert("Chapter created successfully!");
+        this.props.history.push("/admin/profile")
+      });
     reset();
   }
 
@@ -38,7 +41,7 @@ class CreateChapterForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <Button color="info" onClick={this.toggle}>Create a new chapter</Button>
+        <Button className="muses-tertiary" onClick={this.toggle}>Create a new chapter</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Create a new chapter</ModalHeader>
           <form onSubmit={handleSubmit(this.onFormSubmit)}>

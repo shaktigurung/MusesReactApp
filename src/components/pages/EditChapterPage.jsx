@@ -6,20 +6,6 @@ import { connect } from "react-redux";
 import UnauthorizedPage from "./UnauthorizedPage";
 
 class EditChapterPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false
-    };
-
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
 
   render() {
     const { user } = this.props;
@@ -29,7 +15,6 @@ class EditChapterPage extends Component {
           <h1>Chapters</h1>
           <div className="createChapter">
             <CreateChapterForm />
-            
           </div>
           <br />
           <div className="removeChapter">
@@ -37,6 +22,9 @@ class EditChapterPage extends Component {
           </div>
           <div>
             <OrganisersForm /><br />
+          </div>
+          <div className="organisersList">
+
           </div>
         </div>
       );

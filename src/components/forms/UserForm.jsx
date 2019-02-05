@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import {Field, reduxForm} from "redux-form"
-import {connect} from "react-redux"
+import { Field, reduxForm } from "redux-form"
+import { connect } from "react-redux"
 import { withRouter } from "react-router-dom";
 import {
   Button,
@@ -9,27 +9,27 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap"
-import {createUser} from "../../actions/registerAction"
+import { createUser } from "../../actions/registerAction"
 import FileUploadForm from './fields/FileUploadForm';
 import QuillEditor from "./fields/QuillEditor"
-import {renderField, email, required} from "../../services/formValidation"
+import { renderField, email, required } from "../../services/formValidation"
 
 
 class UserForm extends Component {
-  state = {modal: false}
+  state = { modal: false }
 
   onFormChange(name, event) {
     this.setState({ [name]: event.target.value })
   }
 
   toggle = () => {
-    this.setState({modal: !this.state.modal})
+    this.setState({ modal: !this.state.modal })
   }
 
   render() {
-    const { handleSubmit, chapters, onFormSubmit, handleFileUpload} = this.props
+    const { handleSubmit, chapters, onFormSubmit, handleFileUpload } = this.props
     const user = this.props.initialValues
-    if (chapters) { 
+    if (chapters) {
       return (
         <>
           <Button className="muses-secondary" onClick={this.toggle}>{this.props.buttonLabel}</Button>
@@ -48,7 +48,7 @@ class UserForm extends Component {
                     type="text"
                     label="Email"
                     validate={[email, required]}
-                    onChange={(event) => this.onFormChange('email', event)}
+                  // onChange={(event) => this.onFormChange('email', event)}
                   />
                 </div>
                 <div>
@@ -58,7 +58,7 @@ class UserForm extends Component {
                     type="password"
                     label="Password"
                     validate={[required]}
-                    onChange={(event) => this.onFormChange('password', event)}
+                  // onChange={(event) => this.onFormChange('password', event)}
                   />
                 </div>
                 <div>
@@ -68,7 +68,7 @@ class UserForm extends Component {
                     type="text"
                     label="Full Name"
                     validate={[required]}
-                    onChange={(event) => this.onFormChange('name', event)}
+                  // onChange={(event) => this.onFormChange('name', event)}
                   />
                 </div>
                 <div>
@@ -80,7 +80,7 @@ class UserForm extends Component {
                     component={QuillEditor}
                     type="text"
                     label="Bio"
-                    onChange={(event) => this.onFormChange('bio', event)}
+                  // onChange={(event) => this.onFormChange('bio', event)}
                   />
                 </div>
                 <div>
@@ -89,7 +89,7 @@ class UserForm extends Component {
                     component={renderField}
                     type="text"
                     label="Website"
-                    onChange={(event) => this.onFormChange('website', event)}
+                  // onChange={(event) => this.onFormChange('website', event)}
                   />
                 </div>
                 <div>
@@ -141,7 +141,7 @@ const wrappedUserForm = reduxForm({
 
 
 const mapStateToProps = (state) => {
-  const {...initialValues} = state.auth.user
+  const { ...initialValues } = state.auth.user
   const { token } = state.auth;
   return {
     token,

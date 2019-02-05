@@ -28,10 +28,7 @@ class AdminPage extends Component {
         <Route exact path="/admin/auth/edit" render={(props) => {
           return <EditUserPage {...props} />
         }} />
-        {/* <Route exact path="/admin/profile" render={(props) => {
-          return <ProfilePage {...props} />
-        }} /> */}
-        
+
         <Route exact path="/admin/profile" component={ProfilePage} />
         <Route exact path="/admin/resources/create" component={CreateResourcePage} />
         <Route exact path="/admin/sponsor" component={CreateSponsorPage} />
@@ -42,7 +39,7 @@ class AdminPage extends Component {
         <Route exact path="/admin/events/create" component={CreateEventPage} />
         <Route exact path="/admin/events/:id" component={SingleEventPage} />
         <Route exact path="/admin/events/edit/:id" component={EditEventPage} />
-        
+
         <Route exact path="/admin/chapter" component={EditChapterPage} />
 
       </div>

@@ -3,33 +3,52 @@ import { getUsers } from "./../../actions/userAction";
 import { updateOrganisers } from "./../../actions/chapterActions";
 import { Typeahead } from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
-import { Container, Row, Col, Button } from "reactstrap";
+import { Container, Row, Col, Button, Table } from "reactstrap";
 import { connect } from "react-redux";
 import { ChapterSelector } from "./../structure/ChapterSelector";
+import { withRouter } from "react-router-dom";
 
 class OrganisersForm extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       selectedUsers: [],
+      chapterId: null,
     };
   }
 
   addOrganisers = () => {
-    const { chapter, selectedUsers } = this.state;
+    const { selectedUsers } = this.state;
     const { updateOrganisers, token } = this.props;
+    const chapter = this.getChapter();
     updateOrganisers({ city: chapter.city, organisers: selectedUsers }, chapter._id, token)
       .then(() => {
         this.setState({
           selectedUsers: [],
         });
+        this.props.history.push("/admin/chapter");
       });
+  }
+
+  handleRemoveOrganiser = async (organiserId) => {
+    const { removeOrganiser, token } = this.props;
+    removeOrganiser(organiserId, token)
+      .then(() => {
+        alert("Organised removed!");
+        this.props.history.push("/admin/chapter");
+      });
+  }
+
+  getChapter = () => {
+    const { chapters } = this.props;
+    const { chapterId } = this.state;
+    return chapterId == null ? null : chapters.filter(chapter => chapter._id === chapterId)[0];
   }
 
   render() {
     const { chapters, getUsers, token } = this.props;
-    const { chapter, selectedUsers } = this.state;
+    const { selectedUsers, chapterId } = this.state;
+    const chapter = this.getChapter();
 
     return (
       <div>
@@ -41,12 +60,12 @@ class OrganisersForm extends Component {
                 chapters={chapters}
                 selectedCity={chapter}
                 onChange={(chapter) => {
-                  this.setState({ chapter: chapter, selectedUsers: [] });
+                  this.setState({ chapterId: chapter._id, selectedUsers: [] });
                   getUsers(token, chapter._id);
                 }}
               /><br />
               {
-                this.state.chapter && (
+                this.state.chapterId && (
                   <>
                     <Typeahead
                       selected={selectedUsers}
@@ -57,7 +76,28 @@ class OrganisersForm extends Component {
                       options={this.props.users}
                       placeholder="Choose an user..."
                     /> <br />
-                    <Button outline color="info" onClick={this.addOrganisers} >Add to organisers</Button>
+                    <Button className="muses-tertiary" onClick={this.addOrganisers} >Add to organisers</Button><br /><br />
+                    <h3>{chapter.city}'s organisers</h3><br />
+                    <Row>
+                      <Col sm="12" md={{ size: 6, offset: 3 }}>
+                        <Table>
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Remove?</th>
+                            </tr>
+                          </thead>
+                          {chapter.organisers.map(organiser => (
+                            <tbody className="muses-primary-text">
+                              <tr>
+                                <td>{organiser.name}</td>
+                                <td><Button outline color="danger" onClick={() => this.handleRemoveOrganiser(organiser._id)}>Remove</Button></td>
+                              </tr>
+                            </tbody>
+                          ))}
+                        </Table>
+                      </Col>
+                    </Row>
                   </>
                 )
               }
@@ -73,9 +113,8 @@ const mapStateToProps = (state) => {
   return {
     users: state.users,
     token: state.auth.token,
-    selectedChapter: state.selectedChapter, // do I need this ?
     chapters: state.chapters,
   };
 }
 
-export default connect(mapStateToProps, { getUsers, updateOrganisers })(OrganisersForm);
+export default connect(mapStateToProps, { getUsers, updateOrganisers })(withRouter(OrganisersForm));

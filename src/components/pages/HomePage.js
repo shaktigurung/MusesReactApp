@@ -18,22 +18,22 @@ class HomePage extends Component {
           <Container>
             <Row>
               <Col xs="12">
-                <img src={logoImage} alt="logo" style={{ width: "60%", marginTop:"-100px"}} />
+                <img src={logoImage} alt="logo" style={{ width: "60%", marginTop: "-100px" }} />
               </Col>
             </Row>
-            <Row>
+            {/* <Row>
               <Col xs="12">
                 <img src={bg} alt="mainbg" className="bg effect"  />
               </Col>
-            </Row>
+            </Row> */}
             <Row>
-              <Col xs="12" style={{ marginTop:"20px", marginBottom:"20px" }}>
-                  <div>
-                    <h1 className="muses-primary-text">Code with us in</h1>
-                    <div style={{ fontSize: '60px' }}>
-                      <ReactRotatingText items={["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Darwin"]} color="#DA3296" />
-                    </div>
+              <Col xs="12" style={{ marginTop: "20px", marginBottom: "20px" }}>
+                <div>
+                  <h1 className="muses-primary-text">Code with us in</h1>
+                  <div style={{ fontSize: '60px' }}>
+                    <ReactRotatingText items={["Sydney", "Melbourne", "Brisbane", "Perth"]} color="#DA3296" />
                   </div>
+                </div>
               </Col>
             </Row>
           </Container>
@@ -47,7 +47,7 @@ class HomePage extends Component {
               </Link>
             </Container>
           </Jumbotron>
-         
+
         </div>
         <HomeCarousel />
       </div>
