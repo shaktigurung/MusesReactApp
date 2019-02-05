@@ -272,5 +272,24 @@ body {
 }
 
 /*==================================================
+ * News
+ * ===============================================*/
+
+.news-container {
+  border: #333 dotted 1px
+}
+
+.news-image {
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+  margin-right: 52px;
+}
+
+.news-content {
+  display: inline-block;
+}
+
+ /*==================================================
  * CSS Ends
  * ===============================================*/

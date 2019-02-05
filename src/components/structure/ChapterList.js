@@ -28,7 +28,7 @@ class ChapterList extends Component {
                 {chapters.map(element => (
                   <tbody>
                     <tr>
-                      <td scope="row">{element.city}</td>
+                      <td>{element.city}</td>
                       <td><Button outline color="danger" onClick={this.handleRemoveChapter}>X</Button></td>
                     </tr>
                   </tbody>

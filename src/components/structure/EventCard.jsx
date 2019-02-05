@@ -20,7 +20,7 @@ const EventCard = (props) => {
             <CardSubtitle> Location:{eventItem.location} </CardSubtitle>
             <CardSubtitle> Date: {new Date(eventItem.date).toDateString()} </CardSubtitle>
             {/* <CardSubtitle> Sponsors:{eventItem.sponsors.map(sponsor => sponsor.name)}</CardSubtitle> */}
-            <CardSubtitle> Sponsors:{eventItem.sponsors.map(sponsor => <SponsorThumbnail sponsor={sponsor} />)}</CardSubtitle>
+            <CardSubtitle> Sponsors:{eventItem.sponsors.map(sponsor => <SponsorThumbnail key={sponsor._id} sponsor={sponsor} />)}</CardSubtitle>
             <CardSubtitle> Chapter:{eventItem.chapter.city}</CardSubtitle>
             {/* <CardText>Description:{eventItem.description.substr(0,50)} </CardText> */}
             <CardText>Description: <span dangerouslySetInnerHTML={{ __html: eventItem.description }}></span></CardText>
