@@ -61,7 +61,6 @@ class EventsPage extends Component {
   pastEvents = ()=>{
       const {events} = this.props;
       let currentDate = new Date();
-      //console.log(events);
       
       return events.filter(function(event){
         const eventDate = new Date(event.date);
@@ -99,6 +98,7 @@ class EventsPage extends Component {
                     handleFileUpload={this.handleFileUpload}
                     onFormSubmit={this.onFormSubmit}
                     eventItem={eventItem}
+                    key={eventItem._id}
                   />
                 )}
                 </Col>
@@ -113,6 +113,7 @@ class EventsPage extends Component {
                     handleFileUpload={this.handleFileUpload}
                     onFormSubmit={this.onFormSubmit}
                     eventItem={eventItem}
+                    key={eventItem._id}
                   />
                 )}
                 </Col>

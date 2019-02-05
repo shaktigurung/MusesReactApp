@@ -32,8 +32,8 @@ class ChapterList extends Component {
                 {chapters.map(element => (
                   <tbody className="muses-primary-text">
                     <tr>
-                      <td scope="row">{element.city}</td>
-                      <td><Button outline color="danger" onClick={() => this.handleRemoveChapter(element._id)}>Delete</Button></td>
+                      <td>{element.city}</td>
+                      <td><Button outline color="danger" onClick={this.handleRemoveChapter}>X</Button></td>
                     </tr>
                   </tbody>
                 ))}

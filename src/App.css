@@ -387,6 +387,23 @@ a.grey-text {
   border-color: transparent;  
   opacity: 1;
  }
+ .meetup{
+  color: #e0393e;
+  border-color: transparent;  
+  opacity: 0.7;
+ }
+ .meetup:hover{
+  color: #e0393e;
+  border-color: transparent;  
+  opacity: 1;
+ }
+  /*==================================================
+ * Sponsor Card
+ * ===============================================*/
+
+ .sponsor-card{
+   margin: 20px 5px 10px 5px;
+ }
 
  /*==================================================
  * Mailing list
@@ -396,6 +413,25 @@ a.grey-text {
   margin: 20px;
 }
 /*==================================================
+ * News
+ * ===============================================*/
+
+.news-container {
+  border: #333 dotted 1px
+}
+
+.news-image {
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+  margin-right: 52px;
+}
+
+.news-content {
+  display: inline-block;
+}
+
+ /*==================================================
  * CSS Ends
  * ===============================================*/
 

@@ -13,7 +13,6 @@ import {
 } from 'reactstrap';
 import "./../../App.css";
 import Logout from './Logout'
-// import UserForm from "../forms/UserForm";
 import {updateUser} from "../../actions/registerAction"
 
 class Header extends Component {
@@ -54,7 +53,7 @@ class Header extends Component {
     return (
 
       <Navbar color="light" light expand="md">
-        <NavbarBrand > <Link to="/"> <img src={logoImage} alt="logo" className="logo effect" /></Link></NavbarBrand>
+        <Link to="/"><img src={logoImage} alt="logo" className="logo effect" /></Link>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto " navbar>
@@ -67,9 +66,9 @@ class Header extends Component {
             <NavItem>
               <NavLink tag={Link} to="/events">Events</NavLink>
             </NavItem>
-            <NavItem>
+            {/* <NavItem>
               <NavLink tag={Link} to="/news">News</NavLink>
-            </NavItem>
+            </NavItem> */}
             <NavItem>
               <NavLink tag={Link} to="/resources">Resources</NavLink>
             </NavItem>
