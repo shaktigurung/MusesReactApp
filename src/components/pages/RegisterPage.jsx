@@ -17,7 +17,7 @@ class RegisterPage extends Component {
       formData.append(key, formValues[key])
     }
     createUser(formData)
-      .then(() => this.props.history.push("/admin/profile"))
+      .then(() => this.props.history.push("/admin/dashboard"))
   }
 
   handleFileUpload = (event) => {
@@ -26,12 +26,14 @@ class RegisterPage extends Component {
 
   render() {
     return (
+
       <UserForm 
         onFormSubmit={this.onFormSubmit} 
         handleFileUpload={this.handleFileUpload} 
         formType="Register"
         buttonLabel="Sign Up"
       />
+
     );
   }
 }

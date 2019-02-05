@@ -4,6 +4,7 @@ import CreateChapterForm from "./../forms/CreateChapterForm";
 import ChapterList from '../structure/ChapterList';
 import { connect } from "react-redux";
 import UnauthorizedPage from "./UnauthorizedPage";
+import {Badge} from "reactstrap";
 
 class EditChapterPage extends Component {
 
@@ -12,7 +13,8 @@ class EditChapterPage extends Component {
     if (user) {
       return (
         <div>
-          <h1>Chapters Dashboard</h1>
+          <h1> <Badge className="muses-primary"> Chapters </Badge> </h1>
+
           <div className="createChapter">
             <CreateChapterForm />
           </div>

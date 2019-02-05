@@ -18,6 +18,7 @@ import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
 import SponsorsPage from "./components/structure/SponsorsPage";
 import UnauthorizedPage from './components/pages/UnauthorizedPage';
+import DashboardPage from "./components/pages/DashboardPage";
 import ErrorPage from './components/pages/ErrorPage';
 import './App.css';
 import Header from './components/structure/Header';
@@ -61,22 +62,23 @@ class App extends Component {
           <div>
 
             <Header />
-                <div>
-                  <Route exact path="/" component={HomePage} />
-                  <Route exact path="/aboutus" component={AboutUsPage} />
-                  <Route exact path="/events" component={EventsPage} />
-                  {/* <Route exact path="/events/create" component={CreateEventPage} /> */}
-                  <Route exact path="/events/:id" component={SingleEventPage} />
-                  <Route exact path="/news" component={NewsPage} />
-                  <Route exact path="/resources" component={ResourcesPage} />
-                  <Route exact path="/contact" component={ContactPage} />
-                  <Route exact path="/sponsors" component={SponsorsPage} />
-                  <Route exact path="/unauthorized" component={UnauthorizedPage} />
-                  <Route exact path="/error" component={ErrorPage} />
-                  <Route path="/admin" render={(props) => {
-                    return <AdminPage {...props} />
-                  }} />
-                </div>
+              <div>
+                <Route exact path="/" component={HomePage} />
+                {/* <Route exact path="/dashboard" component={DashboardPage} /> */}
+                <Route exact path="/aboutus" component={AboutUsPage} />
+                <Route exact path="/events" component={EventsPage} />
+                {/* <Route exact path="/events/create" component={CreateEventPage} />  */}
+                <Route exact path="/events/:id" component={SingleEventPage} />
+                <Route exact path="/news" component={NewsPage} />
+                <Route exact path="/resources" component={ResourcesPage} />
+                <Route exact path="/contact" component={ContactPage} />
+                <Route exact path="/sponsors" component={SponsorsPage} />
+                <Route exact path="/unauthorized" component={UnauthorizedPage} />
+                <Route exact path="/error" component={ErrorPage} />
+                <Route path="/admin" render={(props) => {
+                  return <AdminPage {...props} />
+                }} />
+              </div>
             <Footer/>
           </div>
         </BrowserRouter>
