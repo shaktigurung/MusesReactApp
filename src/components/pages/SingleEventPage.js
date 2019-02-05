@@ -11,7 +11,7 @@ class SingleEventPage extends Component{
     const {match} = this.props;
     const {events} = this.props;
     const id = match.params.id;
-   
+  
     return events.filter(function(event){
         return event._id === id
     });
@@ -21,8 +21,9 @@ class SingleEventPage extends Component{
     const mainCenter ={
         textAlign: "center"
       };
-   
-    const event = this.singleEvent()
+  
+    let event = this.singleEvent()
+    event= event[0]
     if (event){
       return(
         <Container>
@@ -36,9 +37,9 @@ class SingleEventPage extends Component{
                     <CardTitle> Event Name:{event.title} </CardTitle>
                     <CardSubtitle> Location:{event.location} </CardSubtitle>
                     <CardSubtitle> Date:{event.date} </CardSubtitle>
-                    <CardSubtitle> Sponsors:{event.sponsors.map(sponsor => <SponsorThumbnail sponsor={sponsor} />)}</CardSubtitle>
+                    <CardSubtitle> Sponsors:{event.sponsors.map(sponsor => <SponsorThumbnail key={sponsor._id} sponsor={sponsor} />)}</CardSubtitle>
                     <CardSubtitle> Chapter:{event.chapter.city}</CardSubtitle>
-                    <CardText>Description:{event.description} </CardText>  
+                    <CardText> Description: <span dangerouslySetInnerHTML={{__html: event.description}}></span> </CardText>  
                     <CardText><Link to={`/admin/edit/${event._id}`}>Edit</Link> </CardText>  
                   </CardBody>
                 </Card> 

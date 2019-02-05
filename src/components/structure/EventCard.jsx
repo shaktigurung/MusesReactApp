@@ -24,21 +24,19 @@ const EventCard = (props) => {
           10:00 - 16:00
       </h5>
       <div className="more-info" > <Button className="muses-primary" onClick={() => handleClick(eventItem._id)} > More info</Button> </div>
-     
+    
       <div className="event">
-          <div className="title">
-               <p>
-                  <span>{eventItem.title} </span> at <span> {eventItem.location} </span>
-               </p>
-          </div>
-
-          <p className="flow-text">
-              <span dangerouslySetInnerHTML={{ __html: eventItem.description }}></span>
+        <div className="title">
+          <p>
+            <span>{eventItem.title} </span> at <span> {eventItem.location} </span>
           </p>
-
+        </div>
+          <p className="flow-text">
+            <span dangerouslySetInnerHTML={{ __html: eventItem.description }}></span>
+          </p>
           <div className="row">
               <div className="col m6 sponsors-container">
-                  <CardSubtitle>{eventItem.sponsors.map(sponsor => <SponsorThumbnail sponsor={sponsor} />)}</CardSubtitle>
+                  <CardSubtitle>{eventItem.sponsors.map(sponsor => <SponsorThumbnail key={sponsor._id} sponsor={sponsor} />)}</CardSubtitle>
               </div>
           </div>
       </div>

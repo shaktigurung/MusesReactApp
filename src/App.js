@@ -59,25 +59,25 @@ class App extends Component {
         {/* <div className="token">{token && <p>You are logged in </p>}</div> */}
         <BrowserRouter>
           <div>
-            <Header />
-              <div>
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/aboutus" component={AboutUsPage} />
-                <Route exact path="/events" component={EventsPage} />
-                {/* <Route exact path="/events/create" component={CreateEventPage} /> */}
-                <Route exact path="/events/:id" component={SingleEventPage} />
-                <Route exact path="/news" component={NewsPage} />
-                <Route exact path="/resources" component={ResourcesPage} />
-                <Route exact path="/contact" component={ContactPage} />
-                <Route exact path="/sponsors" component={SponsorsPage} />
-                <Route exact path="/unauthorized" component={UnauthorizedPage} />
-                <Route exact path="/error" component={ErrorPage} />
-                <Route path="/admin" render={(props) => {
-                  return <AdminPage {...props} />
-                }} />
-              </div>
-            <Footer/>
 
+            <Header />
+                <div>
+                  <Route exact path="/" component={HomePage} />
+                  <Route exact path="/aboutus" component={AboutUsPage} />
+                  <Route exact path="/events" component={EventsPage} />
+                  {/* <Route exact path="/events/create" component={CreateEventPage} /> */}
+                  <Route exact path="/events/:id" component={SingleEventPage} />
+                  <Route exact path="/news" component={NewsPage} />
+                  <Route exact path="/resources" component={ResourcesPage} />
+                  <Route exact path="/contact" component={ContactPage} />
+                  <Route exact path="/sponsors" component={SponsorsPage} />
+                  <Route exact path="/unauthorized" component={UnauthorizedPage} />
+                  <Route exact path="/error" component={ErrorPage} />
+                  <Route path="/admin" render={(props) => {
+                    return <AdminPage {...props} />
+                  }} />
+                </div>
+            <Footer/>
           </div>
         </BrowserRouter>
       </div>

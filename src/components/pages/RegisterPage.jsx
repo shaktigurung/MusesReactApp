@@ -26,7 +26,12 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <UserForm onFormSubmit={this.onFormSubmit} handleFileUpload={this.handleFileUpload} formType="Register" />
+      <UserForm 
+        onFormSubmit={this.onFormSubmit} 
+        handleFileUpload={this.handleFileUpload} 
+        formType="Register"
+        buttonLabel="Sign Up"
+      />
     );
   }
 }
