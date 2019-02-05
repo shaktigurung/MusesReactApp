@@ -14,6 +14,7 @@ class EditChapterPage extends Component {
       return (
         <div>
           <h1> <Badge className="muses-primary"> Chapters </Badge> </h1>
+
           <div className="createChapter">
             <CreateChapterForm />
           </div>

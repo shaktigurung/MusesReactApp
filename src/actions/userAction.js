@@ -7,7 +7,6 @@ export const getUsers = (token, chapterId) => {
         Authorization: `Bearer ${token}`
       }
     });
-
     dispatch({
       type: "USERSBYCHAPTER_LIST",
       payload: response.data

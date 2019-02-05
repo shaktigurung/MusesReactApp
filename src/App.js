@@ -60,6 +60,7 @@ class App extends Component {
         {/* <div className="token">{token && <p>You are logged in </p>}</div> */}
         <BrowserRouter>
           <div>
+
             <Header />
               <div>
                 <Route exact path="/" component={HomePage} />
@@ -79,7 +80,6 @@ class App extends Component {
                 }} />
               </div>
             <Footer/>
-
           </div>
         </BrowserRouter>
       </div>

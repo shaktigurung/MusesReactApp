@@ -6,6 +6,7 @@ import { withRouter, Link } from "react-router-dom";
 import logoImage from "./../images/logo.svg";
 import {Button} from "reactstrap";
 import axios from "axios";
+import RegisterPage from "../pages/RegisterPage"
 import "./../../css/LoginSignUp.css";
 import RegisterPage from './../pages/RegisterPage';
 
@@ -50,7 +51,11 @@ class LoginSignUpForm extends Component {
                      <button type="submit" className="submit">Log In</button>   
                 </div>
                 <div>
-                <Link to="/admin/auth/register"><Button type="button" className="submit" style={{marginTop:"5px"}}> Sign Up</Button> </Link>
+
+<!--                 <Link to="/admin/auth/register"><Button type="button" className="submit" style={{marginTop:"5px"}}> Sign Up</Button> </Link> -->
+                {/* <Link to="/admin/auth/register"> <Button type="button" className="submit" style={{marginTop:"5px"}}> Sign Up</Button> </Link> */}
+                <RegisterPage />
+
                 </div>
                 </div>
                 <div className="sub-cont">

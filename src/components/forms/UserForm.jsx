@@ -18,10 +18,6 @@ import { renderField, email, required } from "../../services/formValidation"
 class UserForm extends Component {
   state = { modal: false }
 
-  onFormChange(name, event) {
-    this.setState({ [name]: event.target.value })
-  }
-
   toggle = () => {
     this.setState({ modal: !this.state.modal })
   }
@@ -32,11 +28,10 @@ class UserForm extends Component {
     if (chapters) {
       return (
         <>
-          <Button className="muses-secondary" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+          <Button className="submit" onClick={this.toggle} style={{ marginTop: "5px" }}>{this.props.buttonLabel}</Button>
           <Modal
             isOpen={this.state.modal}
             toggle={this.toggle}
-          // className={this.props.className}
           >
             <ModalHeader toggle={this.toggle}>User Information</ModalHeader>
             <form onSubmit={handleSubmit(onFormSubmit)}>
@@ -48,7 +43,6 @@ class UserForm extends Component {
                     type="text"
                     label="Email"
                     validate={[email, required]}
-                  // onChange={(event) => this.onFormChange('email', event)}
                   />
                 </div>
                 <div>
@@ -58,7 +52,6 @@ class UserForm extends Component {
                     type="password"
                     label="Password"
                     validate={[required]}
-                  // onChange={(event) => this.onFormChange('password', event)}
                   />
                 </div>
                 <div>
@@ -68,7 +61,6 @@ class UserForm extends Component {
                     type="text"
                     label="Full Name"
                     validate={[required]}
-                  // onChange={(event) => this.onFormChange('name', event)}
                   />
                 </div>
                 <div>
@@ -80,7 +72,6 @@ class UserForm extends Component {
                     component={QuillEditor}
                     type="text"
                     label="Bio"
-                  // onChange={(event) => this.onFormChange('bio', event)}
                   />
                 </div>
                 <div>
@@ -89,7 +80,6 @@ class UserForm extends Component {
                     component={renderField}
                     type="text"
                     label="Website"
-                  // onChange={(event) => this.onFormChange('website', event)}
                   />
                 </div>
                 <div>
@@ -99,6 +89,7 @@ class UserForm extends Component {
                   <Field
                     name="chapter"
                     component="select" >
+                    <option>Select your chapter</option>
                     {chapters.map(chapter =>
                       <option key={chapter._id} value={chapter._id}>{chapter.city}</option>
                     )}
@@ -108,8 +99,10 @@ class UserForm extends Component {
                   <label htmlFor="image">Image</label>
                 </div>
                 <div>
-                  {user &&
+                  {(user && user["image"]) &&
                     <img src={user["image"]} alt={`${user["name"]} profile`} />}
+                  {user &&
+                    <img style={{ maxHeight: 300, maxWidth: 300 }} src={user["image"]} alt={`${user["name"]}`} />}
                 </div>
                 <div>
                   <Field
@@ -151,3 +144,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { createUser })(withRouter(wrappedUserForm))
+

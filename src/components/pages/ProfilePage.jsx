@@ -57,11 +57,13 @@ class ProfilePage extends Component {
                       <CardBody>
                         <CardTitle> Username : {user.name}</CardTitle>
                         <CardSubtitle> Website: {user.website}</CardSubtitle>
-                        <CardText> Bio: {user.bio}</CardText>
+                        <CardText> Bio: <span dangerouslySetInnerHTML={{__html: user.bio}}></span></CardText>
+                        {/* <Link to="/admin/auth/edit"><Button className="muses-tertiary">Edit Profile</Button></Link> */}
                         <UserForm
                           handleFileUpload={this.handleFileUpload}
                           onFormSubmit={this.onUserFormSubmit}
                           buttonLabel="Edit Profile"
+                          formType="Edit"
                         />
                       </CardBody>
                     </Card>

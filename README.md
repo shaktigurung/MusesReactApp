@@ -1,4 +1,5 @@
-# Real World Application - MusesCodeJS Website
+<!-- ASSIGNMENT DOCUMENTATION -->
+# MERN Application - MusesCodeJS Website
 
 1. Link to published app 
 2. Link to [Back End repo](https://github.com/DanielTeale/muses-api)
@@ -13,13 +14,29 @@ The project purpose is remake the organisation's website to improve its performa
 
 ## Functionality / Features
 
+### User Section
+
 - Landing page designed to include the organisation's logo; available chapters; description and testimonials from people that attended to workshops.
 - About Us page designed to include more details about the organisation and the organisation teams by chapter.
 - Events page designed to include the Upcoming Events and Past Events so that the user can explore and look for events of its interest.
-- News page designed to show 
+- News page designed to show posts by organisers with the purpose to inform users about what's going on MusesCodeJS.
+- Resources page designed to show all resources and articles added by organisers with the purpose to help and spread knowledge to any user that is interested.
+- Sponsors page designed to show all sponsors that help MusesCodeJS in some way, such as sponsoring events and workshops as well 
+- Contact Us page designed to show e-mail and social media links available to contact the MusesCodeJS organisers. It also includes links to access Mentor's form and Sponsor's form in case any user wants to apply to become a mentor or sponsor.
+- Header including logo and menubar with links to redirect to Home, About Us, Events, News, Resources, Sponsors and Contact Us.
+- Footer including e-mail information and social media icons.
+
+### Admin User Section
+
+- Register page to become a new admin user.
+- Login page so that admin can log in and manage the website's content through dashboards.
+- Logout button on the top of the page so that admin can logout from any page.
+- Profile page showing admin's information and buttons to redirect for each dashboard by section (Events, News, Post, Chapters, Sponsors and Resources)
+- For each these dashboards you can create, update or delete content.
 
 ## Screenshots
 
+Website screenshots
 
 ## Tech Stack
 
@@ -36,7 +53,13 @@ The project purpose is remake the organisation's website to improve its performa
 ## Instructions
 Instructions on how to setup, configure, deploy and use your App.
 
+You can access the deployed version clicking on this link: 
+
+If you want to run this app in your computer follow the instructions below:
+
 ## Design process
+
+
 
 ## User stories
 
@@ -54,13 +77,19 @@ Instructions on how to setup, configure, deploy and use your App.
 
 ## Client communications
 
+- By text messages
+- By Slack
+- Meeting by phone
+
 ## Screenshots of Trello board(s)
+
 
 
 Answers to the Short Answer questions (Section 2.2)
 #### What are the most important aspects of quality software?
 
 #### What libraries are being used in the app and why?
+
 
 #### A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
 
@@ -69,7 +98,7 @@ Answers to the Short Answer questions (Section 2.2)
 #### Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
 
 
-
+<!--  ASSIGNMENT DOCUMENTATION END -->
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
