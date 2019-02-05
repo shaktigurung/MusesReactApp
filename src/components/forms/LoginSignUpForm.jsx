@@ -7,6 +7,7 @@ import logoImage from "./../images/logo.svg";
 import {Button} from "reactstrap";
 import axios from "axios";
 import "./../../css/LoginSignUp.css";
+import RegisterPage from './../pages/RegisterPage';
 
 class LoginSignUpForm extends Component {
   state = { email: null, password: null }
@@ -16,7 +17,7 @@ class LoginSignUpForm extends Component {
     axios.post("http://localhost:3000/auth/login", { email, password })
       .then(response => {
         this.props.setAuthToken(response.data)
-        this.props.history.push("/admin/profile")
+        this.props.history.push("/admin/dashboard")
       })
       .catch(err => console.log(err))
   }
@@ -49,7 +50,7 @@ class LoginSignUpForm extends Component {
                      <button type="submit" className="submit">Log In</button>   
                 </div>
                 <div>
-                <Link to="/admin/auth/register"> <Button type="button" className="submit" style={{marginTop:"5px"}}> Sign Up</Button> </Link>
+                <Link to="/admin/auth/register"><Button type="button" className="submit" style={{marginTop:"5px"}}> Sign Up</Button> </Link>
                 </div>
                 </div>
                 <div className="sub-cont">

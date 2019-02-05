@@ -6,7 +6,6 @@ class LoginPage extends Component {
   state = {  }
   render() { 
     return (  
-      // <LoginForm />
       <LoginSignUpForm />
     );
   }

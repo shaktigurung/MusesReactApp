@@ -3,6 +3,7 @@ import {connect} from "react-redux"
 import {withRouter} from "react-router-dom"
 import NewsForm from "../forms/NewsForm"
 import {createNews} from "../../actions/newsActions"
+import {Badge} from "reactstrap";
 
 class CreateNewsPage extends Component {
   state = { file: null }
@@ -26,10 +27,14 @@ class CreateNewsPage extends Component {
 
   render() { 
     return (
+      <div>
+      <h1> <Badge className="muses-primary"> News </Badge> </h1>
       <NewsForm 
         onFormSubmit={this.onFormSubmit} 
-        handleFileUpload={this.handleFileUpload} 
+        handleFileUpload={this.handleFileUpload}
+        buttonLabel="Create News"  
       />
+      </div>
     )
   }
 }

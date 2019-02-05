@@ -13,6 +13,8 @@ import CreateSponsorPage from './CreateSponsorPage';
 import CreateNewsPage from './CreateNewsPage';
 import EditNewsPage from "./EditNewsPage";
 import EditChapterPage from "./EditChapterPage";
+import DashboardPage from "./DashboardPage";
+
 
 class AdminPage extends Component {
   state = {}
@@ -30,6 +32,7 @@ class AdminPage extends Component {
         }} />
 
         <Route exact path="/admin/profile" component={ProfilePage} />
+        <Route exact path="/admin/dashboard" component={DashboardPage} />
         <Route exact path="/admin/resources/create" component={CreateResourcePage} />
         <Route exact path="/admin/sponsor" component={CreateSponsorPage} />
 
