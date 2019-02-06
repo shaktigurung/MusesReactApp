@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "git checkout master && npm run build && aws s3 sync build/ s3://ca-muses-static"
+    "deploy": "git checkout master && REACT_APP_STAGE=production npm run build && aws s3 sync build/ s3://ca-muses-static"
   },
   "eslintConfig": {
     "extends": "react-app"
