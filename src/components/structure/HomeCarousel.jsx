@@ -121,6 +121,6 @@ class HomeCarousel extends Component {
       </div>
     );
   }
-}
+};
 
 export default HomeCarousel;
