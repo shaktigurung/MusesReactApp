@@ -1,69 +1,91 @@
-import React, { Component } from 'react';
-import {withRouter} from "react-router-dom"
-import { Field, reduxForm } from "redux-form"
-import { connect } from "react-redux"
-import {renderField, required} from "../../services/formValidation"
-import {createSponsor} from '../../actions/sponsorAction'
+import React, { Component } from "react";
+import { reduxForm, Field } from "redux-form";
+import Input from "./fields/Input";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import FileUploadForm from "./fields/FileUploadForm";
 
-class SponsorForm extends Component {
-
-  onFormSubmit = async(formValues) => {
-    const { createSponsor, token } = this.props
-    let formData = new FormData();
-    if (this.state.file) {
-      formData.append('file', this.state.file[0])
-    }
-    for (let key in formValues) {
-      formData.append(key, formValues[key])
-    }
-    createSponsor(formData, token)
-      .then(() => this.props.history.push("/sponsors"))
-    
-  }
-
-  handleFileUpload = (event) => {
-    this.setState({file: event.target.files})
-  }
+class NewSponsorForm extends Component {
 
   render() {
-    const {handleSubmit} = this.props
-    return (  
-      <div>
-        <form onSubmit={handleSubmit(this.onFormSubmit)} >
-          <div>
-            <label htmlFor="name">Name</label>
-            <Field name="name" component={renderField} type="text" validate={[required]}/>
-          </div>
-          <div>
-            <label htmlFor="description">Description</label>
-            <Field name="description" component="textarea" type="text" />
-          </div>
-          <div>
-            <label htmlFor="website">Website</label>
-            <Field name="website" component="input" type="text" />
-          </div>
-          <div>
-            <label htmlFor="image">Logo</label>
-            <input type="file" label="image" onChange={this.handleFileUpload} />
-          </div>
-          <div>
-            <button type="submit">Add Sponsor</button>
-          </div>
+    const { toggle, isOpen, isCreate, handleSubmit, handleFileUpload } = this.props;
+    return (
+      <Modal isOpen={isOpen} toggle={toggle}>
+        <ModalHeader toggle={toggle}>{isCreate ? 'Create a new sponsor' : 'Update sponsor'}</ModalHeader>
+        <form onSubmit={handleSubmit}>
+          <ModalBody>
+            <div>
+              <label>Name</label>
+              <div>
+                <Field
+                  name="name"
+                  component={Input}
+                  type="text"
+                  placeholder="Name"
+                />
+              </div>
+            </div>
+            <div>
+              <label>Description</label>
+              <div>
+                <Field
+                  name="description"
+                  component={Input}
+                  type="textarea"
+                  placeholder="Description"
+                />
+              </div>
+            </div>
+            <div>
+              <label>Website</label>
+              <div>
+                <Field
+                  name="website"
+                  component={Input}
+                  type="text"
+                  placeholder="Website"
+                />
+              </div>
+              <div>
+                <Field
+                  name="image"
+                  component={FileUploadForm}
+                  type="file"
+                  handleFileUpload={handleFileUpload}
+                />
+              </div>
+            </div>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="info" type="submit">{isCreate ? 'Create' : 'Update'}</Button>
+            <Button color="secondary" onClick={toggle}>Cancel</Button>
+          </ModalFooter>
         </form>
-      </div>
+      </Modal>
     );
   }
 }
 
-const wrappedSponsorForm = reduxForm({
-  form: "sponsor"
-})(SponsorForm)
+export default reduxForm({
+  form: "sponsor",
+  validate: ({ name, description, website, image }) => {
+    const errors = {};
 
-const mapStateToProps = (state) => {
-  return {
-    sponsors: state.sponsors,
-    token: state.auth.token
+    if (!name) {
+      errors.name = "Name is required!"
+    }
+
+    if (!description) {
+      errors.description = "Description is required!"
+    }
+
+    if (!website) {
+      errors.website = "Website is required!"
+    }
+
+    if (!image) {
+      errors.image = "Image is required!"
+    }
+
+    return errors;
   }
-}
-
-export default connect(mapStateToProps, {createSponsor})(withRouter(wrappedSponsorForm));
+})(NewSponsorForm);
