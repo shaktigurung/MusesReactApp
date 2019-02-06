@@ -26,7 +26,6 @@ class OrganisersForm extends Component {
         this.setState({
           selectedUsers: [],
         });
-        this.props.history.push("/admin/chapter");
       });
   }
 

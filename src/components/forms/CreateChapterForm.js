@@ -24,13 +24,10 @@ class CreateChapterForm extends Component {
 
   onFormSubmit = async (formValues) => {
     const { city } = formValues;
-    const { createChapter, reset, token } = this.props;
-    createChapter({ city }, token)
-      .then(() => {
-        alert("Chapter created successfully!");
-        this.props.history.push("/admin/profile")
-      });
-    reset();
+    const { createChapter, token } = this.props;
+    await createChapter({ city }, token)
+    alert("Chapter created successfully!");
+    this.props.history.push("/admin/chapter");
   }
 
   handleCancelClick = () => {
