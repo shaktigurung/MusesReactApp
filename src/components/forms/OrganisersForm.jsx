@@ -32,23 +32,10 @@ class OrganisersForm extends Component {
 
   removeOrganiser = async (organiserId) => {
     const { deleteOrganisers, token } = this.props;
-    // get chapter object
     const chapter = this.getChapter();
-    // filter organiser to be removed
     const updatedOrganisers = chapter.organisers.filter(organiser => organiser._id !== organiserId);
-    // [{id: 1}, {id: 2}, {id:3}] - 3 => [{id: 1}, {id: 2}]
-    // dispatch action that calls PUT /chapter/:id
     deleteOrganisers({ city: chapter.city, organisers: updatedOrganisers }, chapter._id, token);
   }
-
-  // handleRemoveOrganiser = async (organiserId) => {
-  //   const { removeOrganiser, token } = this.props;
-  //   removeOrganiser(organiserId, token)
-  //     .then(() => {
-  //       alert("Organised removed!");
-  //       this.props.history.push("/admin/chapter");
-  //     });
-  // }
 
   getChapter = () => {
     const { chapters } = this.props;
