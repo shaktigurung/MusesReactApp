@@ -14,6 +14,12 @@ export default (state = defaultState, action) => {
         token: action.payload.token,
         user: action.payload.user
       }
+    case "LOGIN_USER":
+      return {
+        ...state,
+        token: action.payload.token,
+        user: action.payload.user
+      }
     case "UPDATE_USER":
       return {
         ...state,
