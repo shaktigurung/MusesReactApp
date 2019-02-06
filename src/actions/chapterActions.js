@@ -47,7 +47,7 @@ export const createChapter = ({ city }, token) => {
 
 export const removeChapter = (chapterId, token) => {
   return async (dispatch) => {
-    let response = await LocalApi.delete(`/chapter/${chapterId}`, {
+      await LocalApi.delete(`/chapter/${chapterId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

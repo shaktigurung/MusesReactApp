@@ -41,9 +41,9 @@ class CreateChapterForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <div>
-        <Button className="muses-tertiary" onClick={this.toggle}>Create a new chapter</Button>
+        <Button className="muses-secondary" onClick={this.toggle}>Create New Chapter</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Create a new chapter</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Create New Chapter</ModalHeader>
           <form onSubmit={handleSubmit(this.onFormSubmit)}>
             <ModalBody>
               <div>

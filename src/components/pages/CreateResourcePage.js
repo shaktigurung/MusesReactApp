@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import UnauthorizedPage from "./UnauthorizedPage";
 import ResourceList from "../structure/ResourceList";
-import { Button } from 'reactstrap';
+import { Button, Badge } from 'reactstrap';
 
 class CreateResourcePage extends Component {
   constructor(props) {
@@ -73,9 +73,9 @@ class CreateResourcePage extends Component {
     if (user) {
       return (
         <div>
-          <h1>Resources Dashboard</h1><br />
+           <h1> <Badge className="muses-primary">Resources</Badge> </h1> <br />
           <div className="createResource">
-            <Button className="muses-tertiary" onClick={this.prepareForCreation}>Create a new resource</Button>
+            <Button className="muses-secondary" onClick={this.prepareForCreation}>Create New Resource</Button>
           </div><br />
           <div className="resourceList">
             <ResourceList onEdit={this.prepareForEdit} />

@@ -16,14 +16,13 @@ import {
 } from 'reactstrap';
 import FileUploadForm from './fields/FileUploadForm';
 import QuillEditor from "./fields/QuillEditor"
+import {renderField, required} from "../../services/formValidation"
 
 class EventForm extends Component{
   state = { modal: false}
 
   handleFormSubmit = async(formValues) => {
     const {onFormSubmit, eventItem} = this.props
-    console.log(eventItem)
-    // console.log(formValues)
     await onFormSubmit(formValues, eventItem)
     this.toggle()
   }
@@ -57,7 +56,7 @@ class EventForm extends Component{
               <Col>
                 <FormGroup>
                   <Label htmlFor="eventTitle"> Event title </Label>
-                  <Field name="title" component="input" type="text" />
+                  <Field name="title" component={renderField} type="text" validate={[required]}/>
                 </FormGroup>
               </Col>
               <Col>
@@ -69,7 +68,7 @@ class EventForm extends Component{
               <Col>
                 <FormGroup>
                   <Label htmlFor="eventLocation"> Location </Label>
-                  <Field name="location" component="input" type="text" />
+                  <Field name="location" component={renderField} type="text" validate={[required]} />
                 </FormGroup>
               </Col>
               <Col>

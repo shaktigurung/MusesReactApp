@@ -17,7 +17,7 @@ const items = [
     src: "https://source.unsplash.com/random"
   },
   {
-    id: 1,
+    id: 2,
     testimonial: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     name: "Angelina Jolie",
     designation: "Web Analyst",
@@ -25,7 +25,7 @@ const items = [
     src: "https://source.unsplash.com/collection/190727/1600x900"
   },
   {
-    id: 1,
+    id: 3,
     testimonial: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     name: "Jessica Alba",
     designation: "Web Consultant",
@@ -102,22 +102,25 @@ class HomeCarousel extends Component {
             `.custom-tag {
                   max-width: 100%;
                   height: 100%;
-                  background: #7986E8;
+                  background: #F8F9FA;	
+                  
                 }`
-          }
-        </style>
-        <Carousel
-          activeIndex={activeIndex}
-          next={this.next}
-          previous={this.previous}
-        >
-          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-          {slides}
-          <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-          <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-        </Carousel>
-      </div>
-    );
+            }
+          </style>
+          <Carousel
+            activeIndex={activeIndex}
+            next={this.next}
+            previous={this.previous}
+            
+          >
+            <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+            {slides}
+            <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+            <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+          </Carousel>
+        </div>
+      );
+    }
   }
 }
 

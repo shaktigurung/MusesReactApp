@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {withRouter} from "react-router-dom"
 import { Field, reduxForm } from "redux-form"
 import { connect } from "react-redux"
+import {renderField, required} from "../../services/formValidation"
 import {createSponsor} from '../../actions/sponsorAction'
 
 class SponsorForm extends Component {
@@ -31,7 +32,7 @@ class SponsorForm extends Component {
         <form onSubmit={handleSubmit(this.onFormSubmit)} >
           <div>
             <label htmlFor="name">Name</label>
-            <Field name="name" component="input" type="text" />
+            <Field name="name" component={renderField} type="text" validate={[required]}/>
           </div>
           <div>
             <label htmlFor="description">Description</label>
@@ -42,8 +43,8 @@ class SponsorForm extends Component {
             <Field name="website" component="input" type="text" />
           </div>
           <div>
-            <label htmlFor="logo">Logo</label>
-            <input type="file" label="logo" onChange={this.handleFileUpload} />
+            <label htmlFor="image">Logo</label>
+            <input type="file" label="image" onChange={this.handleFileUpload} />
           </div>
           <div>
             <button type="submit">Add Sponsor</button>

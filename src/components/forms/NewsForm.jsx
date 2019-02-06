@@ -8,6 +8,7 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap"
+import {renderField, required} from "../../services/formValidation"
 import QuillEditor from './fields/QuillEditor';
 import FileUploadForm from "./fields/FileUploadForm"
 
@@ -41,8 +42,9 @@ class NewsForm extends Component {
               <div>
                 <Field 
                   name="title" 
-                  component="input" 
-                  type="text" 
+                  component={renderField} 
+                  type="text"
+                  validate={[required]}
                 />
               </div>
               <div>

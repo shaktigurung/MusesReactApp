@@ -30,7 +30,7 @@ class ChapterList extends Component {
                   </tr>
                 </thead>
                 {chapters.map(element => (
-                  <tbody className="muses-primary-text">
+                  <tbody className="muses-primary-text" key={element._id}>
                     <tr>
                       <td>{element.city}</td>
                       <td><Button outline color="danger" onClick={this.handleRemoveChapter}>X</Button></td>

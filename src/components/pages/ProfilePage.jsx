@@ -1,46 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link} from "react-router-dom";
 import { Container, Row, Col, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Badge, Button} from 'reactstrap';
-import EventForm from "../forms/EventForm"
-import NewsForm from "../forms/NewsForm"
+  CardTitle, CardSubtitle, Badge} from 'reactstrap';
 import UserForm from "../forms/UserForm"
 import {createEvent} from "../../actions/eventActions"
 import {createNews} from "../../actions/newsActions"
-import {updateUser} from "../../actions/registerAction"
+import {updateUser} from "../../actions/registerAction";
 import './../../App.css';
 
 class ProfilePage extends Component {
   state = { file: null }
-
-  onEventFormSubmit = (formValues) => {
-    let formData = new FormData();
-
-    if (this.state.file) {
-      formData.append('file', this.state.file[0])
-    }
-
-    for (let key in formValues) {
-      formData.append(key, formValues[key])
-    }
-
-    this.props.createEvent(formData, this.props.token)
-      .then(() => this.props.history.push("/events"))
-  }
-
-  onNewsFormSubmit = (formValues) => {
-    const { createNews, token } = this.props
-    const formData = new FormData()
-    if (this.state.file) {
-      formData.append("file", this.state.file[0])
-    }
-    for (let key in formValues) {
-      formData.append(key, formValues[key])
-    }
-    createNews(formData, token)
-      .then(this.props.history.push("/news"))
-  }
 
   onUserFormSubmit = (formValues) => {
     const { updateUser, token } = this.props
@@ -84,53 +53,15 @@ class ProfilePage extends Component {
                       <CardBody>
                         <CardTitle> Username : {user.name}</CardTitle>
                         <CardSubtitle> Website: {user.website}</CardSubtitle>
-                        <CardText> Bio: {user.bio}</CardText>
-                        {/* <Link to="/admin/auth/edit"><Button className="muses-tertiary">Edit Profile</Button></Link> */}
+                        <CardText> Bio: <span dangerouslySetInnerHTML={{__html: user.bio}}></span></CardText>
                         <UserForm
                           handleFileUpload={this.handleFileUpload}
                           onFormSubmit={this.onUserFormSubmit}
                           buttonLabel="Edit Profile"
+                          formType="Edit"
                         />
                       </CardBody>
                     </Card>
-                  <Row><h4>Please select the following options</h4></Row>
-                  <Row>
-                      <Col xs="4">
-                          {/* <Link to="/admin/events/create"> <Button className="muses-secondary" style={{margin: "20px"}}> Event</Button></Link> */}
-                          <EventForm
-                            // key={eventItem._id}
-                            onFormSubmit={this.onEventFormSubmit}
-                            handleFileUpload={this.handleFileUpload}
-                            eventItem={null}
-                            buttonLabel="Event"
-                            // className={eventItem._id}
-                          />
-                      </Col>
-                      <Col xs="4">
-                          {/* <Link to="/admin/news/create"> <Button className="muses-secondary" style={{marginTop: "20px"}}> News</Button></Link> */}
-                          <NewsForm
-                            onFormSubmit={this.onNewsFormSubmit}
-                            handleFileUpload={this.handleFileUpload}
-                            newsItem={null}
-                            buttonLabel="News"
-                          />
-                      </Col>
-                      <Col xs="4">
-                          <Link to="/admin/post/create"> <Button className="muses-secondary" style={{marginTop: "20px"}}>  Post</Button></Link>
-                      </Col>
-                  </Row>
-                  <Row>
-                      <Col xs="4">
-                          <Link to="/admin/chapter"> <Button className="muses-secondary" style={{marginTop: "20px"}}> Chapters</Button></Link>
-                      </Col>
-                      <Col xs="4">
-                          <Link to="/admin/sponsor"> <Button className="muses-secondary" style={{marginTop: "20px"}}> Sponsors </Button></Link>
-                      </Col>
-                      <Col xs="4">
-                          <Link to="/admin/resources/create"><Button className="muses-secondary" style={{marginTop: "20px"}}> Resources</Button></Link>
-                      </Col>
-                  </Row>
-                  <Row></Row>
                 </Col>
             </Row>
           </Container>

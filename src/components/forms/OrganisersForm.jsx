@@ -45,7 +45,7 @@ class OrganisersForm extends Component {
 
   render() {
     const { chapters, getUsers, token } = this.props;
-    const { selectedUsers, chapterId } = this.state;
+    const { selectedUsers } = this.state;
     const chapter = this.getChapter();
 
     return (
