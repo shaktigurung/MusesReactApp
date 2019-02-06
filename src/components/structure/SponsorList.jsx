@@ -8,11 +8,7 @@ class SponsorList extends Component {
 
   handleRemoveSponsor = async (sponsorId) => {
     const { removeSponsor, token } = this.props;
-    removeSponsor(sponsorId, token)
-      .then(() => {
-        alert("Sponsor removed!");
-        // this.props.history.push("/admin/resources/create");
-      });
+    await removeSponsor(sponsorId, token)
   }
 
   render() {
