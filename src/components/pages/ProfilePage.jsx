@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link} from "react-router-dom";
 import { Container, Row, Col, Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Badge, Button} from 'reactstrap';
-import EventForm from "../forms/EventForm"
-import NewsForm from "../forms/NewsForm"
+  CardTitle, CardSubtitle, Badge} from 'reactstrap';
 import UserForm from "../forms/UserForm"
 import {createEvent} from "../../actions/eventActions"
 import {createNews} from "../../actions/newsActions"
 import {updateUser} from "../../actions/registerAction";
-import DashboardNavBar from "./../structure/DashboardNavBar";
 import './../../App.css';
 
 class ProfilePage extends Component {
@@ -58,7 +54,6 @@ class ProfilePage extends Component {
                         <CardTitle> Username : {user.name}</CardTitle>
                         <CardSubtitle> Website: {user.website}</CardSubtitle>
                         <CardText> Bio: <span dangerouslySetInnerHTML={{__html: user.bio}}></span></CardText>
-                        {/* <Link to="/admin/auth/edit"><Button className="muses-tertiary">Edit Profile</Button></Link> */}
                         <UserForm
                           handleFileUpload={this.handleFileUpload}
                           onFormSubmit={this.onUserFormSubmit}

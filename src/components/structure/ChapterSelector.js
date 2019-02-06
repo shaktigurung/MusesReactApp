@@ -30,7 +30,7 @@ export class ChapterSelector extends Component {
           </DropdownToggle>
           <DropdownMenu>
             {chapters.map(element => (
-              <DropdownItem value={element._id} onClick={() => onChange(element)}>{element.city}</DropdownItem>
+              <DropdownItem value={element._id} onClick={() => onChange(element)} key={element._id}>{element.city}</DropdownItem>
             ))}
           </DropdownMenu>
         </Dropdown>
