@@ -28,7 +28,6 @@ class OrganisersForm extends Component {
         });
       });
   }
-
   removeOrganiser = async (organiserId) => {
     const { deleteOrganisers, token } = this.props;
     const chapter = this.getChapter();
@@ -85,7 +84,7 @@ class OrganisersForm extends Component {
                             </tr>
                           </thead>
                           {chapter.organisers.map(organiser => (
-                            <tbody className="muses-primary-text">
+                            <tbody className="muses-primary-text" key={organiser._id}>
                               <tr>
                                 <td>{organiser.name}</td>
                                 <td><Button outline color="danger" onClick={() => this.removeOrganiser(organiser._id)}>Remove</Button></td>

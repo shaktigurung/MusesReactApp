@@ -11,7 +11,7 @@ class ResourceItems extends Component {
           <Container fluid>
             <CardColumns>
               {this.props.resources.map(resource =>
-                <Card body outline color="info">
+                <Card body outline color="info" key={resource._id}>
                   <CardTitle><b>{resource.title}</b></CardTitle>
                   <CardText>{resource.description}</CardText>
                   <a href={resource.link} >
