@@ -11,7 +11,7 @@ class ResourcesPage extends Component {
                     <h1 className="display-3">Resources</h1>
                     <p className="lead">Contribute with our projects on GitHub</p>
                     <hr className="my-2" />
-                    <a href="https://github.com/muses-code-js" className="github" target="_blank"><i className="fab fa-5x fa-github"></i></a>
+                    <a href="https://github.com/muses-code-js" className="github" target="_blank" rel="noopener noreferrer"><i className="fab fa-5x fa-github"></i></a>
                 </Jumbotron>
 
                 <ResourceItems />

@@ -24,7 +24,7 @@ class SponsorsPage extends Component {
                 {this.props.sponsors.map(sponsor =>
                 <Col xs="4" key={sponsor._id}>
                   <Card className="sponsor-card effect">
-                    <a href={sponsor.website} target="_blank"><img width="100%" src={sponsor.image} alt="Sponsor logo" /></a>
+                    <a href={sponsor.website} target="_blank" rel="noopener noreferrer"><img width="100%" src={sponsor.image} alt="Sponsor logo" /></a>
                     <CardBody>
                       <CardTitle>{sponsor.name}</CardTitle>
                     </CardBody>

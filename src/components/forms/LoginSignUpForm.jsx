@@ -5,7 +5,8 @@ import {setAuthToken} from "../../actions/registerAction"
 import { withRouter} from "react-router-dom";
 import logoImage from "./../images/logo.svg";
 import axios from "axios";
-import RegisterPage from "../pages/RegisterPage"
+import RegisterPage from "../pages/RegisterPage";
+import { Container , Col} from "reactstrap";
 import "./../../css/LoginSignUp.css";
 
 
@@ -29,6 +30,9 @@ class LoginSignUpForm extends Component {
   render() {
     const {handleSubmit} = this.props 
     return (  
+        <Container>
+        
+        <Col>
         <form onSubmit={handleSubmit(this.onFormSubmit)}>
             <div className="loginSignUp">
             <p className="tip"> 
@@ -36,39 +40,29 @@ class LoginSignUpForm extends Component {
             </p>
             <div className="cont">
                 <div className="form sign-in">
-                <div className="welcome"><h2>Welcome back,</h2></div>
-                <label>
-                    <span>Email</span>
-                    <Field name="email" component="input" type="text" onChange={(event) => this.onFormChange('email', event)} />
-                </label>
-                <label>
-                    <span>Password</span>
-                    <Field name="password" component="input" type="password" onChange={(event) => this.onFormChange('password', event)} />
-                </label>
-                <p className="forgot-pass">Forgot password?</p>
-                <div className="loginSignUp"> 
-                     <button type="submit" className="submit">Log In</button>   
+                  <div className="welcome"><h2>Welcome back,</h2></div>
+                  <label>
+                      <span>Email</span>
+                      <Field name="email" component="input" type="text" onChange={(event) => this.onFormChange('email', event)} />
+                  </label>
+                  <label>
+                      <span>Password</span>
+                      <Field name="password" component="input" type="password" onChange={(event) => this.onFormChange('password', event)} />
+                  </label>
+                  <p className="forgot-pass">Forgot password?</p>
+                  <div className="loginSignUp"> 
+                      <button type="submit" className="submit">Log In</button>   
+                  </div>
+                  <div>
+                      <RegisterPage />
+                  </div>
+                  </div>
                 </div>
-                <div>
-                <RegisterPage />
-                </div>
-                </div>
-                <div className="sub-cont">
-                    <div className="img">
-                    <div className="img__text m--up">
-                    <h2>New here?</h2>
-                    <p>Sign up and discover great amount of new opportunities!</p>
-                    </div>
-                    <div className="img__text m--in">
-                    <h2>One of us?</h2>
-                    <p>If you already has an account, just sign in. We've missed you!</p>
-                    </div>
-                </div>
-                
-                </div>
-            </div>
             </div>
         </form>
+        </Col>
+    
+        </Container>
     );
   }
 }

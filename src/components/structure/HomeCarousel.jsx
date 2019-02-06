@@ -122,6 +122,6 @@ class HomeCarousel extends Component {
       );
     }
   }
-}
+
 
 export default HomeCarousel;
