@@ -12,7 +12,7 @@ import {
 } from 'reactstrap';
 import "./../../App.css";
 import Logout from './Logout'
-import {updateUser} from "../../actions/registerAction"
+import { updateUser } from "../../actions/registerAction"
 
 class Header extends Component {
   constructor(props) {
@@ -65,9 +65,9 @@ class Header extends Component {
             <NavItem>
               <NavLink tag={Link} to="/events">Events</NavLink>
             </NavItem>
-            {/* <NavItem>
+            <NavItem>
               <NavLink tag={Link} to="/news">News</NavLink>
-            </NavItem> */}
+            </NavItem>
             <NavItem>
               <NavLink tag={Link} to="/resources">Resources</NavLink>
             </NavItem>
@@ -96,4 +96,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {updateUser})(withRouter(Header));
+export default connect(mapStateToProps, { updateUser })(withRouter(Header));

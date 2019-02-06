@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, Button, CardTitle, CardText, CardColumns, Container } from 'reactstrap';
+import ErrorPage from "./../pages/ErrorPage";
 
 class ResourceItems extends Component {
-
   render() {
     if (this.props.resources) {
       return (
         <div>
-          <Row>
-            <Col sm="6" md={{ size: 6, offset: 3 }}>
+          <Container fluid>
+            <CardColumns>
               {this.props.resources.map(resource =>
-                <Card body>
+                <Card body outline color="info">
                   <CardTitle><b>{resource.title}</b></CardTitle>
                   <CardText>{resource.description}</CardText>
                   <a href={resource.link} >
@@ -19,13 +19,13 @@ class ResourceItems extends Component {
                   </a>
                 </Card>
               )}
-            </Col>
-          </Row>
-        </div>
+            </CardColumns>
+          </Container>
+        </div >
       )
     } else {
       return (
-        <h1>loading</h1>
+        <ErrorPage />
       )
     }
   }
@@ -37,8 +37,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-
 export default connect(mapStateToProps)(ResourceItems);
-
-// TO DO:
-// add pagination to resources page

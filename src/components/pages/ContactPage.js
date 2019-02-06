@@ -31,9 +31,12 @@ class ContactPage extends Component {
               <Col><a href="https://www.meetup.com/en-AU/MusesCodeJS/" className="meetup" target="_blank" rel="noopener noreferrer"><i className="fab fa-5x fa-meetup"></i></a></Col>
               <Col xs="3"><a href="mailto:info@musescodejs.org" className="gmail" rel="noopener noreferrer"><i className="far fa-5x fa-envelope"></i></a></Col>
             </Row>
-            
           </Jumbotron>
-          <Row> <Col><MailingListForm /></Col></Row>
+          <Row>
+            <Col>
+              <MailingListForm />
+            </Col>
+          </Row>
         </Container>
       </div>
     );

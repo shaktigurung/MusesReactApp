@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getUsers } from "./../../actions/userAction";
-import { updateOrganisers } from "./../../actions/chapterActions";
+import { updateOrganisers, deleteOrganisers } from "./../../actions/chapterActions";
 import { Typeahead } from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { Container, Row, Col, Button, Table } from "reactstrap";
@@ -30,13 +30,11 @@ class OrganisersForm extends Component {
       });
   }
 
-  handleRemoveOrganiser = async (organiserId) => {
-    const { removeOrganiser, token } = this.props;
-    removeOrganiser(organiserId, token)
-      .then(() => {
-        alert("Organised removed!");
-        this.props.history.push("/admin/chapter");
-      });
+  removeOrganiser = async (organiserId) => {
+    const { deleteOrganisers, token } = this.props;
+    const chapter = this.getChapter();
+    const updatedOrganisers = chapter.organisers.filter(organiser => organiser._id !== organiserId);
+    deleteOrganisers({ city: chapter.city, organisers: updatedOrganisers }, chapter._id, token);
   }
 
   getChapter = () => {
@@ -91,7 +89,7 @@ class OrganisersForm extends Component {
                             <tbody className="muses-primary-text">
                               <tr>
                                 <td>{organiser.name}</td>
-                                <td><Button outline color="danger" onClick={() => this.handleRemoveOrganiser(organiser._id)}>Remove</Button></td>
+                                <td><Button outline color="danger" onClick={() => this.removeOrganiser(organiser._id)}>Remove</Button></td>
                               </tr>
                             </tbody>
                           ))}
@@ -117,4 +115,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, { getUsers, updateOrganisers })(withRouter(OrganisersForm));
+export default connect(mapStateToProps, { getUsers, updateOrganisers, deleteOrganisers })(withRouter(OrganisersForm));
