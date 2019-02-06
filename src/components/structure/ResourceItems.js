@@ -11,7 +11,7 @@ class ResourceItems extends Component {
           <Row>
             <Col sm="6" md={{ size: 6, offset: 3 }}>
               {this.props.resources.map(resource =>
-                <Card body>
+                <Card body key={resource._id}>
                   <CardTitle><b>{resource.title}</b></CardTitle>
                   <CardText>{resource.description}</CardText>
                   <a href={resource.link} >

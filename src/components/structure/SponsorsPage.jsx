@@ -21,7 +21,7 @@ class SponsorsPage extends Component {
               <Row> <h2 style = {mainCenter} > Our current <Badge className="muses-secondary" >Sponsors</Badge></h2></Row>
               <Row>
                 {this.props.sponsors.map(sponsor =>
-                <Col xs="4">
+                <Col xs="4" key={sponsor._id}>
                   <Card className="sponsor-card effect">
                     <a href={sponsor.website} ><img width="100%" src={sponsor.logo} alt="Sponsor logo" /></a>
                     <CardBody>
