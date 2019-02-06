@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getUsers } from "./../../actions/userAction";
-import { updateOrganisers } from "./../../actions/chapterActions";
+import { updateOrganisers, deleteOrganisers } from "./../../actions/chapterActions";
 import { Typeahead } from 'react-bootstrap-typeahead';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { Container, Row, Col, Button, Table } from "reactstrap";
@@ -30,14 +30,25 @@ class OrganisersForm extends Component {
       });
   }
 
-  handleRemoveOrganiser = async (organiserId) => {
-    const { removeOrganiser, token } = this.props;
-    removeOrganiser(organiserId, token)
-      .then(() => {
-        alert("Organised removed!");
-        this.props.history.push("/admin/chapter");
-      });
+  removeOrganiser = async (organiserId) => {
+    const { deleteOrganisers, token } = this.props;
+    // get chapter object
+    const chapter = this.getChapter();
+    // filter organiser to be removed
+    const updatedOrganisers = chapter.organisers.filter(organiser => organiser._id !== organiserId);
+    // [{id: 1}, {id: 2}, {id:3}] - 3 => [{id: 1}, {id: 2}]
+    // dispatch action that calls PUT /chapter/:id
+    deleteOrganisers({ city: chapter.city, organisers: updatedOrganisers }, chapter._id, token);
   }
+
+  // handleRemoveOrganiser = async (organiserId) => {
+  //   const { removeOrganiser, token } = this.props;
+  //   removeOrganiser(organiserId, token)
+  //     .then(() => {
+  //       alert("Organised removed!");
+  //       this.props.history.push("/admin/chapter");
+  //     });
+  // }
 
   getChapter = () => {
     const { chapters } = this.props;
@@ -91,7 +102,7 @@ class OrganisersForm extends Component {
                             <tbody className="muses-primary-text">
                               <tr>
                                 <td>{organiser.name}</td>
-                                <td><Button outline color="danger" onClick={() => this.handleRemoveOrganiser(organiser._id)}>Remove</Button></td>
+                                <td><Button outline color="danger" onClick={() => this.removeOrganiser(organiser._id)}>Remove</Button></td>
                               </tr>
                             </tbody>
                           ))}
@@ -117,4 +128,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps, { getUsers, updateOrganisers })(withRouter(OrganisersForm));
+export default connect(mapStateToProps, { getUsers, updateOrganisers, deleteOrganisers })(withRouter(OrganisersForm));

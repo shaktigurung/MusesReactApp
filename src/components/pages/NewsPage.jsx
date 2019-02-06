@@ -56,7 +56,7 @@ class NewsPage extends Component {
                 <CardBody>
                   <Row>
                     <Col xs="6">
-                      <CardImg style={{ maxHeight: 350, maxWidth: 350, padding: "5px" }} src={newsItem.image} alt={newsItem.title} /><br /><br />
+                      <CardImg style={{ width: "100%" }} src={newsItem.image} alt={newsItem.title} />
                     </Col>
                     <Col xs="6">
                       <CardText style={{ textAlign: "justify" }}><p dangerouslySetInnerHTML={{ __html: newsItem.content }}></p></CardText>

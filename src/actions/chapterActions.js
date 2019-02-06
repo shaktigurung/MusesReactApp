@@ -58,3 +58,17 @@ export const removeChapter = (chapterId, token) => {
     });
   }
 }
+
+export const deleteOrganisers = (formData, id, token) => {
+  return async (dispatch) => {
+    let response = await LocalApi.put(`/chapter/${id}`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    dispatch({
+      type: "CHAPTER_LIST",
+      payload: response.data
+    })
+  }
+}
