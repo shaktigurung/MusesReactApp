@@ -8,11 +8,8 @@ class ChapterList extends Component {
 
   handleRemoveChapter = async (chapterId) => {
     const { removeChapter, token } = this.props;
-    removeChapter(chapterId, token)
-      .then(() => {
-        alert("Chapter removed!");
-        this.props.history.push("/admin/chapter");
-      });
+    await removeChapter(chapterId, token)
+    alert("Chapter removed!");
   }
 
   render() {
@@ -33,7 +30,7 @@ class ChapterList extends Component {
                   <tbody className="muses-primary-text" key={element._id}>
                     <tr>
                       <td>{element.city}</td>
-                      <td><Button outline color="danger" onClick={()=>this.handleRemoveChapter(element._id)}>X</Button></td>
+                      <td><Button outline color="danger" onClick={() => this.handleRemoveChapter(element._id)}>Delete</Button></td>
                     </tr>
                   </tbody>
                 ))}

@@ -41,16 +41,22 @@ class CreateSponsorPage extends Component {
     this.toggle();
   }
 
-  handleSubmit = async (values) => {
+  handleSubmit = async (formValues) => {
     const { isCreate, sponsorToEdit } = this.state;
     const { createSponsor, updateSponsor, token } = this.props;
     let formData = new FormData();
     if (isCreate) {
-      await createSponsor(values, token);
+      if (this.state.file) {
+        formData.append('file', this.state.file[0])
+      }
+      for (let key in formValues) {
+        formData.append(key, formValues[key])
+      }
+      await createSponsor(formData, token);
       alert("Sponsor created successfully!");
     } else {
       const sponsorId = sponsorToEdit._id;
-      await updateSponsor(values, sponsorId, token);
+      await updateSponsor(formValues, sponsorId, token);
       alert("Sponsor updated successfully!");
     }
     this.toggle();
