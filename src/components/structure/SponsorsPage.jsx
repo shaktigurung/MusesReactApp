@@ -17,12 +17,12 @@ class SponsorsPage extends Component {
 
         <div>
           <Container fluid>
-            <h1 className="display-3">Sponsors</h1>
-            <p className="lead">If you have any questions, would like to become a sponsor of an event or want to be involved in some way, drop us a line to<br /><b>info@musescodejs.org</b></p><br />
-            <Row> <h2 style={mainCenter} > Our current <Badge className="muses-secondary" >Sponsors</Badge></h2></Row>
-            <Row>
-              {this.props.sponsors.map(sponsor =>
-                <Col xs="4">
+              <h1 className="display-3">Sponsors</h1>
+              <p className="lead">If you have any questions, would like to become a sponsor of an event or want to be involved in some way, drop us a line to<br/><b>info@musescodejs.org</b></p><br />
+              <Row> <h2 style = {mainCenter} > Our current <Badge className="muses-secondary" >Sponsors</Badge></h2></Row>
+              <Row>
+                {this.props.sponsors.map(sponsor =>
+                <Col xs="4" key={sponsor._id}>
                   <Card className="sponsor-card effect">
                     <a href={sponsor.website} target="_blank"><img width="100%" src={sponsor.image} alt="Sponsor logo" /></a>
                     <CardBody>
