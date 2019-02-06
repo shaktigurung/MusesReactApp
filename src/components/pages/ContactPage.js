@@ -29,7 +29,7 @@ class ContactPage extends Component {
               <Col><a href="https://www.instagram.com/musescodejssyd/" className="instagram" target="_blank" rel="noopener noreferrer" ><i className="fab fa-5x fa-instagram"></i></a></Col>
               <Col><a href="https://github.com/node-girls-australia" className="github" target="_blank" rel="noopener noreferrer"><i className="fab fa-5x fa-github"></i></a></Col>
               <Col><a href="https://www.meetup.com/en-AU/MusesCodeJS/" className="meetup" target="_blank" rel="noopener noreferrer"><i className="fab fa-5x fa-meetup"></i></a></Col>
-              <Col xs="3"><a href="mailto:info@musescodejs.org" className="gmail" rel="noopener noreferrer"><i className="far fa-5x fa-envelope"></i></a></Col>
+              <Col><a href="mailto:info@musescodejs.org" className="gmail" rel="noopener noreferrer"><i className="far fa-5x fa-envelope"></i></a></Col>
             </Row>
           </Jumbotron>
           <Row>
