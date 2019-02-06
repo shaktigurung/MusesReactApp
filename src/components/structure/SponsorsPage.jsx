@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getSponsors } from '../../actions/sponsorAction';
-import { Container, Row, Col, Card, CardBody,Badge, CardTitle } from "reactstrap";
+import { Container, Row, Col, Card, CardBody, Badge, CardTitle } from "reactstrap";
+import ErrorPage from "./../pages/ErrorPage";
 
 class SponsorsPage extends Component {
 
   render() {
-     // Inline CSS
-    const mainCenter ={
+    // Inline CSS
+    const mainCenter = {
       textAlign: "center",
-      marginLeft:"30px"
+      marginLeft: "30px"
     }
     if (this.props.sponsors) {
       return (
-        
+
         <div>
           <Container fluid>
               <h1 className="display-3">Sponsors</h1>
@@ -23,19 +24,19 @@ class SponsorsPage extends Component {
                 {this.props.sponsors.map(sponsor =>
                 <Col xs="4" key={sponsor._id}>
                   <Card className="sponsor-card effect">
-                    <a href={sponsor.website} ><img width="100%" src={sponsor.logo} alt="Sponsor logo" /></a>
+                    <a href={sponsor.website} target="_blank"><img width="100%" src={sponsor.image} alt="Sponsor logo" /></a>
                     <CardBody>
                       <CardTitle>{sponsor.name}</CardTitle>
                     </CardBody>
                   </Card>
                 </Col>
-                )}
-                </Row>
+              )}
+            </Row>
           </Container>
         </div>
       )
     } else {
-      return <h1>Loading</h1>
+      return <ErrorPage />
     }
   }
 }
