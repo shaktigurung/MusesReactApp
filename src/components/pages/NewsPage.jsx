@@ -29,13 +29,13 @@ class NewsPage extends Component {
       formData.append(key, formValues[key])
     }
     updateNews(formData, newsItem._id, token)
-      .then(this.props.history.push("/news"))
+      .then(this.props.history.push("/news"));
   }
 
   handleClickDelete = (id) => {
     const { deleteNews, token } = this.props
     deleteNews(id, token)
-      .then(this.props.history.push("/news"))
+      .then(this.props.history.push("/news"));
   }
 
   handleFileUpload = (event) => {
