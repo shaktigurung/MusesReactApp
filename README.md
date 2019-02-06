@@ -1,7 +1,6 @@
-<!-- ASSIGNMENT DOCUMENTATION -->
 # MERN Application - MusesCodeJS Website
 
-1. Link to published app 
+1. Link to [published app](http://ca-muses-static.s3-website-ap-southeast-2.amazonaws.com)
 2. Link to [Back End repo](https://github.com/DanielTeale/muses-api)
 3. Link to [Front End repo](https://github.com/shaktigurung/MusesReactApp)
 
@@ -10,7 +9,7 @@
 Web application designed, built, deployed and presented for a real world customer.
 The customer is a non-profit organisation called MusesCodeJS, which has the purpose of run free coding meetups and workshops to include women, non-binary and trans folk around Australia into Tech area.
 
-The project purpose is remake the organisation's website to improve its performance and userinterface using technologies as React and Redux so that target people can explore and have a better understanding about the organisation according to their interests.
+The project purpose is remake the organisation's website to improve its performance and userinterface using technologies as React and Redux to convert their current website, which is static, into a dynamic website.
 
 ## Functionality / Features
 
@@ -36,7 +35,75 @@ The project purpose is remake the organisation's website to improve its performa
 
 ## Screenshots
 
-Website screenshots
+### Home page
+
+![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home1.png)
+![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home2.png)
+![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home3.png)
+![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home4.png)
+
+### About Us page
+
+![About Us page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AboutUs1.png)
+![About us page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AboutUs2.png)
+
+### Events page
+
+![Events page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Events1.png)
+![Events page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Events2.png)
+![Events page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Events3.png)
+
+### News page
+
+![News page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/News.png)
+
+### Resources page
+
+![Resources page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Resources.png)
+
+### Sponsors page
+
+![Sponsors page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Sponsors.png)
+
+### Contact page
+
+![Contact Us page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ContactUs.png)
+
+### Login page (Admin)
+
+![Login page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Login.png)
+
+### Register page and form (Admin)
+
+![Register page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Register.png)
+
+### Profile page (Admin)
+
+![Profile page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Profile.png)
+
+### Events page (Admin)
+
+![Events Admin page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/EventsAdmin.png)
+
+### Resources page (Admin)
+
+![Resources Admin page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ResourcesAdmin.png)
+
+### News page (Admin)
+
+![News Admin page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/NewsAdmin.png)
+
+### Sponsors page (Admin)
+
+![Sponsors Admin page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/SponsorsAdmin.png)
+
+### Chapters page (Admin)
+
+![Chapters Admin page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ChaptersAdmin1.png)
+
+### Chapters page - organisers (Admin)
+
+![Chapters Admin page - organisers](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ChaptersAdmin2.png)
 
 ## Tech Stack
 
@@ -48,10 +115,8 @@ Website screenshots
 - React.js
 - Node.js
 - Redux
-- Heroku
 - AWS
 - Reactstrap
-- 
 
 ## Instructions
 Instructions on how to setup, configure, deploy and use your App.
@@ -61,6 +126,8 @@ You can access the deployed version clicking on this link:
 If you want to run this app in your computer follow the instructions below:
 
 ## Design process
+
+![Design Process](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/DesignProcess.png)
 
 ### User stories
 
@@ -78,38 +145,43 @@ If you want to run this app in your computer follow the instructions below:
 
 ### A workflow diagram of the user journey/s.
 
+![User Journey Diagram](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/UserJourney.png)
+
 ### Wireframes
 
 #### Mobile
 
-![Mobile_wireframes] https://github.com/shaktigurung/MusesReactApp/blob/master/docs/MobileScreenshots1.png
+![Mobile wireframes](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/MobileScreenshots1.png)
 
-![Mobile_wireframes] https://github.com/shaktigurung/MusesReactApp/blob/master/docs/MobileScreenshots2.png
+![Mobile wireframes](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/MobileScreenshots2.png)
 
 #### Mobile Admin
 
-![Mobile_Admin] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AdminMobileScreenshots1.png)
+![Mobile Admin](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AdminMobileScreenshots1.png)
 
-![Mobile_Admin] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AdminMobileScreenshots2.png)
+![Mobile Admin](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AdminMobileScreenshots2.png)
 
 #### Browser
 
-![Home_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/HomeScreenshot.png)
+![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/HomeScreenshot.png)
 
-![About_Us_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AboutUsScreenshot.png)
+![About Us page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AboutUsScreenshot.png)
 
-![Events_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/EventsScreenshot.png)
+![Events page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/EventsScreenshot.png)
 
-![News_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/NewsScreenshot.png)
+![News page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/NewsScreenshot.png)
 
-![Resources_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ResourcesScreenshot.png)
+![Resources page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ResourcesScreenshot.png)
 
-![Sponsors_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/SponsorsScreenshot.png)
+![Sponsors page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/SponsorsScreenshot.png)
 
-![Contact_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ContactScreenshot.png)
-
+![Contact page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ContactScreenshot.png)
 
 ### Database Entity Relationship Diagrams
+
+![Database Diagram](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/DatabaseDiagram1.png)
+
+![Database Diagram](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/DatabaseDiagram2.png)
 
 ### Data Flow Diagram
 
@@ -125,10 +197,11 @@ If you want to run this app in your computer follow the instructions below:
 
 ### Screenshots of Trello board(s)
 
+![Trelloboard Screenshot](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Trello1Screenshot.png)
 
+![Trelloboard Screenshot](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Trello2Screenshot.png)
 
-## Answers to the Short Answer questions (Section 2.2)
-### What are the most important aspects of quality software?
+## What are the most important aspects of quality software?
 Quality software is reasonably bug or defect free, delivered on time and within budget, meets requirements and/or expectations, and is maintainable. Key aspects of quality for the customer 
 include:
 - Good design – looks and style
@@ -139,14 +212,14 @@ include:
 - Good after sales service
 - Value for money
 
-### What libraries are being used in the app and why?
+## What libraries are being used in the app and why?
 - create-react-app - it helps to create React Application and sets up development environment
 - Redux - It helps to maintain state in react
 - Redux Form - helps to create/submit forms 
 - ReactStrap - Reactstrap assist on styling the react components
 - Font-Awesome - it helps to integrate small icons for various links
 
-### A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
+## A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
 - In order to build a website for a small business, a team needs to have knowledge on Web Application development. They need to know the design process of Web development and what technology they will be using to create it. They should following the following design process:
 
 - Goal identification
@@ -160,7 +233,7 @@ include:
 A team needs to know HTML, CSS and JavaScript for a static website. However, if they want to build dynamic website then they need know server side programming languages such as ruby, php and javascript. Also, they need to have knowledge about various database for data storage. It will be great help if they know a full stack of any technology such as MERN ( MongoDB, Express, React and Node)
 or MEAN(MongoDB, Express, Angular and Node) etc.
 
-### Within your own project what knowledge or skills were required to complete your project, and overcome challenges?
+## Within your own project what knowledge or skills were required to complete your project, and overcome challenges?
 - For our project, we need to have knowledge about whole web architecture design. We used MERN stack as our technology to build the project, so we needed knowledge about Mongodb/Mongoose, Express.js, React.js and Node.js. Also we need to know about HTML,CSS and Bootstrap framework.
 
 There were a lot of challenges while building our project, from setting up the server locally to deploying it globally. Some of the major challenges were 
@@ -172,10 +245,7 @@ There were a lot of challenges while building our project, from setting up the s
 - Deployment
 - Git conflicts
 
-### Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
+## Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
 The amount of knowledge we had was just enough to start this project. We learned a lot while building it. As we came across various challenges to integrate features into our project, we had to research on that particular topic and find our ways to incorporate it into our project. For example, we had to style our website, so custom css was challenging for us since it was very hard to style React Components. So we found "reactstrap" npm package which helped us to use our Bootstrap knowledge into React Application. In this way we learned new package and integrated it.
 
 In future, for similar nature of projects, we do not have to struggle to setup the basic structure. We will do things more systematically and try to analyse various possible ways and techs to be used. Moreover, we will overcome the problems that we had to face in this project.
-
-
-<!--  ASSIGNMENT DOCUMENTATION END -->
