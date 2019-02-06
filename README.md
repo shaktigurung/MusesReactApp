@@ -82,31 +82,32 @@ If you want to run this app in your computer follow the instructions below:
 
 #### Mobile
 
-![Mobile_wireframes] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/MobileScreenshots1.png)
+![Mobile_wireframes] https://github.com/shaktigurung/MusesReactApp/blob/master/docs/MobileScreenshots1.png
 
-![Mobile_wireframes] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/MobileScreenshots2.png)
+![Mobile_wireframes] https://github.com/shaktigurung/MusesReactApp/blob/master/docs/MobileScreenshots2.png
 
 #### Mobile Admin
 
-![Mobile_Admin] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/AdminMobileScreenshots1.png)
+![Mobile_Admin] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AdminMobileScreenshots1.png)
 
-![Mobile_Admin] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/AdminMobileScreenshots2.png)
+![Mobile_Admin] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AdminMobileScreenshots2.png)
 
 #### Browser
 
-![Home_page] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/HomeScreenshot.png)
+![Home_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/HomeScreenshot.png)
 
-![About_Us_page] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/AboutUsScreenshot.png)
+![About_Us_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AboutUsScreenshot.png)
 
-![Events_page] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/EventsScreenshot.png)
+![Events_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/EventsScreenshot.png)
 
-![News_page] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/NewsScreenshot.png)
+![News_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/NewsScreenshot.png)
 
-![Resources_page] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/ResourcesScreenshot.png)
+![Resources_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ResourcesScreenshot.png)
 
-![Sponsors_page] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/SponsorsScreenshot.png)
+![Sponsors_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/SponsorsScreenshot.png)
 
-![Contact_page] (https://github.com/shaktigurung/MusesReactApp/tree/master/docs/ContactScreenshot.png)
+![Contact_page] (https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ContactScreenshot.png)
+
 
 ### Database Entity Relationship Diagrams
 
