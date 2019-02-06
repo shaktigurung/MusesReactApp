@@ -100,18 +100,53 @@ If you want to run this app in your computer follow the instructions below:
 
 ## Answers to the Short Answer questions (Section 2.2)
 ### What are the most important aspects of quality software?
-
-- create-react-app
-- redux-form
+Quality software is reasonably bug or defect free, delivered on time and within budget, meets requirements and/or expectations, and is maintainable. Key aspects of quality for the customer 
+include:
+- Good design – looks and style
+- Good functionality – it does the job well
+- Reliable – acceptable level of breakdowns or failure
+- Consistency
+- Durable – lasts as long as it should
+- Good after sales service
+- Value for money
 
 ### What libraries are being used in the app and why?
-
+- create-react-app - it helps to create React Application and sets up development environment
+- Redux - It helps to maintain state in react
+- Redux Form - helps to create/submit forms 
+- ReactStrap - Reactstrap assist on styling the react components
+- Font-Awesome - it helps to integrate small icons for various links
 
 ### A team is about to engage in a project, developing a website for a small business. What knowledge and skills would they need in order to develop the project?
+- In order to build a website for a small business, a team needs to have knowledge on Web Application development. They need to know the design process of Web development and what technology they will be using to create it. They should following the following design process:
+
+- Goal identification
+- Scope definition
+- Sitemap and wireframe creation
+- Content creation
+- Visual elements
+- Testing
+- Deploy
+
+A team needs to know HTML, CSS and JavaScript for a static website. However, if they want to build dynamic website then they need know server side programming languages such as ruby, php and javascript. Also, they need to have knowledge about various database for data storage. It will be great help if they know a full stack of any technology such as MERN ( MongoDB, Express, React and Node)
+or MEAN(MongoDB, Express, Angular and Node) etc.
 
 ### Within your own project what knowledge or skills were required to complete your project, and overcome challenges?
+- For our project, we need to have knowledge about whole web architecture design. We used MERN stack as our technology to build the project, so we needed knowledge about Mongodb/Mongoose, Express.js, React.js and Node.js. Also we need to know about HTML,CSS and Bootstrap framework.
+
+There were a lot of challenges while building our project, from setting up the server locally to deploying it globally. Some of the major challenges were 
+- setting up API for backend and connecting it to the React Application 
+- Authentication 
+- Form validation
+- Redux forms
+- React Component styling
+- Deployment
+- Git conflicts
 
 ### Evaluate how effective your knowledge and skills were this project, using examples, and suggest changes or improvements for future projects of a similar nature?
+The amount of knowledge we had was just enough to start this project. We learned a lot while building it. As we came across various challenges to integrate features into our project, we had to research on that particular topic and find our ways to incorporate it into our project. For example, we had to style our website, so custom css was challenging for us since it was very hard to style React Components. So we found "reactstrap" npm package which helped us to use our Bootstrap knowledge into React Application. In this way we learned new package and integrated it.
+
+In future, for similar nature of projects, we do not have to struggle to setup the basic structure. We will do things more systematically and try to analyse various possible ways and techs to be used. Moreover, we will overcome the problems that we had to face in this project.
 
 
 <!--  ASSIGNMENT DOCUMENTATION END -->
