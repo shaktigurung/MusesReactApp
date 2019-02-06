@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from "redux-form"
 import { connect } from "react-redux"
-import {setAuthToken} from "../../actions/registerAction"
+import {loginUser} from "../../actions/registerAction"
 import { withRouter} from "react-router-dom";
 import logoImage from "./../images/logo.svg";
 import axios from "axios";
@@ -15,11 +15,8 @@ class LoginSignUpForm extends Component {
 
   onFormSubmit = (event) => {
     const { email, password } = this.state
-    axios.post("http://localhost:3000/auth/login", { email, password })
-      .then(response => {
-        this.props.setAuthToken(response.data)
-        this.props.history.push("/admin/dashboard")
-      })
+    this.props.loginUser({email, password})
+      .then(this.props.history.push("/admin/dashboard"))
       .catch(err => console.log(err))
   }
 
@@ -79,7 +76,7 @@ const wrappedLoginSignUpForm = reduxForm({
 })(LoginSignUpForm)
 
 export default connect(mapStateToProps, {
-  setAuthToken
+  loginUser
 })(withRouter(wrappedLoginSignUpForm));
 
 

@@ -21,6 +21,20 @@ export const setAuthToken = (data) => {
   }
 }
 
+export const loginUser = (data) => {
+  return async (dispatch) => {
+    let response = await axios.post(`${process.env.REACT_APP_BACK_END_DOMAIN}/auth/login`, data)
+
+    if (response.status === 200) {
+      sessionStorage.setItem("token", response.data.token)
+    }
+    dispatch({
+      type: "LOGIN_USER",
+      payload: response.data
+    })
+  }
+}
+
 export const updateUser = (formData, token) => {
   return async(dispatch, getState) => {
     let response = await axios.patch(`${process.env.REACT_APP_BACK_END_DOMAIN}/auth/login`, formData, {
