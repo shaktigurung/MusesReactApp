@@ -1,6 +1,6 @@
 # MERN Application - MusesCodeJS Website
 
-1. Link to published app 
+1. Link to [published app](http://ca-muses-static.s3-website-ap-southeast-2.amazonaws.com)
 2. Link to [Back End repo](https://github.com/DanielTeale/muses-api)
 3. Link to [Front End repo](https://github.com/shaktigurung/MusesReactApp)
 
@@ -9,7 +9,7 @@
 Web application designed, built, deployed and presented for a real world customer.
 The customer is a non-profit organisation called MusesCodeJS, which has the purpose of run free coding meetups and workshops to include women, non-binary and trans folk around Australia into Tech area.
 
-The project purpose is remake the organisation's website to improve its performance and userinterface using technologies as React and Redux so that target people can explore and have a better understanding about the organisation according to their interests.
+The project purpose is remake the organisation's website to improve its performance and userinterface using technologies as React and Redux to convert their current website, which is static, into a dynamic website.
 
 ## Functionality / Features
 
@@ -35,7 +35,75 @@ The project purpose is remake the organisation's website to improve its performa
 
 ## Screenshots
 
-Website screenshots
+### Home page
+
+![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home1.png)
+![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home2.png)
+![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home3.png)
+![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home4.png)
+
+### About Us page
+
+![About Us page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AboutUs1.png)
+![About us page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AboutUs2.png)
+
+### Events page
+
+![Events page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Events1.png)
+![Events page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Events2.png)
+![Events page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Events3.png)
+
+### News page
+
+![News page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/News.png)
+
+### Resources page
+
+![Resources page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Resources.png)
+
+### Sponsors page
+
+![Sponsors page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Sponsors.png)
+
+### Contact page
+
+![Contact Us page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ContactUs.png)
+
+### Login page (Admin)
+
+![Login page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Login.png)
+
+### Register page and form (Admin)
+
+![Register page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Register.png)
+
+### Profile page (Admin)
+
+![Profile page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Profile.png)
+
+### Events page (Admin)
+
+![Events Admin page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/EventsAdmin.png)
+
+### Resources page (Admin)
+
+![Resources Admin page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ResourcesAdmin.png)
+
+### News page (Admin)
+
+![News Admin page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/NewsAdmin.png)
+
+### Sponsors page (Admin)
+
+![Sponsors Admin page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/SponsorsAdmin.png)
+
+### Chapters page (Admin)
+
+![Chapters Admin page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ChaptersAdmin1.png)
+
+### Chapters page - organisers (Admin)
+
+![Chapters Admin page - organisers](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/ChaptersAdmin2.png)
 
 ## Tech Stack
 
@@ -47,10 +115,8 @@ Website screenshots
 - React.js
 - Node.js
 - Redux
-- Heroku
 - AWS
 - Reactstrap
-- 
 
 ## Instructions
 Instructions on how to setup, configure, deploy and use your App.
