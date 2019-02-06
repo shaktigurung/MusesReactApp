@@ -1,5 +1,5 @@
 import React from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import "./../../App.css";
 import {Badge} from "reactstrap";
@@ -7,8 +7,6 @@ import { connect } from 'react-redux';
 import googleanalytics from "./../images/google-analytics.png";
 import ProfilePage from "./ProfilePage";
 import EventForm from "../forms/EventForm"
-import NewsForm from "../forms/NewsForm"
-import UserForm from "../forms/UserForm"
 import {createEvent} from "../../actions/eventActions"
 import {createNews} from "../../actions/newsActions"
 import {updateUser} from "../../actions/registerAction";
@@ -94,7 +92,7 @@ import EditChapterPage from "./EditChapterPage";
               onClick={() => { this.toggle('1'); }}
               
             >
-             <h6 className="dashboard"> <i class="fas fa-server"></i> Dashboard </h6>
+             <h6 className="dashboard"> <i className="fas fa-server"></i> Dashboard </h6>
             </NavLink>
           </NavItem>
           <NavItem>
@@ -102,7 +100,7 @@ import EditChapterPage from "./EditChapterPage";
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggle('2'); }}
             >
-            <h6 className="dashboard"><i class="far fa-user"></i> Profile </h6>
+            <h6 className="dashboard"><i className="far fa-user"></i> Profile </h6>
             </NavLink>
           </NavItem>
           <NavItem>
@@ -110,7 +108,7 @@ import EditChapterPage from "./EditChapterPage";
               className={classnames({ active: this.state.activeTab === '3' })}
               onClick={() => { this.toggle('3'); }}
             >
-            <h6 className="dashboard"><i class="fas fa-folder-plus"></i> Events</h6>
+            <h6 className="dashboard"><i className="fas fa-folder-plus"></i> Events</h6>
             </NavLink>
           </NavItem>
           <NavItem>
@@ -118,7 +116,7 @@ import EditChapterPage from "./EditChapterPage";
               className={classnames({ active: this.state.activeTab === '4' })}
               onClick={() => { this.toggle('4'); }}
             >
-            <h6 className="dashboard"><i class="fab fa-sourcetree"></i> Resources</h6>
+            <h6 className="dashboard"><i className="fab fa-sourcetree"></i> Resources</h6>
             </NavLink>
           </NavItem>
           <NavItem>
@@ -126,7 +124,7 @@ import EditChapterPage from "./EditChapterPage";
               className={classnames({ active: this.state.activeTab === '5' })}
               onClick={() => { this.toggle('5'); }}
             >
-           <h6 className="dashboard"><i class="fas fa-file-alt"></i> Sponsors</h6>
+           <h6 className="dashboard"><i className="fas fa-file-alt"></i> Sponsors</h6>
             </NavLink>
           </NavItem>
           <NavItem>
@@ -134,7 +132,7 @@ import EditChapterPage from "./EditChapterPage";
               className={classnames({ active: this.state.activeTab === '6' })}
               onClick={() => { this.toggle('6'); }}
             >
-           <h6 className="dashboard"><i class="fas fa-newspaper"></i> News</h6>
+           <h6 className="dashboard"><i className="fas fa-newspaper"></i> News</h6>
             </NavLink>
           </NavItem>
           <NavItem>
@@ -142,7 +140,7 @@ import EditChapterPage from "./EditChapterPage";
               className={classnames({ active: this.state.activeTab === '7' })}
               onClick={() => { this.toggle('7'); }}
             >
-           <h6 className="dashboard"><i class="fas fa-city"></i> Chapters</h6>
+           <h6 className="dashboard"><i className="fas fa-city"></i> Chapters</h6>
             </NavLink>
           </NavItem>
           <NavItem>
@@ -150,7 +148,7 @@ import EditChapterPage from "./EditChapterPage";
               className={classnames({ active: this.state.activeTab === '8' })}
               onClick={() => { this.toggle('8'); }}
             >
-           <h6 className="dashboard"><i class="fas fa-tools"></i> Settings</h6>
+           <h6 className="dashboard"><i className="fas fa-tools"></i> Settings</h6>
             </NavLink>
           </NavItem>
         </Nav>
@@ -179,6 +177,7 @@ import EditChapterPage from "./EditChapterPage";
                             eventItem={null}
                             buttonLabel="Create New Event"      
                 />
+
               </Col> 
           </TabPane>
           <TabPane tabId="4">

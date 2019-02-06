@@ -31,9 +31,9 @@ class ResourceList extends Component {
                   </tr>
                 </thead>
                 {resources.map(resource => (
-                  <tbody>
+                  <tbody key={resource._id}>
                     <tr>
-                      <td scope="row">{resource.title}</td>
+                      <th scope="row">{resource.title} </th>
                       <td><Button outline color="warning" onClick={() => onEdit(resource)}>Edit</Button></td>
                       <td><Button outline color="danger" onClick={() => this.handleRemoveResource(resource._id)}>Delete</Button></td>
                     </tr>

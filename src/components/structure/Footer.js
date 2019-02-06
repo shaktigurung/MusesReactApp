@@ -27,11 +27,11 @@ class Footer extends Component {
                     <Row>
                         <Col xs="4"></Col>
                         <Col xs="4">
-                            <a href="https://twitter.com/MusesCodeJSSyd" className="twitter "><i className="fab fa-2x fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/musescodejssyd/" className="instagram ml-1"><i className="fab fa-2x fa-instagram"></i></a>
-                            <a href="https://github.com/muses-code-js" className="github ml-1"><i className="fab fa-2x fa-github"></i></a>
-                            <a href="https://www.meetup.com/en-AU/MusesCodeJS/" className="meetup" target="_blank"><i className="fab fa-2x fa-meetup"></i></a>
-                            <a href="mailto:info@musescodejs.org" className="gmail ml-1"><i className="far fa-2x fa-envelope"></i></a>
+                            <a href="https://twitter.com/MusesCodeJSSyd" className="twitter" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/musescodejssyd/" className="instagram ml-1" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-instagram"></i></a>
+                            <a href="https://github.com/muses-code-js" className="github ml-1" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-github"></i></a>
+                            <a href="https://www.meetup.com/en-AU/MusesCodeJS/" className="meetup" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-meetup"></i></a>
+                            <a href="mailto:info@musescodejs.org" className="gmail ml-1" target="_blank" rel="noopener noreferrer"><i className="far fa-2x fa-envelope"></i></a>
                         </Col>
                         <Col xs="4"></Col>
                     </Row>

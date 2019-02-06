@@ -10,7 +10,6 @@ import { getNews } from "./actions/newsActions";
 import HomePage from "./components/pages/HomePage";
 import AdminPage from "./components/pages/AdminPage";
 import AboutUsPage from "./components/pages/AboutUsPage";
-// import CreateEventPage from "./components/pages/CreateEventPage";
 import EventsPage from "./components/pages/EventsPage";
 import SingleEventPage from "./components/pages/SingleEventPage";
 import NewsPage from "./components/pages/NewsPage";
@@ -18,7 +17,6 @@ import ResourcesPage from "./components/pages/ResourcesPage";
 import ContactPage from "./components/pages/ContactPage";
 import SponsorsPage from "./components/structure/SponsorsPage";
 import UnauthorizedPage from './components/pages/UnauthorizedPage';
-import DashboardPage from "./components/pages/DashboardPage";
 import ErrorPage from './components/pages/ErrorPage';
 import './App.css';
 import Header from './components/structure/Header';
@@ -53,21 +51,16 @@ class App extends Component {
 
   render() {
 
-    // const { token } = this.props
-
     return (
       <div className="App">
-        {/* <div className="token">{token && <p>You are logged in </p>}</div> */}
         <BrowserRouter>
           <div>
 
             <Header />
               <div>
                 <Route exact path="/" component={HomePage} />
-                {/* <Route exact path="/dashboard" component={DashboardPage} /> */}
                 <Route exact path="/aboutus" component={AboutUsPage} />
                 <Route exact path="/events" component={EventsPage} />
-                {/* <Route exact path="/events/create" component={CreateEventPage} />  */}
                 <Route exact path="/events/:id" component={SingleEventPage} />
                 <Route exact path="/news" component={NewsPage} />
                 <Route exact path="/resources" component={ResourcesPage} />

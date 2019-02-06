@@ -15,21 +15,21 @@ class ContactPage extends Component {
               <Col sm="12" md={{ size: 6, offset: 3 }}>
                 <Row>
                   <Col>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqnLzA8mjXC54APqPcjHEPRIZ64lw4iKuo_wD1otR5szO54A/viewform?c=0&w=1" target="_blank"><Button className="muses-tertiary">Become a mentor</Button></a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqnLzA8mjXC54APqPcjHEPRIZ64lw4iKuo_wD1otR5szO54A/viewform?c=0&w=1" target="_blank" rel="noopener noreferrer"><Button className="muses-tertiary">Become a mentor</Button></a>
                   </Col>
                   <Col>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1piDKcJxZj3SkwGVN_eWM-qToHDzAE0SRjZNhVh9OLZ-qmQ/viewform?c=0&w=1" target="_blank"><Button className="muses-tertiary">Become a sponsor</Button></a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1piDKcJxZj3SkwGVN_eWM-qToHDzAE0SRjZNhVh9OLZ-qmQ/viewform?c=0&w=1" target="_blank" rel="noopener noreferrer"><Button className="muses-tertiary">Become a sponsor</Button></a>
                   </Col>
                 </Row>
               </Col>
             </Row>
             <br /><hr className="my-2" /><br />
             <Row>
-              <Col><a href="https://twitter.com/MusesCodeJSSyd" className="twitter" target="_blank"><i className="fab fa-5x fa-twitter"></i></a></Col>
-              <Col><a href="https://www.instagram.com/musescodejssyd/" className="instagram" target="_blank"><i className="fab fa-5x fa-instagram"></i></a></Col>
-              <Col><a href="https://github.com/node-girls-australia" className="github" target="_blank"><i className="fab fa-5x fa-github"></i></a></Col>
-              <Col><a href="https://www.meetup.com/en-AU/MusesCodeJS/" className="meetup" target="_blank"><i className="fab fa-5x fa-meetup"></i></a></Col>
-              <Col xs="3"><a href="mailto:info@musescodejs.org" className="gmail"><i className="far fa-5x fa-envelope"></i></a></Col>
+              <Col><a href="https://twitter.com/MusesCodeJSSyd" className="twitter" target="_blank" rel="noopener noreferrer"><i className="fab fa-5x fa-twitter"></i></a></Col>
+              <Col><a href="https://www.instagram.com/musescodejssyd/" className="instagram" target="_blank" rel="noopener noreferrer" ><i className="fab fa-5x fa-instagram"></i></a></Col>
+              <Col><a href="https://github.com/node-girls-australia" className="github" target="_blank" rel="noopener noreferrer"><i className="fab fa-5x fa-github"></i></a></Col>
+              <Col><a href="https://www.meetup.com/en-AU/MusesCodeJS/" className="meetup" target="_blank" rel="noopener noreferrer"><i className="fab fa-5x fa-meetup"></i></a></Col>
+              <Col xs="3"><a href="mailto:info@musescodejs.org" className="gmail" rel="noopener noreferrer"><i className="far fa-5x fa-envelope"></i></a></Col>
             </Row>
             
           </Jumbotron>

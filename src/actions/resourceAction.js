@@ -27,7 +27,7 @@ export const createResource = ({ title, description, link }, token) => {
 
 export const removeResource = (resourceId, token) => {
   return async (dispatch) => {
-    let response = await LocalApi.delete(`/resources/${resourceId}`, {
+     await LocalApi.delete(`/resources/${resourceId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
