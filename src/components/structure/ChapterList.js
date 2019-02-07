@@ -9,7 +9,6 @@ class ChapterList extends Component {
   handleRemoveChapter = async (chapterId) => {
     const { removeChapter, token } = this.props;
     await removeChapter(chapterId, token)
-    alert("Chapter removed!");
   }
 
   render() {
