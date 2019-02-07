@@ -63,4 +63,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { createSponsor, updateSponsor })(withRouter(CreateSponsorPage));
+export default connect(mapStateToProps, { createSponsor })(withRouter(CreateSponsorPage));

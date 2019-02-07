@@ -11,7 +11,7 @@ import './../../App.css';
 class ProfilePage extends Component {
   state = { file: null }
 
-  onUserFormSubmit = (formValues) => {
+  onUserFormSubmit = async(formValues) => {
     const { updateUser, token } = this.props
     let formData = new FormData();
     if (this.state.file) {
@@ -20,8 +20,7 @@ class ProfilePage extends Component {
     for (let key in formValues) {
       formData.append(key, formValues[key])
     }
-    updateUser(formData, token)
-      .then(this.props.history.push("/admin/profile"))
+    await updateUser(formData, token)
   }
 
   handleFileUpload = (event) => {
