@@ -4,8 +4,9 @@ export default (state = [], action) => {
       return action.payload;
     case "REMOVE_SPONSOR":
       return state.filter((sponsor) => sponsor._id !== action.sponsorId);
-    case "UPDATE_RESOURCE":
-      return state.map((sponsor) => sponsor._id === action.payload._id ? action.payload : sponsor);
+    case "UPDATE_SPONSOR":
+      // return state.map((sponsor) => sponsor._id === action.payload._id ? action.payload : sponsor);
+      return action.payload
     default:
       return state
   }

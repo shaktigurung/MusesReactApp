@@ -1,17 +1,32 @@
 import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
+import {connect} from "react-redux"
 import Input from "./fields/Input";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import FileUploadForm from "./fields/FileUploadForm";
 
-class NewSponsorForm extends Component {
+class SponsorForm extends Component {
+  state= {isOpen: false}
+  
+  handleFormSubmit = async(formValues) => {
+    const {sponsor, onFormSubmit} = this.props
+    await onFormSubmit(formValues, sponsor)
+    this.toggle()
+  }
+
+  toggle = () => {
+    this.setState({ isOpen: !this.state.isOpen })
+  }
 
   render() {
-    const { toggle, isOpen, isCreate, handleSubmit, handleFileUpload } = this.props;
+    const { isCreate, handleSubmit,  handleFileUpload, buttonLabel } = this.props;
     return (
-      <Modal isOpen={isOpen} toggle={toggle}>
-        <ModalHeader toggle={toggle}>{isCreate ? 'Create a new sponsor' : 'Update sponsor'}</ModalHeader>
-        <form onSubmit={handleSubmit}>
+      // <Button outline color="warning" onClick={() => onEdit(sponsor)}>Edit</Button>
+      <>
+      <Button outline color="warning" onClick={this.toggle}>{buttonLabel}</Button>
+      <Modal isOpen={this.state.isOpen} toggle={this.toggle}>
+        <ModalHeader toggle={this.toggle}>{isCreate ? 'Create a new sponsor' : 'Update sponsor'}</ModalHeader>
+        <form onSubmit={handleSubmit(this.handleFormSubmit)}>
           <ModalBody>
             <div>
               <label>Name</label>
@@ -57,35 +72,26 @@ class NewSponsorForm extends Component {
           </ModalBody>
           <ModalFooter>
             <Button color="info" type="submit">{isCreate ? 'Create' : 'Update'}</Button>
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </form>
       </Modal>
+      </>
     );
   }
 }
 
-export default reduxForm({
-  form: "sponsor",
-  validate: ({ name, description, website, image }) => {
-    const errors = {};
-
-    if (!name) {
-      errors.name = "Name is required!"
-    }
-
-    if (!description) {
-      errors.description = "Description is required!"
-    }
-
-    if (!website) {
-      errors.website = "Website is required!"
-    }
-
-    if (!image) {
-      errors.image = "Image is required!"
-    }
-
-    return errors;
+const mapStateToProps = (state, props) => {
+  const {...initialValues} = props.sponsor
+  return {
+    initialValues,
+    token: state.auth.token,
+    form: (props.sponsor && props.sponsor._id) || "event"
   }
-})(NewSponsorForm);
+}
+
+const wrappedSponsorForm = reduxForm({
+  enableReinitialize: true
+})(SponsorForm);
+
+export default connect(mapStateToProps)(wrappedSponsorForm)

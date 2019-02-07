@@ -10,9 +10,9 @@ export const getSponsors = () => {
   }
 }
 
-export const createSponsor = ({ name, description, website, image }, token) => {
+export const createSponsor = (formData, token) => {
   return async (dispatch) => {
-    let response = await LocalApi.post('/sponsor', { name, description, website, image }, {
+    let response = await LocalApi.post('/sponsor', formData, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -39,9 +39,9 @@ export const removeSponsor = (sponsorId, token) => {
   }
 }
 
-export const updateSponsor = (formData, sponsorId, token) => {
+export const updateSponsor = (formData, token, id) => {
   return async (dispatch) => {
-    let response = await LocalApi.patch(`/sponsor/${sponsorId}`, formData, {
+    let response = await LocalApi.patch(`/sponsor/${id}`, formData, {
       headers: {
         Authorization: `Bearer ${token}`
       }

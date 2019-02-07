@@ -5,41 +5,21 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import UnauthorizedPage from "./UnauthorizedPage";
 import SponsorList from "../structure/SponsorList";
-import { Button, Badge } from 'reactstrap';
+import { Badge } from 'reactstrap';
 
 class CreateSponsorPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFormOpen: false,
-      isCreate: false,
-      sponsorToEdit: null,
-    };
+  state = { file: null}
 
-    this.toggle = this.toggle.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.prepareForCreation = this.prepareForCreation.bind(this);
-    this.prepareForEdit = this.prepareForEdit.bind(this);
-    this.getInitialValues = this.getInitialValues.bind(this);
+  handleFileUpload = (event) => {
+    this.setState({ file: event.target.files })
   }
 
-  toggle() {
-    this.setState({
-      isFormOpen: !this.state.isFormOpen
-    });
-  }
+  onFormSubmit = async (formValues) => {
+    const { createSponsor, token } = this.props;
+    let formData = new FormData();
 
-  prepareForCreation() {
-    this.setState({
-      isCreate: true,
-    });
-    this.toggle();
-  }
-
-  prepareForEdit(sponsor) {
-    this.setState({ sponsorToEdit: sponsor, isCreate: false });
-    this.toggle();
-  }
+    if (this.state.file) {
+      formData.append('file', this.state.file[0])
 
   handleSubmit = async (formValues) => {
     const { isCreate, sponsorToEdit } = this.state;
@@ -59,58 +39,29 @@ class CreateSponsorPage extends Component {
       await updateSponsor(formValues, sponsorId, token);
       alert("Sponsor updated successfully!");
     }
-    this.toggle();
-  }
-
-  getInitialValues() {
-    const { isCreate, sponsorToEdit } = this.state;
-    if (isCreate) {
-      return {};
+    for (let key in formValues) {
+      formData.append(key, formValues[key])
     }
-    return {
-      name: sponsorToEdit.name,
-      description: sponsorToEdit.description,
-      website: sponsorToEdit.website,
-      image: sponsorToEdit.image,
-    };
-  }
 
-  // onFormSubmit = async (formValues) => {
-  //   const { createSponsor, updateSponsor, token } = this.props
-  //   let formData = new FormData();
-  //   if (this.state.file) {
-  //     formData.append('file', this.state.file[0])
-  //   }
-  //   for (let key in formValues) {
-  //     formData.append(key, formValues[key])
-  //   }
-  //   createSponsor(formData, token)
-  //     .then(() => this.props.history.push("/sponsors"))
-  // }
+    await createSponsor(formData, token);
+  }
 
   render() {
     const { user } = this.props;
-    const { isFormOpen, isCreate } = this.state;
     if (user) {
       return (
         <div>
           <h1> <Badge className="muses-primary">Sponsors</Badge> </h1> <br />
           <div className="createSponsor">
-            <Button className="muses-secondary" onClick={this.prepareForCreation}>Create New Sponsor</Button>
+            <SponsorForm
+              onFormSubmit={this.onFormSubmit}
+              handleFileUpload={this.handleFileUpload}
+              buttonLabel="Create New Sponsor"
+            />
           </div><br />
           <div className="sponsorList">
-            <SponsorList onEdit={this.prepareForEdit} />
+            <SponsorList onFormSubmit={this.onEditFormSubmit} />
           </div>
-          {
-            isFormOpen &&
-            <SponsorForm
-              isOpen={isFormOpen}
-              toggle={this.toggle}
-              onSubmit={this.handleSubmit}
-              initialValues={this.getInitialValues()}
-              isCreate={isCreate}
-            />
-          }
         </div>
       );
     } else {
