@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SponsorForm from "../forms/SponsorForm";
-import { createSponsor, updateSponsor } from "./../../actions/sponsorAction";
+import { createSponsor } from "./../../actions/sponsorAction";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import UnauthorizedPage from "./UnauthorizedPage";
@@ -20,25 +20,8 @@ class CreateSponsorPage extends Component {
 
     if (this.state.file) {
       formData.append('file', this.state.file[0])
-
-  handleSubmit = async (formValues) => {
-    const { isCreate, sponsorToEdit } = this.state;
-    const { createSponsor, updateSponsor, token } = this.props;
-    let formData = new FormData();
-    if (isCreate) {
-      if (this.state.file) {
-        formData.append('file', this.state.file[0])
-      }
-      for (let key in formValues) {
-        formData.append(key, formValues[key])
-      }
-      await createSponsor(formData, token);
-      alert("Sponsor created successfully!");
-    } else {
-      const sponsorId = sponsorToEdit._id;
-      await updateSponsor(formValues, sponsorId, token);
-      alert("Sponsor updated successfully!");
     }
+
     for (let key in formValues) {
       formData.append(key, formValues[key])
     }
@@ -60,7 +43,7 @@ class CreateSponsorPage extends Component {
             />
           </div><br />
           <div className="sponsorList">
-            <SponsorList onFormSubmit={this.onEditFormSubmit} />
+            <SponsorList  />
           </div>
         </div>
       );
@@ -70,7 +53,7 @@ class CreateSponsorPage extends Component {
       );
     }
   }
-}
+};
 
 
 const mapStateToProps = (state) => {
