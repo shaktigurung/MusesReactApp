@@ -37,20 +37,26 @@ The project purpose is remake the organisation's website to improve its performa
 
 ### Home page
 
-![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home1.png)
-![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home2.png)
-![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home3.png)
-![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Home4.png)
+![Home page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/MusesHome.png)
 
 ### About Us page
 
 ![About Us page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AboutUs1.png)
+
+#### Selected city and its members team/organisers
+
 ![About us page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/AboutUs2.png)
 
 ### Events page
 
 ![Events page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Events1.png)
+
+#### Upcoming Events
+
 ![Events page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Events2.png)
+
+#### Past Events
+
 ![Events page](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Events3.png)
 
 ### News page
@@ -110,20 +116,23 @@ The project purpose is remake the organisation's website to improve its performa
 - HTML
 - CSS
 - JavaScript
-- Express
 - MongoDB/Mongoose
+- Express
 - React.js
 - Node.js
 - Redux
 - AWS
+
+### npm Packages
+
+- Jest
 - Reactstrap
-
-## Instructions
-Instructions on how to setup, configure, deploy and use your App.
-
-You can access the deployed version clicking on this link: 
-
-If you want to run this app in your computer follow the instructions below:
+- Celebrate
+- aws-sdk
+- dotenv
+- passport
+- axios
+- file-type
 
 ## Design process
 
@@ -179,21 +188,23 @@ If you want to run this app in your computer follow the instructions below:
 
 ### Database Entity Relationship Diagrams
 
-![Database Diagram](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/DatabaseDiagram1.png)
-
-![Database Diagram](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/DatabaseDiagram2.png)
+![Database Diagram](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/DatabaseDiagram.png)
 
 ### Data Flow Diagram
 
-### OO design documentation
+![Data Flow Diagram](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/DataFlowDiagram.png)
 
 ### Project plan & timeline
+
+![Timeline](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Timeline.png)
 
 ### Client communications
 
 - By text messages
 - By Slack
-- Meeting by phone
+- Meetings by phone
+
+![Slack](https://github.com/shaktigurung/MusesReactApp/blob/master/docs/Slack.png)
 
 ### Screenshots of Trello board(s)
 
