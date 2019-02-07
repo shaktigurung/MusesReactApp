@@ -99,8 +99,6 @@ class UserForm extends Component {
                   <label htmlFor="image">Image</label>
                 </div>
                 <div>
-                  {(user && user["image"]) &&
-                    <img src={user["image"]} alt={`${user["name"]} profile`} />}
                   {user &&
                     <img style={{ maxHeight: 300, maxWidth: 300 }} src={user["image"]} alt={`${user["name"]}`} />}
                 </div>
